@@ -7,3 +7,5 @@ layout: default
 _yay_
 
 [back](./)
+
+[mpage](https://goo.gl/uQexWg).
