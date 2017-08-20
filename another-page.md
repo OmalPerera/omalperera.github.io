@@ -8,4 +8,4 @@ _yay_
 
 [back](./)
 
-[mpage](https://goo.gl/uQexWg).
+[mpage](clkmein.com/q2ZOQQ).
