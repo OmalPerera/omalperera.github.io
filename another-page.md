@@ -8,4 +8,4 @@ _yay_
 
 [back](./)
 
-[mpage](http://clkmein.com/q2ZOQQ).
+[G](http://clkmein.com/q2ZOQQ) | [Y](http://ceesty.com/q2BcyV) | [T](http://ceesty.com/q2B9Pe) |
