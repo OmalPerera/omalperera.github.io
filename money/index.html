@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<button type="button" id="mbtn" onclick="gotourl()">Click Me!</button>
+	</body>
+
+<script type="text/javascript">
+	
+	window.onload = function(){
+		var timesRun = 0;
+		var interval = setInterval(function () {
+			timesRun += 1;
+			if(timesRun === 6){
+	        	clearInterval(interval);
+	    	}
+			document.getElementById("mbtn").click();
+		}, 1000);
+  	};
+
+
+  	function gotourl() {
+  		
+  			var url = 'https://goo.gl/E4yZkJ';
+  			//var url = 'https://ceesty.com/q2VNBv';
+    		//document.location.href = 'http://google.com';
+    		var win = window.open(url, '_blank');
+  			win.focus();
+	}
+</script>
+
+</html>
