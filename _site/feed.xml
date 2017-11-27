@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Omal Perera</title>
+		<description>Omal Perera</description>
+		<link>/</link>
+		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
+		
+			<item>
+				<title>Setting Up Apache Kafka locally</title>
+				<description>&lt;p&gt;This Guide is for the linux based OS &amp;amp; directories in the Kafka setup can be slightly different in the windows setup.
+Mainly we deal with the &lt;code class=&quot;highlighter-rouge&quot;&gt;/bin&lt;/code&gt; folder.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;for mac     - &lt;code class=&quot;highlighter-rouge&quot;&gt;kafka_2.10-0.10.2.0/bin/&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;for Windows - &lt;code class=&quot;highlighter-rouge&quot;&gt;kafka_2.10-0.10.2.0\bin\windows\&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt; : Every command must be executed in a separate terminal or console except for creating the topic and ending a server.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;step-1---download-the-source-code--extract-it&quot;&gt;Step 1 - Download the source code &amp;amp; extract it&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Download Apache kafka from &lt;a href=&quot;https://www.apache.org/dyn/closer.cgi?path=/kafka/1.0.0/kafka_2.10-0.10.2.0.tgz&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Navigate to the downloaded directory &amp;amp; &lt;code class=&quot;highlighter-rouge&quot;&gt;untar&lt;/code&gt; the kafka_2.10-0.10.2.0.tar&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;  tar -xzf kafka_2.10-0.10.2.0.tgz
+  &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;kafka_2.10-0.10.2.0
+  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;step-2---starting-the-server&quot;&gt;Step 2 - Starting the Server&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;You first need to start a ZooKeeper serve, since Kafka uses Zookeeper for the tasks such as Electing a controller, Topic configuration, ACLs &amp;amp; for many more.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;As you are now in the &lt;code class=&quot;highlighter-rouge&quot;&gt;kafka_2.10-0.10.2.0&lt;/code&gt; directory execute the following command&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;  bin/zookeeper-server-start.sh config/zookeeper.properties
+  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Starting the Kafka Server&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;  bin/kafka-server-start.sh config/server.properties
+  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;step-3---creating-a-topic&quot;&gt;Step 3 - Creating a Topic&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Creating a topic located at zookeeper at the &lt;code class=&quot;highlighter-rouge&quot;&gt;localhost:2181&lt;/code&gt; named &lt;code class=&quot;highlighter-rouge&quot;&gt;mytopic&lt;/code&gt; with a &lt;code class=&quot;highlighter-rouge&quot;&gt;single partition&lt;/code&gt; &amp;amp; &lt;code class=&quot;highlighter-rouge&quot;&gt;single replica&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;  bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic mytopic
+  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;To ensure that our topic is created, execute following command&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;  bin/kafka-topics.sh --list --zookeeper localhost:2181
+  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;step-4---running-the-producer&quot;&gt;Step 4 - Running the Producer&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;This is for feed the &lt;code class=&quot;highlighter-rouge&quot;&gt;mytopic&lt;/code&gt; Topic (do it in a separate console)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;  bin/kafka-console-producer.sh --broker-list localhost:9092 --topic mytopic
+  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;You can send messages to the Kafka cluster from the console even except the standard file inputs. just  type the message in the console.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;  This is a Sample message
+  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;step-5---running-the-consumer&quot;&gt;Step 5 - Running the Consumer&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;This is for listen to the producer at that port (do it in a separate terminal).&lt;/li&gt;
+  &lt;li&gt;Following command will listens for the topic inputs and outputs&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;    bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic mytopic
+    &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;If you type messages into the producer terminal you should see them appear in the consumer terminal.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;step-6---stopping-the-kafka-server&quot;&gt;Step 6 - Stopping the Kafka Server&lt;/h3&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;bin/kafka-server-stop.sh  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;step-7---stopping-the-zookeeper-server&quot;&gt;Step 7 - Stopping the Zookeeper Server&lt;/h3&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;bin/zookeeper-server-stop.sh&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+</description>
+				<pubDate>Fri, 10 Nov 2017 00:00:00 +0530</pubDate>
+				<link>/general/bigdata/2017/11/10/Setting-Up-Apache-Kafka-localy.html</link>
+				<guid isPermaLink="true">/general/bigdata/2017/11/10/Setting-Up-Apache-Kafka-localy.html</guid>
+			</item>
+		
+	</channel>
+</rss>
