@@ -5,27 +5,29 @@ paginate_path: "page:num"
 exclude: ["README.md"] # files to exclude
 highlighter: rouge
 markdown: kramdown
-disqus: dbyll
-google_analytics: dbyll
-title: dbyll
+disqus: omalperera
+google_analytics: omalperera8
+title: Omal Perera
+
 
 defaults:
   -
     scope:
       path: "" # empty string for all files
     values:
-      title: dbyll
+      title: Omal Perera
 
-description: Stylish Jekyll Theme
+description: Omal Perera
 author:
-  name: dbyll
-  email: dbyll@ismaildemirbilek.com
-  github: dbtek
-  twitter: dbtek
-  pinterest: asd123
-  linkedin: asd123
-  bio: Your stylish, minimalist theme!
-  email_md5: 726351295ec82e145928582f595aa3aa
+  name: Omal Perera
+  email: omalperera8@gmail.com
+  github: OmalPerera
+  twitter: OmalPerera
+  pinterest:
+  linkedin: OmalPerera
+  bio: Information Systems undergraduate at Sabaragamuwa University of Sri Lanka</br>Full Stack Developer</br>Trainee Software Engineer at 99X Technologies.
+  email_md5: f29579eebcf0cb079c43eb37c7123235
+
 
 rss_path: feed.xml
 categories_path: categories.html
@@ -35,6 +37,44 @@ tags_path: tags.html
 # sidebar_background_image: https://www.dropbox.com/s/g9h23zrycedxtk5/sky.png?raw=1
 
 BASE_PATH:
+
+ # Settings for comments helper
+# Set 'provider' to the comment provider you want to use.
+# Set 'provider' to false to turn commenting off globally.
+#
+comments :
+  provider : disqus
+  disqus :
+    short_name : omalperera
+  livefyre :
+    site_id :
+  intensedebate :
+    account :
+  facebook :
+    appid :
+    num_posts:
+    width:
+    colorscheme:
+
+
+  # Settings for analytics helper
+  # Set 'provider' to the analytics provider you want to use.
+  # Set 'provider' to false to turn analytics off globally.
+  #
+  analytics :
+    provider : googleUA
+    google :
+        tracking_id :
+    googleUA :
+        tracking_id : 'UA-110155922-1'
+        property_name : 'omalperera.github.io'
+    getclicky :
+      site_id :
+    mixpanel :
+        token :
+    piwik :
+        baseURL : # Piwik installation address (without protocol)
+        idsite :                   # the id of the site on Piwik
 
 plugins:
   - jekyll-paginate
