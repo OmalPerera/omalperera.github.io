@@ -9,6 +9,7 @@ disqus: omalperera
 google_analytics: omalperera8
 title: Omal Perera
 
+
 defaults:
   -
     scope:
@@ -26,6 +27,7 @@ author:
   linkedin: OmalPerera
   bio: Information Systems undergraduate at Sabaragamuwa University of Sri Lanka</br>Full Stack Developer</br>Trainee Software Engineer at 99X Technologies.
   email_md5: f29579eebcf0cb079c43eb37c7123235
+
 
 rss_path: feed.xml
 categories_path: categories.html
