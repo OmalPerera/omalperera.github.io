@@ -3,7 +3,7 @@ layout: post
 title: Setting Up Apache Kafka locally
 categories: [general, bigdata]
 tags: [apache, kafka, bigdata]
-description: Sample placeholder post.
+description: Step-by-step, Linux based guide to setup Apache Kafka.
 ---
 
 This Guide is for the linux based OS & directories in the Kafka setup can be slightly different in the windows setup.
