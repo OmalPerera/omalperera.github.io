@@ -197,6 +197,7 @@ if you have already installed kafka, we have to create a topic named &lt;code cl
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;h1 id=&quot;running-spark-application&quot;&gt;Running Spark Application&lt;/h1&gt;
+
 </description>
 				<pubDate>Thu, 30 Nov 2017 00:00:00 +0530</pubDate>
 				<link>/general/bigdata/2017/11/30/Real-time-Data-Processing-with-Apache-Kafka-Spark-Streaming-and-Scala.html</link>
