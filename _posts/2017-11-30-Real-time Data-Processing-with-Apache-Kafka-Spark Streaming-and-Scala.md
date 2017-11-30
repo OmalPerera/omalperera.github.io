@@ -3,7 +3,8 @@ layout: post
 title: Real-time Data Processing with Apache Kafka, Spark Streaming and Scala
 categories: [general, bigdata]
 tags: [apache, kafka, bigdata, scala, Real-Time-Processing, Spark, streaming]
-description: Practicle guide to connect Apache Kafka with Apache Spark using Scala, for real-time processing. 
+description: Practicle guide to connect Apache Kafka with Apache Spark using Scala, for real-time processing.
+comments: true
 ---
 
 ### *************should change ###
@@ -18,7 +19,7 @@ Mainly we deal with the `/bin` folder.
   - Spark version 	- 2.2.0
   - Scala version	- 2.11.11
   - SBT version 	- 0.13.16
-  - Kafka version 	- 
+  - Kafka version 	-
   - OS 				- Mac OS (Unix based)
 
   888888888888 quote the spark is designed to work with scala 2.11.x
@@ -181,4 +182,3 @@ Now Kafka broker is ready to go. Now its time to run our Spark application.
 
 <br>
 # Running Spark Application #
-
