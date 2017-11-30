@@ -5,7 +5,7 @@ paginate_path: "page:num"
 exclude: ["README.md"] # files to exclude
 highlighter: rouge
 markdown: kramdown
-disqus: omalperera
+disqus: omalperera-github-io
 google_analytics: omalperera8
 title: Omal Perera
 
@@ -45,7 +45,7 @@ BASE_PATH:
 comments :
   provider : disqus
   disqus :
-    short_name : omalperera
+    short_name : omalperera-github-io
   livefyre :
     site_id :
   intensedebate :
