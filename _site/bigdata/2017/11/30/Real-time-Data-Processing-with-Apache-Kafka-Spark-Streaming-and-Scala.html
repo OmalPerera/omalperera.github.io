@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<title>Real-time Data Processing with Apache Kafka, Spark Streaming and Scala</title>
 	
-	<meta name="description" content="Practicle guide to connect Apache Kafka with Apache Spark using Scala, for real-time processing.">
+	<meta name="description" content="Practical guide to connect Apache Kafka with Apache Spark using Scala, for real-time processing.">
 	
 	<meta name="author" content="Omal Perera">
 
@@ -167,25 +167,31 @@
 	   2017
 	 </span>
 	  <div class="article_body">
-	  <h3 id="should-change"><strong>**</strong><strong>**</strong>*should change</h3>
-<p>Mainly we deal with the <code class="highlighter-rouge">/bin</code> folder.</p>
+	  <p>Real-time processing! kind of a trending term that techie people talks &amp; do things. So actually what are the components do we need to perform Real-time Processing. Apache Spark Streaming, Apache Kafka are key two components out of many that comes in to my mind.</p>
 
-<ul>
-  <li>for mac\t- <code class="highlighter-rouge">kafka_2.10-0.10.2.0/bin/</code></li>
-  <li>for Windows - <code class="highlighter-rouge">kafka_2.10-0.10.2.0\bin\windows\</code></li>
-</ul>
+<p>Spark Streaming is built-in library in Apache Spark which is micro-batch oriented stream processing engine. There are other alternatives such as Flink, Storm etc.</p>
+
+<p>As we discussed in above paragraph, Spark Streaming reads &amp; process streams. So who provides these Streams to Spark ?. In that case, we use Apache kafka to accomplish this task.</p>
+
+<p>But why? can’t we use Direct streams via TCP sockets?. But the point is <em><code class="highlighter-rouge">parallelism</code></em> . Kafka enables parallel streaming with a support named <code class="highlighter-rouge">"partition"</code> which is highly compatible to use with Spark’s <code class="highlighter-rouge">"partition"</code>.</p>
+
+<p>I think, now it is clear why are we using spark with kafka. So lets look in ti integrate these two components. Consider this as a starting point.</p>
+
+<p><br /></p>
 
 <h3 id="my-development-environment">My Development Environment</h3>
 
 <ul>
   <li>Spark version 	- 2.2.0</li>
-  <li>Scala version	- 2.11.11</li>
-  <li>SBT version 	- 0.13.16</li>
-  <li>Kafka version 	-</li>
-  <li>OS 				- Mac OS (Unix based)</li>
+  <li>Scala version	  - 2.11.11</li>
+  <li>SBT version 	  - 0.13.16</li>
+  <li>Kafka version 	- 0.10.2.0</li>
+  <li>OS 				      - Mac OS (Unix based)</li>
 </ul>
 
-<p>888888888888 quote the spark is designed to work with scala 2.11.x</p>
+<p>As mentioned the Spark <a href="https://spark.apache.org/docs/latest/index.html#downloading">docs</a>
+“Spark runs on Java 8+, Python 2.7+/3.4+ and R 3.1+. For the Scala API, <strong>Spark 2.2.0 uses Scala 2.11. You will need to use a compatible Scala version (2.11.x)</strong>.”
+so you better use any 2.11.x version of scala in order to avoid dependency problems.</p>
 
 <p><br /></p>
 
@@ -225,7 +231,7 @@
 
 <h3 id="integrating-spark-streaming-and-apache-kafka">Integrating Spark Streaming and Apache Kafka</h3>
 
-<p>Here we are going to fetch data from kafka topic to our spark app. if you are absoulute newbie to these area, I’m recomending you to google on <em>what is kafka?, how it works, what are kafka topics? what spark does?</em> . I’m leaving it to you as a homework.</p>
+<p>Here we are going to fetch data from kafka topic to our spark app. if you are absoulute newbie to these area, I’m recommending you to google on <em>what is kafka?, how it works, what are kafka topics? what spark does?</em> . I’m leaving it to you as a homework.</p>
 
 <p>So this will be the code</p>
 
@@ -273,7 +279,7 @@
 <p><br /></p>
 <h1 id="configuring-up-kafka-broker">Configuring up Kafka broker</h1>
 
-<p>If you dont have kafka installed in your environment, you can refer my post <a href="8888888 link 88888888">88888888888</a> to setup it from the scratch.
+<p>If you dont have kafka installed in your environment, you can refer my post <a href="https://omalperera.github.io/general/bigdata/2017/11/10/Setting-Up-Apache-Kafka-localy.html">Setting Up Apache Kafka locally</a> to setup it from the scratch.
 if you have already installed kafka, we have to create a topic named <code class="highlighter-rouge">test</code> &amp; start kafka producer.</p>
 
 <p><br /></p>
@@ -357,7 +363,6 @@ if you have already installed kafka, we have to create a topic named <code class
 <p><br /></p>
 <h1 id="running-spark-application">Running Spark Application</h1>
 
-
 	  </div>
 
 		
@@ -365,11 +370,6 @@ if you have already installed kafka, we have to create a topic named <code class
 		  <li><i class="fa fa-folder-open"></i></li>
 		  
 		  
-			 
-				<li><a href="/categories.html#general-ref">
-					general <span>(2)</span>
-					,
-				</a></li>
 			 
 				<li><a href="/categories.html#bigdata-ref">
 					bigdata <span>(2)</span>
@@ -489,6 +489,8 @@ if you have already installed kafka, we have to create a topic named <code class
 </article>
 <div class="clearfix"></div>
 
+
+
     
 <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -503,6 +505,8 @@ if you have already installed kafka, we have to create a topic named <code class
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
 
 
 

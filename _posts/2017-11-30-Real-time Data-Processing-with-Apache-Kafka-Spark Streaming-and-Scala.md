@@ -1,28 +1,36 @@
 ---
 layout: post
 title: Real-time Data Processing with Apache Kafka, Spark Streaming and Scala
-categories: [general, bigdata]
+categories: [bigdata]
 tags: [apache, kafka, bigdata, scala, Real-Time-Processing, Spark, streaming]
-description: Practicle guide to connect Apache Kafka with Apache Spark using Scala, for real-time processing.
+description: Practical guide to connect Apache Kafka with Apache Spark using Scala, for real-time processing.
 comments: true
 ---
 
-### *************should change ###
-Mainly we deal with the `/bin` folder.
+Real-time processing! kind of a trending term that techie people talks & do things. So actually what are the components do we need to perform Real-time Processing. Apache Spark Streaming, Apache Kafka are key two components out of many that comes in to my mind.
 
-  - for mac\t- `kafka_2.10-0.10.2.0/bin/`
-  - for Windows - `kafka_2.10-0.10.2.0\bin\windows\`
+Spark Streaming is built-in library in Apache Spark which is micro-batch oriented stream processing engine. There are other alternatives such as Flink, Storm etc.
+
+As we discussed in above paragraph, Spark Streaming reads & process streams. So who provides these Streams to Spark ?. In that case, we use Apache kafka to accomplish this task.
+
+But why? can't we use Direct streams via TCP sockets?. But the point is _`parallelism`_ . Kafka enables parallel streaming with a support named `"partition"` which is highly compatible to use with Spark’s `"partition"`.
+
+I think, now it is clear why are we using spark with kafka. So lets look in ti integrate these two components. Consider this as a starting point.
+
+<br>
 
 
 ### My Development Environment ###
 
   - Spark version 	- 2.2.0
-  - Scala version	- 2.11.11
-  - SBT version 	- 0.13.16
-  - Kafka version 	-
-  - OS 				- Mac OS (Unix based)
+  - Scala version	  - 2.11.11
+  - SBT version 	  - 0.13.16
+  - Kafka version 	- 0.10.2.0
+  - OS 				      - Mac OS (Unix based)
 
-  888888888888 quote the spark is designed to work with scala 2.11.x
+As mentioned the Spark [docs](https://spark.apache.org/docs/latest/index.html#downloading)
+"Spark runs on Java 8+, Python 2.7+/3.4+ and R 3.1+. For the Scala API, **Spark 2.2.0 uses Scala 2.11. You will need to use a compatible Scala version (2.11.x)**."
+so you better use any 2.11.x version of scala in order to avoid dependency problems.
 
 <br>
 
@@ -64,7 +72,7 @@ As we are doing our project with SBT, here is the sbt build file `build.sbt` , w
 
 ### Integrating Spark Streaming and Apache Kafka ###
 
-Here we are going to fetch data from kafka topic to our spark app. if you are absoulute newbie to these area, I'm recomending you to google on _what is kafka?, how it works, what are kafka topics? what spark does?_ . I’m leaving it to you as a homework.
+Here we are going to fetch data from kafka topic to our spark app. if you are absoulute newbie to these area, I'm recommending you to google on _what is kafka?, how it works, what are kafka topics? what spark does?_ . I’m leaving it to you as a homework.
 
 So this will be the code
 
@@ -114,7 +122,7 @@ so we are now done with the spark app. prior to run our app, we have to make sur
 <br>
 # Configuring up Kafka broker #
 
-If you dont have kafka installed in your environment, you can refer my post [88888888888](8888888 link 88888888) to setup it from the scratch.
+If you dont have kafka installed in your environment, you can refer my post [Setting Up Apache Kafka locally](https://omalperera.github.io/general/bigdata/2017/11/10/Setting-Up-Apache-Kafka-localy.html) to setup it from the scratch.
 if you have already installed kafka, we have to create a topic named `test` & start kafka producer.
 
   <br>
@@ -182,4 +190,3 @@ Now Kafka broker is ready to go. Now its time to run our Spark application.
 
 <br>
 # Running Spark Application #
-
