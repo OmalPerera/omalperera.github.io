@@ -35,7 +35,7 @@ Mainly we deal with the `/bin` folder.
   - You first need to start a ZooKeeper serve, since Kafka uses Zookeeper for the tasks such as Electing a controller, Topic configuration, ACLs & for many more.
 
   - As you are now in the `kafka_2.10-0.10.2.0` directory execute the following command
-  {% highlight text %}
+  {% highlight bash %}
   bin/zookeeper-server-start.sh config/zookeeper.properties
   {% endhighlight %}
 
