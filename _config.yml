@@ -76,5 +76,5 @@ comments :
         baseURL : # Piwik installation address (without protocol)
         idsite :                   # the id of the site on Piwik
 
-plugins:
+plugins_dir:
   - jekyll-paginate

@@ -175,7 +175,7 @@
 
 <p>But why? can’t we use Direct streams via TCP sockets?. But the point is <em><code class="highlighter-rouge">parallelism</code></em> . Kafka enables parallel streaming with a support named <code class="highlighter-rouge">"partition"</code> which is highly compatible to use with Spark’s <code class="highlighter-rouge">"partition"</code>.</p>
 
-<p>I think, now it is clear why are we using spark with kafka. So lets look in ti integrate these two components. Consider this as a starting point.</p>
+<p>I think, now it is clear why are we using spark with kafka. So let’s look in to integrate these two components. Consider this as a starting point.</p>
 
 <p><br /></p>
 
@@ -193,63 +193,78 @@
 “Spark runs on Java 8+, Python 2.7+/3.4+ and R 3.1+. For the Scala API, <strong>Spark 2.2.0 uses Scala 2.11. You will need to use a compatible Scala version (2.11.x)</strong>.”
 so you better use any 2.11.x version of scala in order to avoid dependency problems.</p>
 
+<p>Before continuing the project, probably you better double check your scala &amp; sbt installations in your machine</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>scala -version
+Scala code runner version 2.11.11 -- Copyright 2002-2017, LAMP/EPFL</code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>sbt sbtVersion
+<span class="o">[</span>info] Updated file /root/.../project/build.properties: <span class="nb">set </span>sbt.version to 0.13.16</code></pre></figure>
+
 <p><br /></p>
 
 <h1 id="developing-the-spark-app-with-scala">Developing the Spark app with Scala</h1>
 <p><br />
-<strong>Note</strong> : Dependencies for this project can be definitely change with the time. And also basically those dependencies depends on the scala version, Spark version, SBT version etc that you have installed in your system. So try to stick with above mentioned development environment or else follow up the error log &amp; adjust the dependencies according to your development environment.</p>
+<strong>Note</strong> : Dependencies for this project can be definitely change with the time. And also basically those dependencies depend on the scala version, Spark version, SBT version etc that you have installed in your system. So try to stick with above mentioned development environment or else follow up the error log &amp; adjust the dependencies according to your development environment.
+<br /></p>
+
+<p>So let’s start the journey to Real-time data processing with <strong>kafka</strong> , <strong>spark</strong> , &amp; <strong>scala</strong> !</p>
+
+<h3 id="directory-structure">Directory structure</h3>
+
+<p>first of all we have to arrange our project’s directories &amp; files in to a specific order which supports for sbt. Folder structure should be as follows.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">./src
+./src/main
+./src/main/scala
+./src/main/scala/kafkar.scala
+./build.sbt</code></pre></figure>
 
 <p><br /></p>
-
-<p>So lets start the journey to Real-time data processing with <strong>kafka</strong> , <strong>spark</strong> , &amp; <strong>scala</strong> !</p>
 
 <h3 id="buildsbt-file">build.sbt file</h3>
 
 <p>As we are doing our project with SBT, here is the sbt build file <code class="highlighter-rouge">build.sbt</code> , where we include all the dependencies needed for our project.</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">  name :<span class="o">=</span> <span class="s2">"RealTimeDataProcessing"</span>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">name :<span class="o">=</span> <span class="s2">"kafkar"</span>
 
-  version :<span class="o">=</span> <span class="s2">"0.1"</span>
+version :<span class="o">=</span> <span class="s2">"0.1"</span>
 
-  scalaVersion :<span class="o">=</span> <span class="s2">"2.11.11"</span>
+scalaVersion :<span class="o">=</span> <span class="s2">"2.11.11"</span>
 
-  resolvers +<span class="o">=</span> <span class="s2">"Spark Packages Repo"</span> at <span class="s2">"http://dl.bintray.com/spark-packages/maven"</span>
+retrieveManaged :<span class="o">=</span> <span class="nb">true
 
-  dependencyOverrides +<span class="o">=</span> <span class="s2">"com.fasterxml.jackson.core"</span> % <span class="s2">"jackson-core"</span> % <span class="s2">"2.8.7"</span>
-  dependencyOverrides +<span class="o">=</span> <span class="s2">"com.fasterxml.jackson.core"</span> % <span class="s2">"jackson-databind"</span> % <span class="s2">"2.8.7"</span>
-  dependencyOverrides +<span class="o">=</span> <span class="s2">"com.fasterxml.jackson.module"</span> % <span class="s2">"jackson-module-scala_2.11"</span> % <span class="s2">"2.8.7"</span>
+</span>fork :<span class="o">=</span> <span class="nb">true
 
-  libraryDependencies +<span class="o">=</span> <span class="s2">"org.apache.spark"</span> % <span class="s2">"spark-core_2.11"</span> % <span class="s2">"2.2.0"</span>
-  libraryDependencies +<span class="o">=</span> <span class="s2">"org.apache.spark"</span> % <span class="s2">"spark-sql_2.11"</span> % <span class="s2">"2.2.0"</span>
-  libraryDependencies +<span class="o">=</span> <span class="s2">"org.apache.spark"</span> % <span class="s2">"spark-streaming_2.11"</span> % <span class="s2">"2.2.0"</span>
-  libraryDependencies +<span class="o">=</span> <span class="s2">"org.apache.spark"</span> % <span class="s2">"spark-mllib-local_2.11"</span> % <span class="s2">"2.2.0"</span>
-  libraryDependencies +<span class="o">=</span> <span class="s2">"dibbhatt"</span> % <span class="s2">"kafka-spark-consumer"</span> % <span class="s2">"1.0.12"</span>
-  libraryDependencies +<span class="o">=</span> <span class="s2">"org.apache.kafka"</span> % <span class="s2">"kafka_2.11"</span> % <span class="s2">"1.0.0"</span>
-  libraryDependencies +<span class="o">=</span> <span class="s2">"org.apache.spark"</span> % <span class="s2">"spark-streaming-kafka-0-8_2.11"</span> % <span class="s2">"2.1.0"</span></code></pre></figure>
+</span>libraryDependencies +<span class="o">=</span> <span class="s2">"org.apache.spark"</span> % <span class="s2">"spark-streaming_2.11"</span> % <span class="s2">"2.2.0"</span>
+
+libraryDependencies +<span class="o">=</span> <span class="s2">"org.apache.spark"</span> % <span class="s2">"spark-streaming-kafka-0-8_2.11"</span> % <span class="s2">"2.1.0"</span></code></pre></figure>
 
 <p><br /></p>
 
 <h3 id="integrating-spark-streaming-and-apache-kafka">Integrating Spark Streaming and Apache Kafka</h3>
 
-<p>Here we are going to fetch data from kafka topic to our spark app. if you are absoulute newbie to these area, I’m recommending you to google on <em>what is kafka?, how it works, what are kafka topics? what spark does?</em> . I’m leaving it to you as a homework.</p>
+<p>Here we are going to fetch data from kafka topic to our spark app. if you are absolute newbie to these area, I’m recommending you to google on <em>what is kafka?, how it works, what are kafka topics? what spark does?</em> . I’m leaving it to you as a homework.</p>
 
 <p>So this will be the code</p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kr">import</span> <span class="nx">org</span><span class="p">.</span><span class="nx">apache</span><span class="p">.</span><span class="nx">spark</span><span class="p">.</span><span class="nx">SparkConf</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kr">import</span> <span class="nx">org</span><span class="p">.</span><span class="nx">apache</span><span class="p">.</span><span class="nx">log4j</span><span class="p">.{</span><span class="nx">Level</span><span class="p">,</span> <span class="nx">Logger</span><span class="p">}</span>
+<span class="kr">import</span> <span class="nx">org</span><span class="p">.</span><span class="nx">apache</span><span class="p">.</span><span class="nx">spark</span><span class="p">.</span><span class="nx">SparkConf</span>
 <span class="kr">import</span> <span class="nx">org</span><span class="p">.</span><span class="nx">apache</span><span class="p">.</span><span class="nx">spark</span><span class="p">.</span><span class="nx">streaming</span><span class="p">.</span><span class="nx">kafka</span><span class="p">.</span><span class="nx">KafkaUtils</span>
 <span class="kr">import</span> <span class="nx">org</span><span class="p">.</span><span class="nx">apache</span><span class="p">.</span><span class="nx">spark</span><span class="p">.</span><span class="nx">streaming</span><span class="p">.{</span><span class="nx">Seconds</span><span class="p">,</span> <span class="nx">StreamingContext</span><span class="p">}</span>
 
 
-<span class="nx">object</span> <span class="nx">kafkaConsumer</span> <span class="p">{</span>
+<span class="nx">object</span> <span class="nx">kafkar</span> <span class="p">{</span>
 
   <span class="nx">def</span> <span class="nx">main</span><span class="p">(</span><span class="nx">args</span><span class="err">:</span> <span class="nb">Array</span><span class="p">[</span><span class="nb">String</span><span class="p">])</span> <span class="p">{</span>
 
+    <span class="nx">Logger</span><span class="p">.</span><span class="nx">getLogger</span><span class="p">(</span><span class="s2">"org"</span><span class="p">).</span><span class="nx">setLevel</span><span class="p">(</span><span class="nx">Level</span><span class="p">.</span><span class="nx">OFF</span><span class="p">)</span>
+    <span class="nx">Logger</span><span class="p">.</span><span class="nx">getLogger</span><span class="p">(</span><span class="s2">"akka"</span><span class="p">).</span><span class="nx">setLevel</span><span class="p">(</span><span class="nx">Level</span><span class="p">.</span><span class="nx">OFF</span><span class="p">)</span>
+
     <span class="nx">println</span><span class="p">(</span><span class="s2">"program started"</span><span class="p">)</span>
 
-    <span class="nx">val</span> <span class="nx">conf</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SparkConf</span><span class="p">().</span><span class="nx">setMaster</span><span class="p">(</span><span class="s2">"local[*]"</span><span class="p">).</span><span class="nx">setAppName</span><span class="p">(</span><span class="s2">"kafkaConsumer"</span><span class="p">)</span>
-
-    <span class="c1">//app consumes messages every 5 seconds from kafka</span>
-    <span class="nx">val</span> <span class="nx">ssc</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">StreamingContext</span><span class="p">(</span><span class="nx">conf</span><span class="p">,</span> <span class="nx">Seconds</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+    <span class="nx">val</span> <span class="nx">conf</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SparkConf</span><span class="p">().</span><span class="nx">setMaster</span><span class="p">(</span><span class="s2">"local[4]"</span><span class="p">).</span><span class="nx">setAppName</span><span class="p">(</span><span class="s2">"kafkar"</span><span class="p">)</span>
+    <span class="nx">val</span> <span class="nx">ssc</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">StreamingContext</span><span class="p">(</span><span class="nx">conf</span><span class="p">,</span> <span class="nx">Seconds</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
 
     <span class="c1">// my kafka topic name is 'test'</span>
     <span class="nx">val</span> <span class="nx">kafkaStream</span> <span class="o">=</span> <span class="nx">KafkaUtils</span><span class="p">.</span><span class="nx">createStream</span><span class="p">(</span><span class="nx">ssc</span><span class="p">,</span> <span class="s2">"localhost:2181"</span><span class="p">,</span><span class="s2">"spark-streaming-consumer-group"</span><span class="p">,</span> <span class="nx">Map</span><span class="p">(</span><span class="s2">"test"</span> <span class="o">-&gt;</span> <span class="mi">5</span><span class="p">))</span>
@@ -261,14 +276,17 @@ so you better use any 2.11.x version of scala in order to avoid dependency probl
   <span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
 
-<p>lets identify what the code consist of.
-8
-8explain the keywords
-8
-8
-8
-8
-8</p>
+<p>You would need a multi-core machine (&gt;= 2 cores) for spark-streaming to work while running in standalone mode. But it will work fine if you run it in local mode with master as local[4].</p>
+
+<p>there are several Master Urls passed to Spark</p>
+<ul>
+  <li><strong>local</strong> - Run Spark locally with one worker thread (no parallelism at all).</li>
+  <li><strong>local[K]</strong> -	Run Spark locally with K worker threads (ideally, set this to the number of cores on your machine).</li>
+  <li><strong>local[* ]</strong>	- Run Spark locally with as many worker threads as logical cores on your machine.</li>
+  <li><strong>spark://HOST:PORT</strong> - 	Connect to the given Spark standalone cluster master.</li>
+</ul>
+
+<p>are some of them</p>
 
 <p>so we are now done with the spark app. prior to run our app, we have to make sure we have Up &amp; running kafka topic with name of <code class="highlighter-rouge">test</code>. If not Spark app wont be able to consume the streams.</p>
 
@@ -279,7 +297,7 @@ so you better use any 2.11.x version of scala in order to avoid dependency probl
 <p><br /></p>
 <h1 id="configuring-up-kafka-broker">Configuring up Kafka broker</h1>
 
-<p>If you dont have kafka installed in your environment, you can refer my post <a href="https://omalperera.github.io/general/bigdata/2017/11/10/Setting-Up-Apache-Kafka-localy.html">Setting Up Apache Kafka locally</a> to setup it from the scratch.
+<p>If you don’t have kafka installed in your environment, you can refer my post <a href="https://omalperera.github.io/general/bigdata/2017/11/10/Setting-Up-Apache-Kafka-localy.html">Setting Up Apache Kafka locally</a> to setup it from the scratch.
 if you have already installed kafka, we have to create a topic named <code class="highlighter-rouge">test</code> &amp; start kafka producer.</p>
 
 <p><br /></p>
@@ -287,7 +305,7 @@ if you have already installed kafka, we have to create a topic named <code class
 <h3 id="starting-the-zookeeper-server">Starting the Zookeeper Server</h3>
 
 <ul>
-  <li>As you are now in the <code class="highlighter-rouge">kafka_2.10-0.10.2.0</code> directory (can be differ depends on youy kafka version), execute the following command</li>
+  <li>As you are now in the <code class="highlighter-rouge">kafka_2.10-0.10.2.0</code> directory (can be differ depends on your kafka version), execute the following command</li>
 </ul>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">  sudo bin/zookeeper-server-start.sh config/zookeeper.properties
@@ -361,7 +379,74 @@ if you have already installed kafka, we have to create a topic named <code class
 <hr />
 
 <p><br /></p>
-<h1 id="running-spark-application">Running Spark Application</h1>
+<h1 id="running-spark-application-with-sbt">Running Spark Application with sbt</h1>
+
+<p>We are all set for running the application. So open a terminal window &amp; navigate to the project directory. Now we just want to compile the code with <code class="highlighter-rouge">sbt compile</code> &amp; run it with <code class="highlighter-rouge">sbt run</code> on sbt console.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>sbt compile
+
+<span class="o">[</span>info] Loading project definition from /root/xc/project
+<span class="o">[</span>info] Loading settings from build.sbt ...
+<span class="o">[</span>info] Set current project to kafkar <span class="o">(</span><span class="k">in </span>build file:/root/xc/<span class="o">)</span>
+<span class="o">[</span>info] Executing <span class="k">in </span>batch mode. For better performance use sbt<span class="s1">'s shell
+[success] Total time: 6 s, completed Dec 1, 2017 12:36:52 PM</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>sbt run
+
+<span class="o">[</span>info] Loading project definition from /root/xc/project
+<span class="o">[</span>info] Loading settings from build.sbt ...
+<span class="o">[</span>info] Set current project to kafkar <span class="o">(</span><span class="k">in </span>build file:/root/xcity/<span class="o">)</span>
+<span class="o">[</span>info] Running <span class="o">(</span>fork<span class="o">)</span> kafkar
+<span class="o">[</span>info] program started
+<span class="o">[</span>info] -------------------------------------------
+<span class="o">[</span>info] Time: 1512131872000 ms
+<span class="o">[</span>info] -------------------------------------------
+<span class="o">[</span>info] -------------------------------------------
+<span class="o">[</span>info] Time: 1512131873000 ms
+<span class="o">[</span>info] -------------------------------------------
+<span class="o">[</span>info] -------------------------------------------
+<span class="o">[</span>info] Time: 1512131874000 ms
+<span class="o">[</span>info] -------------------------------------------</code></pre></figure>
+
+<p><br /></p>
+
+<p>We are done! Spark Streaming is now connected to Apache Kafka and consumes messages every 2 seconds. Leave it running and switch to kafka Producer terminal and enter some messages</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">omal@ubuntu-london:~/kafka_2.10-0.10.2.1# </span>sudo bin/kafka-console-producer.sh --broker-list localhost:9092 --topic <span class="nb">test
+
+</span>OK,41,14,690,41,2014-11-13T09:15:00,3,32502142,158355
+OK,36,19,690,36,2014-11-13T09:20:00,1,32502581,158355
+OK,36,11,690,36,2014-11-13T09:25:00,0,32503023,158355</code></pre></figure>
+
+<p><br /></p>
+
+<p>Switch to the terminal with Spark application running and see the message printed out.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>info] -------------------------------------------
+<span class="o">[</span>info] Time: 1512137948000 ms
+<span class="o">[</span>info] -------------------------------------------
+<span class="o">[</span>info] -------------------------------------------
+<span class="o">[</span>info] Time: 1512137949000 ms
+<span class="o">[</span>info] -------------------------------------------
+<span class="o">[</span>info] <span class="o">(</span>null,OK,41,14,690,41,2014-11-13T09:15:00,3,32502142,158355<span class="o">)</span>
+<span class="o">[</span>info] <span class="o">(</span>null,OK,36,19,690,36,2014-11-13T09:20:00,1,32502581,158355<span class="o">)</span>
+<span class="o">[</span>info] <span class="o">(</span>null,OK,36,11,690,36,2014-11-13T09:25:00,0,32503023,158355<span class="o">)</span>
+<span class="o">[</span>info] -------------------------------------------
+<span class="o">[</span>info] Time: 1512137950000 ms
+<span class="o">[</span>info] -------------------------------------------
+<span class="o">[</span>info] -------------------------------------------
+<span class="o">[</span>info] Time: 1512137951000 ms
+<span class="o">[</span>info] -------------------------------------------</code></pre></figure>
+
+<p>Additionally you can visit Apache Spark web UI (most of the time http://localhost:4040/) to get more details, histograms on your Spark job.</p>
+
+<p><br /></p>
+
+<h4 id="congratulations-----you-have-completed-the-mission">Congratulations!  🎉   you have completed the mission</h4>
+
+<p><br /></p>
+
+<hr />
 
 	  </div>
 

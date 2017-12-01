@@ -15,7 +15,7 @@ As we discussed in above paragraph, Spark Streaming reads & process streams. So 
 
 But why? can't we use Direct streams via TCP sockets?. But the point is _`parallelism`_ . Kafka enables parallel streaming with a support named `"partition"` which is highly compatible to use with Spark’s `"partition"`.
 
-I think, now it is clear why are we using spark with kafka. So lets look in ti integrate these two components. Consider this as a starting point.
+I think, now it is clear why are we using spark with kafka. So let's look in to integrate these two components. Consider this as a starting point.
 
 <br>
 
@@ -32,66 +32,86 @@ As mentioned the Spark [docs](https://spark.apache.org/docs/latest/index.html#do
 "Spark runs on Java 8+, Python 2.7+/3.4+ and R 3.1+. For the Scala API, **Spark 2.2.0 uses Scala 2.11. You will need to use a compatible Scala version (2.11.x)**."
 so you better use any 2.11.x version of scala in order to avoid dependency problems.
 
+Before continuing the project, probably you better double check your scala & sbt installations in your machine
+{% highlight bash %}
+$ scala -version
+Scala code runner version 2.11.11 -- Copyright 2002-2017, LAMP/EPFL
+{% endhighlight %}
+
+{% highlight bash %}
+$ sbt sbtVersion
+[info] Updated file /root/.../project/build.properties: set sbt.version to 0.13.16
+{% endhighlight %}
+
 <br>
 
 # Developing the Spark app with Scala #
 <br>
-**Note** : Dependencies for this project can be definitely change with the time. And also basically those dependencies depends on the scala version, Spark version, SBT version etc that you have installed in your system. So try to stick with above mentioned development environment or else follow up the error log & adjust the dependencies according to your development environment.
-
+**Note** : Dependencies for this project can be definitely change with the time. And also basically those dependencies depend on the scala version, Spark version, SBT version etc that you have installed in your system. So try to stick with above mentioned development environment or else follow up the error log & adjust the dependencies according to your development environment.
 <br>
 
-So lets start the journey to Real-time data processing with **kafka** , **spark** , & **scala** !
+So let's start the journey to Real-time data processing with **kafka** , **spark** , & **scala** !
+
+### Directory structure ###
+
+first of all we have to arrange our project's directories & files in to a specific order which supports for sbt. Folder structure should be as follows.
+
+{% highlight bash %}
+./src
+./src/main
+./src/main/scala
+./src/main/scala/kafkar.scala
+./build.sbt
+{% endhighlight %}
+
+<br>
 
 ### build.sbt file ###
 
 As we are doing our project with SBT, here is the sbt build file `build.sbt` , where we include all the dependencies needed for our project.
 
 {% highlight bash %}
-  name := "RealTimeDataProcessing"
+name := "kafkar"
 
-  version := "0.1"
+version := "0.1"
 
-  scalaVersion := "2.11.11"
+scalaVersion := "2.11.11"
 
-  resolvers += "Spark Packages Repo" at "http://dl.bintray.com/spark-packages/maven"
+retrieveManaged := true
 
-  dependencyOverrides += "com.fasterxml.jackson.core" % "jackson-core" % "2.8.7"
-  dependencyOverrides += "com.fasterxml.jackson.core" % "jackson-databind" % "2.8.7"
-  dependencyOverrides += "com.fasterxml.jackson.module" % "jackson-module-scala_2.11" % "2.8.7"
+fork := true
 
-  libraryDependencies += "org.apache.spark" % "spark-core_2.11" % "2.2.0"
-  libraryDependencies += "org.apache.spark" % "spark-sql_2.11" % "2.2.0"
-  libraryDependencies += "org.apache.spark" % "spark-streaming_2.11" % "2.2.0"
-  libraryDependencies += "org.apache.spark" % "spark-mllib-local_2.11" % "2.2.0"
-  libraryDependencies += "dibbhatt" % "kafka-spark-consumer" % "1.0.12"
-  libraryDependencies += "org.apache.kafka" % "kafka_2.11" % "1.0.0"
-  libraryDependencies += "org.apache.spark" % "spark-streaming-kafka-0-8_2.11" % "2.1.0"
+libraryDependencies += "org.apache.spark" % "spark-streaming_2.11" % "2.2.0"
+
+libraryDependencies += "org.apache.spark" % "spark-streaming-kafka-0-8_2.11" % "2.1.0"
 {% endhighlight %}
 
 <br>
 
 ### Integrating Spark Streaming and Apache Kafka ###
 
-Here we are going to fetch data from kafka topic to our spark app. if you are absoulute newbie to these area, I'm recommending you to google on _what is kafka?, how it works, what are kafka topics? what spark does?_ . I’m leaving it to you as a homework.
+Here we are going to fetch data from kafka topic to our spark app. if you are absolute newbie to these area, I'm recommending you to google on _what is kafka?, how it works, what are kafka topics? what spark does?_ . I’m leaving it to you as a homework.
 
 So this will be the code
 
 {% highlight js %}
+import org.apache.log4j.{Level, Logger}
 import org.apache.spark.SparkConf
 import org.apache.spark.streaming.kafka.KafkaUtils
 import org.apache.spark.streaming.{Seconds, StreamingContext}
 
 
-object kafkaConsumer {
+object kafkar {
 
   def main(args: Array[String]) {
 
+    Logger.getLogger("org").setLevel(Level.OFF)
+    Logger.getLogger("akka").setLevel(Level.OFF)
+
     println("program started")
 
-    val conf = new SparkConf().setMaster("local[*]").setAppName("kafkaConsumer")
-
-    //app consumes messages every 5 seconds from kafka
-    val ssc = new StreamingContext(conf, Seconds(5))
+    val conf = new SparkConf().setMaster("local[4]").setAppName("kafkar")
+    val ssc = new StreamingContext(conf, Seconds(2))
 
     // my kafka topic name is 'test'
     val kafkaStream = KafkaUtils.createStream(ssc, "localhost:2181","spark-streaming-consumer-group", Map("test" -> 5))
@@ -104,14 +124,15 @@ object kafkaConsumer {
 }
 {% endhighlight %}
 
-lets identify what the code consist of.
-8
-8explain the keywords
-8
-8
-8
-8
-8
+You would need a multi-core machine (>= 2 cores) for spark-streaming to work while running in standalone mode. But it will work fine if you run it in local mode with master as local[4].
+
+there are several Master Urls passed to Spark
+  - **local** - Run Spark locally with one worker thread (no parallelism at all).
+  - **local[K]** -	Run Spark locally with K worker threads (ideally, set this to the number of cores on your machine).
+  - **local[* ]**	- Run Spark locally with as many worker threads as logical cores on your machine.
+  - **spark://HOST:PORT** - 	Connect to the given Spark standalone cluster master.
+
+are some of them
 
 so we are now done with the spark app. prior to run our app, we have to make sure we have Up & running kafka topic with name of `test`. If not Spark app wont be able to consume the streams.
 
@@ -122,7 +143,7 @@ so we are now done with the spark app. prior to run our app, we have to make sur
 <br>
 # Configuring up Kafka broker #
 
-If you dont have kafka installed in your environment, you can refer my post [Setting Up Apache Kafka locally](https://omalperera.github.io/general/bigdata/2017/11/10/Setting-Up-Apache-Kafka-localy.html) to setup it from the scratch.
+If you don't have kafka installed in your environment, you can refer my post [Setting Up Apache Kafka locally](https://omalperera.github.io/general/bigdata/2017/11/10/Setting-Up-Apache-Kafka-localy.html) to setup it from the scratch.
 if you have already installed kafka, we have to create a topic named `test` & start kafka producer.
 
   <br>
@@ -130,7 +151,7 @@ if you have already installed kafka, we have to create a topic named `test` & st
 
 ### Starting the Zookeeper Server ###
 
-  - As you are now in the `kafka_2.10-0.10.2.0` directory (can be differ depends on youy kafka version), execute the following command
+  - As you are now in the `kafka_2.10-0.10.2.0` directory (can be differ depends on your kafka version), execute the following command
   {% highlight bash %}
   sudo bin/zookeeper-server-start.sh config/zookeeper.properties
   {% endhighlight %}
@@ -189,4 +210,80 @@ Now Kafka broker is ready to go. Now its time to run our Spark application.
 --------------
 
 <br>
-# Running Spark Application #
+# Running Spark Application with sbt #
+
+We are all set for running the application. So open a terminal window & navigate to the project directory. Now we just want to compile the code with `sbt compile` & run it with `sbt run` on sbt console.
+
+{% highlight bash %}
+$ sbt compile
+
+[info] Loading project definition from /root/xc/project
+[info] Loading settings from build.sbt ...
+[info] Set current project to kafkar (in build file:/root/xc/)
+[info] Executing in batch mode. For better performance use sbt's shell
+[success] Total time: 6 s, completed Dec 1, 2017 12:36:52 PM
+{% endhighlight %}
+
+{% highlight bash %}
+$ sbt run
+
+[info] Loading project definition from /root/xc/project
+[info] Loading settings from build.sbt ...
+[info] Set current project to kafkar (in build file:/root/xcity/)
+[info] Running (fork) kafkar
+[info] program started
+[info] -------------------------------------------
+[info] Time: 1512131872000 ms
+[info] -------------------------------------------
+[info] -------------------------------------------
+[info] Time: 1512131873000 ms
+[info] -------------------------------------------
+[info] -------------------------------------------
+[info] Time: 1512131874000 ms
+[info] -------------------------------------------
+{% endhighlight %}
+
+<br>
+
+We are done! Spark Streaming is now connected to Apache Kafka and consumes messages every 2 seconds. Leave it running and switch to kafka Producer terminal and enter some messages
+
+{% highlight bash %}
+omal@ubuntu-london:~/kafka_2.10-0.10.2.1# sudo bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test
+
+OK,41,14,690,41,2014-11-13T09:15:00,3,32502142,158355
+OK,36,19,690,36,2014-11-13T09:20:00,1,32502581,158355
+OK,36,11,690,36,2014-11-13T09:25:00,0,32503023,158355
+{% endhighlight %}
+
+<br>
+
+Switch to the terminal with Spark application running and see the message printed out.
+
+{% highlight bash %}
+[info] -------------------------------------------
+[info] Time: 1512137948000 ms
+[info] -------------------------------------------
+[info] -------------------------------------------
+[info] Time: 1512137949000 ms
+[info] -------------------------------------------
+[info] (null,OK,41,14,690,41,2014-11-13T09:15:00,3,32502142,158355)
+[info] (null,OK,36,19,690,36,2014-11-13T09:20:00,1,32502581,158355)
+[info] (null,OK,36,11,690,36,2014-11-13T09:25:00,0,32503023,158355)
+[info] -------------------------------------------
+[info] Time: 1512137950000 ms
+[info] -------------------------------------------
+[info] -------------------------------------------
+[info] Time: 1512137951000 ms
+[info] -------------------------------------------
+{% endhighlight %}
+
+
+Additionally you can visit Apache Spark web UI (most of the time http://localhost:4040/) to get more details, histograms on your Spark job.
+
+<br>
+
+#### Congratulations!  🎉   you have completed the mission
+
+<br>
+
+---
