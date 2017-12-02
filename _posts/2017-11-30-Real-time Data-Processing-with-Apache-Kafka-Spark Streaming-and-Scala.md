@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Real-time Data Processing with Apache Kafka, Spark Streaming and Scala
+title: Apache Spark - Kafka Integration for Real-time Data Processing with Scala
 categories: [bigdata]
 tags: [apache, kafka, bigdata, scala, Real-Time-Processing, Spark, streaming]
 description: Practical guide to connect Apache Kafka with Apache Spark using Scala, for real-time processing.
