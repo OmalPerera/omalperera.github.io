@@ -78,3 +78,5 @@ comments :
 
 plugins_dir:
   - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-sitemap

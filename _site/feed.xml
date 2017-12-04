@@ -7,7 +7,7 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
-				<title>Real-time Data Processing with Apache Kafka, Spark Streaming and Scala</title>
+				<title>Apache Spark - Kafka Integration for Real-time Data Processing with Scala</title>
 				<description>&lt;p&gt;Real-time processing! kind of a trending term that techie people talks &amp;amp; do things. So actually what are the components do we need to perform Real-time Processing. Apache Spark Streaming, Apache Kafka are key two components out of many that comes in to my mind.&lt;/p&gt;
 
 &lt;p&gt;Spark Streaming is built-in library in Apache Spark which is micro-batch oriented stream processing engine. There are other alternatives such as Flink, Storm etc.&lt;/p&gt;
