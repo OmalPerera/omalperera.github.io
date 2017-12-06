@@ -3,11 +3,7 @@ layout: post
 title: Apache Spark - Kafka Integration for Real-time Data Processing with Scala
 categories: [bigdata]
 tags: [apache, kafka, bigdata, scala, Real-Time-Processing, Spark, streaming]
-<<<<<<< HEAD
-description: Practicle guide to connect Apache Kafka with Apache Spark using Scala, for real-time processing.
-=======
 description: Practical guide to connect Apache Kafka with Apache Spark using Scala, for real-time processing.
->>>>>>> origin/master
 comments: true
 ---
 
@@ -27,12 +23,6 @@ I think, now it is clear why are we using spark with kafka. So let's look in to 
 ### My Development Environment ###
 
   - Spark version 	- 2.2.0
-<<<<<<< HEAD
-  - Scala version	- 2.11.11
-  - SBT version 	- 0.13.16
-  - Kafka version 	-
-  - OS 				- Mac OS (Unix based)
-=======
   - Scala version	  - 2.11.11
   - SBT version 	  - 0.13.16
   - Kafka version 	- 0.10.2.0
@@ -47,7 +37,6 @@ Before continuing the project, probably you better double check your scala & sbt
 $ scala -version
 Scala code runner version 2.11.11 -- Copyright 2002-2017, LAMP/EPFL
 {% endhighlight %}
->>>>>>> origin/master
 
 {% highlight bash %}
 $ sbt sbtVersion
