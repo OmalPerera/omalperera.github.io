@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Apache Spark - Kafka Integration for Real-time Data Processing with Scala</title>
+	
+	<meta name="description" content="Practical guide to connect Apache Kafka with Apache Spark using Scala, for real-time processing.">
+	
+	<meta name="author" content="Omal Perera">
+
+	<!-- Enable responsive viewport -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Le styles -->
+	<link href="/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="/assets/resources/syntax/syntax.css" rel="stylesheet">
+	<link href="/assets/css/style.css" rel="stylesheet">
+
+	<!-- Le fav and touch icons -->
+	<!-- Update these with your own images
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+	-->
+
+	<link rel="shortcut icon" href="/assets/ico/favicon.ico">
+
+	<link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
+	<!-- Begin Jekyll SEO tag v2.3.0 -->
+<title>Apache Spark - Kafka Integration for Real-time Data Processing with Scala | Omal Perera</title>
+<meta property="og:title" content="Apache Spark - Kafka Integration for Real-time Data Processing with Scala" />
+<meta name="author" content="Omal Perera" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Practical guide to connect Apache Kafka with Apache Spark using Scala, for real-time processing." />
+<meta property="og:description" content="Practical guide to connect Apache Kafka with Apache Spark using Scala, for real-time processing." />
+<link rel="canonical" href="http://localhost:4000/bigdata/2017/11/30/Real-time-Data-Processing-with-Apache-Kafka-Spark-Streaming-and-Scala.html" />
+<meta property="og:url" content="http://localhost:4000/bigdata/2017/11/30/Real-time-Data-Processing-with-Apache-Kafka-Spark-Streaming-and-Scala.html" />
+<meta property="og:site_name" content="Omal Perera" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-11-30T00:00:00+05:30" />
+<script type="application/ld+json">
+{"name":null,"description":"Practical guide to connect Apache Kafka with Apache Spark using Scala, for real-time processing.","url":"http://localhost:4000/bigdata/2017/11/30/Real-time-Data-Processing-with-Apache-Kafka-Spark-Streaming-and-Scala.html","headline":"Apache Spark - Kafka Integration for Real-time Data Processing with Scala","dateModified":"2017-11-30T00:00:00+05:30","datePublished":"2017-11-30T00:00:00+05:30","sameAs":null,"@type":"BlogPosting","author":{"@type":"Person","name":"Omal Perera"},"image":null,"publisher":null,"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/bigdata/2017/11/30/Real-time-Data-Processing-with-Apache-Kafka-Spark-Streaming-and-Scala.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+<body>
+	<nav class="navbar navbar-default visible-xs" role="navigation">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+			<a type="button" class="navbar-toggle nav-link" href="http://github.com/OmalPerera">
+				<i class="fa fa-github"></i>
+			</a>
+			
+			
+			<a type="button" class="navbar-toggle nav-link" href="http://twitter.com/OmalPerera">
+				<i class="fa fa-twitter"></i>
+			</a>
+			
+			
+			<a type="button" class="navbar-toggle nav-link" href="mailto:omalperera8@gmail.com">
+				<i class="fa fa-envelope"></i>
+			</a>
+			
+			<a class="navbar-brand" href="/">
+				<img src="//www.gravatar.com/avatar/f29579eebcf0cb079c43eb37c7123235?s=35" class="img-circle" />
+				Omal Perera
+			</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="/">Home</a></li>
+				<li><a href="/categories.html">Categories</a></li>
+				<li><a href="/tags.html">Tags</a></li>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</nav>
+
+	<!-- nav-menu-dropdown -->
+	<div class="btn-group hidden-xs" id="nav-menu">
+		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+			<i class="fa fa-bars"></i>
+		</button>
+		<ul class="dropdown-menu" role="menu">
+			<li><a href="/"><i class="fa fa-home"></i>Home</a></li>
+			<li><a href="/categories.html"><i class="fa fa-folder"></i>Categories</a></li>
+			<li><a href="/tags.html"><i class="fa fa-tags"></i>Tags</a></li>
+			<li class="divider"></li>
+			<li><a href="#"><i class="fa fa-arrow-up"></i>Top of Page</a></li>
+		</ul>
+	</div>
+
+	<div class="col-sm-3 sidebar hidden-xs" style="">
+		<!-- sidebar.html -->
+<header class="sidebar-header" role="banner">
+	<a href="/">
+		<img src="//www.gravatar.com/avatar/f29579eebcf0cb079c43eb37c7123235?s=150" class="img-circle" />
+	</a>
+	<h3 class="title">
+        <a href="/">Omal Perera</a>
+    </h3>
+</header>
+
+
+<div id="bio" class="text-center">
+	Information Systems undergraduate at Sabaragamuwa University of Sri Lanka</br>Full Stack Developer</br>Trainee Software Engineer at 99X Technologies.
+</div>
+
+
+<div id="contact-list" class="text-center">
+	<ul class="list-unstyled list-inline">
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="https://github.com/OmalPerera">
+				<i class="fa fa-github-alt fa-lg"></i>
+			</a>
+		</li>
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="https://twitter.com/OmalPerera">
+				<i class="fa fa-twitter fa-lg"></i>
+			</a>
+		</li>
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="mailto:omalperera8@gmail.com">
+				<i class="fa fa-envelope fa-lg"></i>
+			</a>
+		</li>
+		
+	</ul>
+	<ul id="contact-list-secondary" class="list-unstyled list-inline">
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="https://linkedin.com/in/OmalPerera">
+				<i class="fa fa-linkedin fa-lg"></i>
+			</a>
+		</li>
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="/feed.xml">
+				<i class="fa fa-rss fa-lg"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+<!-- sidebar.html end -->
+
+	</div>
+
+	<div class="col-sm-9 col-sm-offset-3">
+		<div class="page-header">
+  <h1>Apache Spark - Kafka Integration for Real-time Data Processing with Scala </h1>
+</div>
+	
+<article>
+
+	<div class="col-sm-10">
+	 <span class="post-date">
+	   
+	   November 
+	   30th,
+	   
+	   2017
+	 </span>
+	  <div class="article_body">
+	  <p>Real-time processing! kind of a trending term that techie people talks &amp; do things. So actually what are the components do we need to perform Real-time Processing. Apache Spark Streaming, Apache Kafka are key two components out of many that comes in to my mind.</p>
+
+<p>Spark Streaming is built-in library in Apache Spark which is micro-batch oriented stream processing engine. There are other alternatives such as Flink, Storm etc.</p>
+
+<p>As we discussed in above paragraph, Spark Streaming reads &amp; process streams. So who provides these Streams to Spark ?. In that case, we use Apache kafka to accomplish this task.</p>
+
+<p>But why? can’t we use Direct streams via TCP sockets?. But the point is <em><code class="highlighter-rouge">parallelism</code></em> . Kafka enables parallel streaming with a support named <code class="highlighter-rouge">"partition"</code> which is highly compatible to use with Spark’s <code class="highlighter-rouge">"partition"</code>.</p>
+
+<p>I think, now it is clear why are we using spark with kafka. So let’s look in to integrate these two components. Consider this as a starting point.</p>
+
+<p><br /></p>
+
+<h3 id="my-development-environment">My Development Environment</h3>
+
+<ul>
+  <li>Spark version 	- 2.2.0</li>
+  <li>Scala version	  - 2.11.11</li>
+  <li>SBT version 	  - 0.13.16</li>
+  <li>Kafka version 	- 0.10.2.0</li>
+  <li>OS 				      - Mac OS (Unix based)</li>
+</ul>
+
+<p>As mentioned the Spark <a href="https://spark.apache.org/docs/latest/index.html#downloading">docs</a>
+“Spark runs on Java 8+, Python 2.7+/3.4+ and R 3.1+. For the Scala API, <strong>Spark 2.2.0 uses Scala 2.11. You will need to use a compatible Scala version (2.11.x)</strong>.”
+so you better use any 2.11.x version of scala in order to avoid dependency problems.</p>
+
+<p>Before continuing the project, probably you better double check your scala &amp; sbt installations in your machine</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>scala -version
+Scala code runner version 2.11.11 -- Copyright 2002-2017, LAMP/EPFL</code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>sbt sbtVersion
+<span class="o">[</span>info] Updated file /root/.../project/build.properties: <span class="nb">set </span>sbt.version to 0.13.16</code></pre></figure>
+
+<p><br /></p>
+
+<h1 id="developing-the-spark-app-with-scala">Developing the Spark app with Scala</h1>
+<p><br />
+<strong>Note</strong> : Dependencies for this project can be definitely change with the time. And also basically those dependencies depend on the scala version, Spark version, SBT version etc that you have installed in your system. So try to stick with above mentioned development environment or else follow up the error log &amp; adjust the dependencies according to your development environment.
+<br /></p>
+
+<p>So let’s start the journey to Real-time data processing with <strong>kafka</strong> , <strong>spark</strong> , &amp; <strong>scala</strong> !</p>
+
+<h3 id="directory-structure">Directory structure</h3>
+
+<p>first of all we have to arrange our project’s directories &amp; files in to a specific order which supports for sbt. Folder structure should be as follows.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">./src
+./src/main
+./src/main/scala
+./src/main/scala/kafkar.scala
+./build.sbt</code></pre></figure>
+
+<p><br /></p>
+
+<h3 id="buildsbt-file">build.sbt file</h3>
+
+<p>As we are doing our project with SBT, here is the sbt build file <code class="highlighter-rouge">build.sbt</code> , where we include all the dependencies needed for our project.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">name :<span class="o">=</span> <span class="s2">"kafkar"</span>
+
+version :<span class="o">=</span> <span class="s2">"0.1"</span>
+
+scalaVersion :<span class="o">=</span> <span class="s2">"2.11.11"</span>
+
+retrieveManaged :<span class="o">=</span> <span class="nb">true
+
+</span>fork :<span class="o">=</span> <span class="nb">true
+
+</span>libraryDependencies +<span class="o">=</span> <span class="s2">"org.apache.spark"</span> % <span class="s2">"spark-streaming_2.11"</span> % <span class="s2">"2.2.0"</span>
+
+libraryDependencies +<span class="o">=</span> <span class="s2">"org.apache.spark"</span> % <span class="s2">"spark-streaming-kafka-0-8_2.11"</span> % <span class="s2">"2.1.0"</span></code></pre></figure>
+
+<p><br /></p>
+
+<h3 id="integrating-spark-streaming-and-apache-kafka">Integrating Spark Streaming and Apache Kafka</h3>
+
+<p>Here we are going to fetch data from kafka topic to our spark app. if you are absolute newbie to these area, I’m recommending you to google on <em>what is kafka?, how it works, what are kafka topics? what spark does?</em> . I’m leaving it to you as a homework.</p>
+
+<p>So this will be the code</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kr">import</span> <span class="nx">org</span><span class="p">.</span><span class="nx">apache</span><span class="p">.</span><span class="nx">log4j</span><span class="p">.{</span><span class="nx">Level</span><span class="p">,</span> <span class="nx">Logger</span><span class="p">}</span>
+<span class="kr">import</span> <span class="nx">org</span><span class="p">.</span><span class="nx">apache</span><span class="p">.</span><span class="nx">spark</span><span class="p">.</span><span class="nx">SparkConf</span>
+<span class="kr">import</span> <span class="nx">org</span><span class="p">.</span><span class="nx">apache</span><span class="p">.</span><span class="nx">spark</span><span class="p">.</span><span class="nx">streaming</span><span class="p">.</span><span class="nx">kafka</span><span class="p">.</span><span class="nx">KafkaUtils</span>
+<span class="kr">import</span> <span class="nx">org</span><span class="p">.</span><span class="nx">apache</span><span class="p">.</span><span class="nx">spark</span><span class="p">.</span><span class="nx">streaming</span><span class="p">.{</span><span class="nx">Seconds</span><span class="p">,</span> <span class="nx">StreamingContext</span><span class="p">}</span>
+
+
+<span class="nx">object</span> <span class="nx">kafkar</span> <span class="p">{</span>
+
+  <span class="nx">def</span> <span class="nx">main</span><span class="p">(</span><span class="nx">args</span><span class="err">:</span> <span class="nb">Array</span><span class="p">[</span><span class="nb">String</span><span class="p">])</span> <span class="p">{</span>
+
+    <span class="nx">Logger</span><span class="p">.</span><span class="nx">getLogger</span><span class="p">(</span><span class="s2">"org"</span><span class="p">).</span><span class="nx">setLevel</span><span class="p">(</span><span class="nx">Level</span><span class="p">.</span><span class="nx">OFF</span><span class="p">)</span>
+    <span class="nx">Logger</span><span class="p">.</span><span class="nx">getLogger</span><span class="p">(</span><span class="s2">"akka"</span><span class="p">).</span><span class="nx">setLevel</span><span class="p">(</span><span class="nx">Level</span><span class="p">.</span><span class="nx">OFF</span><span class="p">)</span>
+
+    <span class="nx">println</span><span class="p">(</span><span class="s2">"program started"</span><span class="p">)</span>
+
+    <span class="nx">val</span> <span class="nx">conf</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SparkConf</span><span class="p">().</span><span class="nx">setMaster</span><span class="p">(</span><span class="s2">"local[4]"</span><span class="p">).</span><span class="nx">setAppName</span><span class="p">(</span><span class="s2">"kafkar"</span><span class="p">)</span>
+    <span class="nx">val</span> <span class="nx">ssc</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">StreamingContext</span><span class="p">(</span><span class="nx">conf</span><span class="p">,</span> <span class="nx">Seconds</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+
+    <span class="c1">// my kafka topic name is 'test'</span>
+    <span class="nx">val</span> <span class="nx">kafkaStream</span> <span class="o">=</span> <span class="nx">KafkaUtils</span><span class="p">.</span><span class="nx">createStream</span><span class="p">(</span><span class="nx">ssc</span><span class="p">,</span> <span class="s2">"localhost:2181"</span><span class="p">,</span><span class="s2">"spark-streaming-consumer-group"</span><span class="p">,</span> <span class="nx">Map</span><span class="p">(</span><span class="s2">"test"</span> <span class="o">-&gt;</span> <span class="mi">5</span><span class="p">))</span>
+
+    <span class="nx">kafkaStream</span><span class="p">.</span><span class="nx">print</span><span class="p">()</span>
+    <span class="nx">ssc</span><span class="p">.</span><span class="nx">start</span>
+    <span class="nx">ssc</span><span class="p">.</span><span class="nx">awaitTermination</span><span class="p">()</span>
+
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>You would need a multi-core machine (&gt;= 2 cores) for spark-streaming to work while running in standalone mode. But it will work fine if you run it in local mode with master as local[4].</p>
+
+<p>there are several Master Urls passed to Spark</p>
+<ul>
+  <li><strong>local</strong> - Run Spark locally with one worker thread (no parallelism at all).</li>
+  <li><strong>local[K]</strong> -	Run Spark locally with K worker threads (ideally, set this to the number of cores on your machine).</li>
+  <li><strong>local[* ]</strong>	- Run Spark locally with as many worker threads as logical cores on your machine.</li>
+  <li><strong>spark://HOST:PORT</strong> - 	Connect to the given Spark standalone cluster master.</li>
+</ul>
+
+<p>are some of them</p>
+
+<p>so we are now done with the spark app. prior to run our app, we have to make sure we have Up &amp; running kafka topic with name of <code class="highlighter-rouge">test</code>. If not Spark app wont be able to consume the streams.</p>
+
+<p><br /></p>
+
+<hr />
+
+<p><br /></p>
+<h1 id="configuring-up-kafka-broker">Configuring up Kafka broker</h1>
+
+<p>If you don’t have kafka installed in your environment, you can refer my post <a href="https://omalperera.github.io/general/bigdata/2017/11/10/Setting-Up-Apache-Kafka-localy.html">Setting Up Apache Kafka locally</a> to setup it from the scratch.
+if you have already installed kafka, we have to create a topic named <code class="highlighter-rouge">test</code> &amp; start kafka producer.</p>
+
+<p><br /></p>
+
+<h3 id="starting-the-zookeeper-server">Starting the Zookeeper Server</h3>
+
+<ul>
+  <li>As you are now in the <code class="highlighter-rouge">kafka_2.10-0.10.2.0</code> directory (can be differ depends on your kafka version), execute the following command</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">  sudo bin/zookeeper-server-start.sh config/zookeeper.properties
+  </code></pre></figure>
+
+<ul>
+  <li>Starting the Kafka Server</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">  sudo bin/kafka-server-start.sh config/server.properties
+  </code></pre></figure>
+
+<p><br /></p>
+
+<h3 id="creating-topic">Creating topic</h3>
+
+<ul>
+  <li>Creating a topic located at zookeeper at the <code class="highlighter-rouge">localhost:2181</code> named <code class="highlighter-rouge">test</code> with a <code class="highlighter-rouge">single partition</code> &amp; <code class="highlighter-rouge">single replica</code>. (do it in a separate terminal).</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">  sudo bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic <span class="nb">test</span>
+  </code></pre></figure>
+
+<ul>
+  <li>To ensure that our topic is created, execute following command</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">  bin/kafka-topics.sh --list --zookeeper localhost:2181
+  </code></pre></figure>
+
+<p><br /></p>
+
+<h3 id="running-the-producer">Running the Producer</h3>
+
+<ul>
+  <li>This is for feed the <code class="highlighter-rouge">test</code> Topic (do it in a separate console)</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">  bin/kafka-console-producer.sh --broker-list localhost:9092 --topic <span class="nb">test</span>
+  </code></pre></figure>
+
+<ul>
+  <li>You can send messages to the Kafka cluster from the console even except the standard file inputs. just type the message in the console. These messages will be consumed by our spark app.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">  This is a Sample message
+  </code></pre></figure>
+
+<p><br /></p>
+
+<h3 id="running-the-consumer">Running the Consumer</h3>
+
+<ul>
+  <li>This is for listen to the producer at that port (do it in a separate terminal).</li>
+  <li>Following command will listens for the topic inputs and outputs</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic <span class="nb">test</span>
+    </code></pre></figure>
+
+<ul>
+  <li>If you type messages into the producer terminal you should see them appear in the consumer terminal.</li>
+</ul>
+
+<p><br /></p>
+
+<p>Now Kafka broker is ready to go. Now its time to run our Spark application.</p>
+
+<p><br /></p>
+
+<hr />
+
+<p><br /></p>
+<h1 id="running-spark-application-with-sbt">Running Spark Application with sbt</h1>
+
+<p>We are all set for running the application. So open a terminal window &amp; navigate to the project directory. Now we just want to compile the code with <code class="highlighter-rouge">sbt compile</code> &amp; run it with <code class="highlighter-rouge">sbt run</code> on sbt console.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>sbt compile
+
+<span class="o">[</span>info] Loading project definition from /root/xc/project
+<span class="o">[</span>info] Loading settings from build.sbt ...
+<span class="o">[</span>info] Set current project to kafkar <span class="o">(</span><span class="k">in </span>build file:/root/xc/<span class="o">)</span>
+<span class="o">[</span>info] Executing <span class="k">in </span>batch mode. For better performance use sbt<span class="s1">'s shell
+[success] Total time: 6 s, completed Dec 1, 2017 12:36:52 PM</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>sbt run
+
+<span class="o">[</span>info] Loading project definition from /root/xc/project
+<span class="o">[</span>info] Loading settings from build.sbt ...
+<span class="o">[</span>info] Set current project to kafkar <span class="o">(</span><span class="k">in </span>build file:/root/xcity/<span class="o">)</span>
+<span class="o">[</span>info] Running <span class="o">(</span>fork<span class="o">)</span> kafkar
+<span class="o">[</span>info] program started
+<span class="o">[</span>info] -------------------------------------------
+<span class="o">[</span>info] Time: 1512131872000 ms
+<span class="o">[</span>info] -------------------------------------------
+<span class="o">[</span>info] -------------------------------------------
+<span class="o">[</span>info] Time: 1512131873000 ms
+<span class="o">[</span>info] -------------------------------------------
+<span class="o">[</span>info] -------------------------------------------
+<span class="o">[</span>info] Time: 1512131874000 ms
+<span class="o">[</span>info] -------------------------------------------</code></pre></figure>
+
+<p><br /></p>
+
+<p>We are done! Spark Streaming is now connected to Apache Kafka and consumes messages every 2 seconds. Leave it running and switch to kafka Producer terminal and enter some messages</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">omal@ubuntu-london:~/kafka_2.10-0.10.2.1# </span>sudo bin/kafka-console-producer.sh --broker-list localhost:9092 --topic <span class="nb">test
+
+</span>OK,41,14,690,41,2014-11-13T09:15:00,3,32502142,158355
+OK,36,19,690,36,2014-11-13T09:20:00,1,32502581,158355
+OK,36,11,690,36,2014-11-13T09:25:00,0,32503023,158355</code></pre></figure>
+
+<p><br /></p>
+
+<p>Switch to the terminal with Spark application running and see the message printed out.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>info] -------------------------------------------
+<span class="o">[</span>info] Time: 1512137948000 ms
+<span class="o">[</span>info] -------------------------------------------
+<span class="o">[</span>info] -------------------------------------------
+<span class="o">[</span>info] Time: 1512137949000 ms
+<span class="o">[</span>info] -------------------------------------------
+<span class="o">[</span>info] <span class="o">(</span>null,OK,41,14,690,41,2014-11-13T09:15:00,3,32502142,158355<span class="o">)</span>
+<span class="o">[</span>info] <span class="o">(</span>null,OK,36,19,690,36,2014-11-13T09:20:00,1,32502581,158355<span class="o">)</span>
+<span class="o">[</span>info] <span class="o">(</span>null,OK,36,11,690,36,2014-11-13T09:25:00,0,32503023,158355<span class="o">)</span>
+<span class="o">[</span>info] -------------------------------------------
+<span class="o">[</span>info] Time: 1512137950000 ms
+<span class="o">[</span>info] -------------------------------------------
+<span class="o">[</span>info] -------------------------------------------
+<span class="o">[</span>info] Time: 1512137951000 ms
+<span class="o">[</span>info] -------------------------------------------</code></pre></figure>
+
+<p>Additionally you can visit Apache Spark web UI (most of the time http://localhost:4040/) to get more details, histograms on your Spark job.</p>
+
+<p><br /></p>
+
+<h4 id="congratulations-----you-have-completed-the-mission">Congratulations!  🎉   you have completed the mission</h4>
+
+<p><br /></p>
+
+<hr />
+
+	  </div>
+
+		
+		<ul class="tag_box list-unstyled list-inline">
+		  <li><i class="fa fa-folder-open"></i></li>
+		  
+		  
+			 
+				<li><a href="/categories.html#bigdata-ref">
+					bigdata <span>(2)</span>
+					
+				</a></li>
+			
+		  
+		</ul>
+		  
+
+		
+		<ul class="list-inline">
+		  <li><i class="fa fa-tags"></i></li>
+		  
+		  
+			 
+				<li>
+					<a href="/tags.html#apache-ref">
+					apache <span>(2)</span>
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#kafka-ref">
+					kafka <span>(2)</span>
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#bigdata-ref">
+					bigdata <span>(2)</span>
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#scala-ref">
+					scala <span>(1)</span>
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Real-Time-Processing-ref">
+					Real-Time-Processing <span>(1)</span>
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#Spark-ref">
+					Spark <span>(1)</span>
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#streaming-ref">
+					streaming <span>(1)</span>
+					
+					</a>
+				</li>
+			
+		  
+		  
+		</ul>
+		  
+
+		<hr>
+
+		<div>
+      <section class="share col-sm-6">
+        <h4 class="section-title">Share Post</h4>
+        <a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=Apache Spark - Kafka Integration for Real-time Data Processing with Scala&via=OmalPerera"
+           onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <i class="fa fa-twitter fa-lg"></i>
+          Twitter
+        </a>
+        <a class="btn btn-default btn-sm facebook" href="https://www.facebook.com/sharer/sharer.php"
+           onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+          <i class="fa fa-facebook fa-lg"></i>
+          Facebook
+        </a>
+        <a class="btn btn-default btn-sm gplus"
+           onclick="window.open('https://plus.google.com/share?url='+window.location.href, 'google-plus-share', 'width=490,height=530');return false;">
+          <i class="fa fa-google-plus fa-lg"></i>
+          Google+
+        </a>
+      </section>
+
+      <section class="col-sm-6 author">
+        <img src="//www.gravatar.com/avatar/f29579eebcf0cb079c43eb37c7123235" class="img-rounded author-image" />
+        <h4 class="section-title author-name">Omal Perera</h4>
+        <p class="author-bio">Information Systems undergraduate at Sabaragamuwa University of Sri Lanka</br>Full Stack Developer</br>Trainee Software Engineer at 99X Technologies.</p>
+      </section>
+    </div>
+
+    <div class="clearfix"></div>
+
+		<ul class="pager">
+		  
+		  <li class="previous"><a href="/general/bigdata/2017/11/10/Setting-Up-Apache-Kafka-localy.html" title="Setting Up Apache Kafka locally">&larr; Previous</a></li>
+		  
+		  
+			<li class="next disabled"><a>Next &rarr;</a>
+		  
+		</ul>
+
+		<hr>
+	</div>
+	
+	<div class="col-sm-2 sidebar-2">
+	
+	</div>
+</article>
+<div class="clearfix"></div>
+
+    
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'omalperera-github-io';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+    
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'omalperera-github-io';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+		<footer>
+			<hr/>
+			<p>
+				&copy; 2017 Omal Perera with <a href="http://jekyllrb.com/">Jekyll</a>. Theme: <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek.
+			</p>
+		</footer>
+	</div>
+
+	<script type="text/javascript" src="/assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/assets/js/app.js"></script>
+</body>
+</html>
+
+
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-110155922-1', 'auto');
+  ga('send', 'pageview');
+</script>
+

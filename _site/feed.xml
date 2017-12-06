@@ -7,84 +7,105 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
-				<title>Real-time Data Processing with Apache Kafka, Spark Streaming and Scala</title>
-				<description>&lt;h3 id=&quot;should-change&quot;&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;*should change&lt;/h3&gt;
-&lt;p&gt;Mainly we deal with the &lt;code class=&quot;highlighter-rouge&quot;&gt;/bin&lt;/code&gt; folder.&lt;/p&gt;
+				<title>Apache Spark - Kafka Integration for Real-time Data Processing with Scala</title>
+				<description>&lt;p&gt;Real-time processing! kind of a trending term that techie people talks &amp;amp; do things. So actually what are the components do we need to perform Real-time Processing. Apache Spark Streaming, Apache Kafka are key two components out of many that comes in to my mind.&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;for mac\t- &lt;code class=&quot;highlighter-rouge&quot;&gt;kafka_2.10-0.10.2.0/bin/&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;for Windows - &lt;code class=&quot;highlighter-rouge&quot;&gt;kafka_2.10-0.10.2.0\bin\windows\&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;Spark Streaming is built-in library in Apache Spark which is micro-batch oriented stream processing engine. There are other alternatives such as Flink, Storm etc.&lt;/p&gt;
+
+&lt;p&gt;As we discussed in above paragraph, Spark Streaming reads &amp;amp; process streams. So who provides these Streams to Spark ?. In that case, we use Apache kafka to accomplish this task.&lt;/p&gt;
+
+&lt;p&gt;But why? can’t we use Direct streams via TCP sockets?. But the point is &lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;parallelism&lt;/code&gt;&lt;/em&gt; . Kafka enables parallel streaming with a support named &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;partition&quot;&lt;/code&gt; which is highly compatible to use with Spark’s &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;partition&quot;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;I think, now it is clear why are we using spark with kafka. So let’s look in to integrate these two components. Consider this as a starting point.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;my-development-environment&quot;&gt;My Development Environment&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Spark version 	- 2.2.0&lt;/li&gt;
-  &lt;li&gt;Scala version	- 2.11.11&lt;/li&gt;
-  &lt;li&gt;SBT version 	- 0.13.16&lt;/li&gt;
-  &lt;li&gt;Kafka version 	-&lt;/li&gt;
-  &lt;li&gt;OS 				- Mac OS (Unix based)&lt;/li&gt;
+  &lt;li&gt;Scala version	  - 2.11.11&lt;/li&gt;
+  &lt;li&gt;SBT version 	  - 0.13.16&lt;/li&gt;
+  &lt;li&gt;Kafka version 	- 0.10.2.0&lt;/li&gt;
+  &lt;li&gt;OS 				      - Mac OS (Unix based)&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;888888888888 quote the spark is designed to work with scala 2.11.x&lt;/p&gt;
+&lt;p&gt;As mentioned the Spark &lt;a href=&quot;https://spark.apache.org/docs/latest/index.html#downloading&quot;&gt;docs&lt;/a&gt;
+“Spark runs on Java 8+, Python 2.7+/3.4+ and R 3.1+. For the Scala API, &lt;strong&gt;Spark 2.2.0 uses Scala 2.11. You will need to use a compatible Scala version (2.11.x)&lt;/strong&gt;.”
+so you better use any 2.11.x version of scala in order to avoid dependency problems.&lt;/p&gt;
+
+&lt;p&gt;Before continuing the project, probably you better double check your scala &amp;amp; sbt installations in your machine&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;scala -version
+Scala code runner version 2.11.11 -- Copyright 2002-2017, LAMP/EPFL&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;sbt sbtVersion
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;info] Updated file /root/.../project/build.properties: &lt;span class=&quot;nb&quot;&gt;set &lt;/span&gt;sbt.version to 0.13.16&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;developing-the-spark-app-with-scala&quot;&gt;Developing the Spark app with Scala&lt;/h1&gt;
 &lt;p&gt;&lt;br /&gt;
-&lt;strong&gt;Note&lt;/strong&gt; : Dependencies for this project can be definitely change with the time. And also basically those dependencies depends on the scala version, Spark version, SBT version etc that you have installed in your system. So try to stick with above mentioned development environment or else follow up the error log &amp;amp; adjust the dependencies according to your development environment.&lt;/p&gt;
+&lt;strong&gt;Note&lt;/strong&gt; : Dependencies for this project can be definitely change with the time. And also basically those dependencies depend on the scala version, Spark version, SBT version etc that you have installed in your system. So try to stick with above mentioned development environment or else follow up the error log &amp;amp; adjust the dependencies according to your development environment.
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;So let’s start the journey to Real-time data processing with &lt;strong&gt;kafka&lt;/strong&gt; , &lt;strong&gt;spark&lt;/strong&gt; , &amp;amp; &lt;strong&gt;scala&lt;/strong&gt; !&lt;/p&gt;
+
+&lt;h3 id=&quot;directory-structure&quot;&gt;Directory structure&lt;/h3&gt;
+
+&lt;p&gt;first of all we have to arrange our project’s directories &amp;amp; files in to a specific order which supports for sbt. Folder structure should be as follows.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;./src
+./src/main
+./src/main/scala
+./src/main/scala/kafkar.scala
+./build.sbt&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;So lets start the journey to Real-time data processing with &lt;strong&gt;kafka&lt;/strong&gt; , &lt;strong&gt;spark&lt;/strong&gt; , &amp;amp; &lt;strong&gt;scala&lt;/strong&gt; !&lt;/p&gt;
 
 &lt;h3 id=&quot;buildsbt-file&quot;&gt;build.sbt file&lt;/h3&gt;
 
 &lt;p&gt;As we are doing our project with SBT, here is the sbt build file &lt;code class=&quot;highlighter-rouge&quot;&gt;build.sbt&lt;/code&gt; , where we include all the dependencies needed for our project.&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;  name :&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;RealTimeDataProcessing&quot;&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;name :&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;kafkar&quot;&lt;/span&gt;
 
-  version :&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;0.1&quot;&lt;/span&gt;
+version :&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;0.1&quot;&lt;/span&gt;
 
-  scalaVersion :&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;2.11.11&quot;&lt;/span&gt;
+scalaVersion :&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;2.11.11&quot;&lt;/span&gt;
 
-  resolvers +&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Spark Packages Repo&quot;&lt;/span&gt; at &lt;span class=&quot;s2&quot;&gt;&quot;http://dl.bintray.com/spark-packages/maven&quot;&lt;/span&gt;
+retrieveManaged :&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;true
 
-  dependencyOverrides +&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;com.fasterxml.jackson.core&quot;&lt;/span&gt; % &lt;span class=&quot;s2&quot;&gt;&quot;jackson-core&quot;&lt;/span&gt; % &lt;span class=&quot;s2&quot;&gt;&quot;2.8.7&quot;&lt;/span&gt;
-  dependencyOverrides +&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;com.fasterxml.jackson.core&quot;&lt;/span&gt; % &lt;span class=&quot;s2&quot;&gt;&quot;jackson-databind&quot;&lt;/span&gt; % &lt;span class=&quot;s2&quot;&gt;&quot;2.8.7&quot;&lt;/span&gt;
-  dependencyOverrides +&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;com.fasterxml.jackson.module&quot;&lt;/span&gt; % &lt;span class=&quot;s2&quot;&gt;&quot;jackson-module-scala_2.11&quot;&lt;/span&gt; % &lt;span class=&quot;s2&quot;&gt;&quot;2.8.7&quot;&lt;/span&gt;
+&lt;/span&gt;fork :&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;true
 
-  libraryDependencies +&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;org.apache.spark&quot;&lt;/span&gt; % &lt;span class=&quot;s2&quot;&gt;&quot;spark-core_2.11&quot;&lt;/span&gt; % &lt;span class=&quot;s2&quot;&gt;&quot;2.2.0&quot;&lt;/span&gt;
-  libraryDependencies +&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;org.apache.spark&quot;&lt;/span&gt; % &lt;span class=&quot;s2&quot;&gt;&quot;spark-sql_2.11&quot;&lt;/span&gt; % &lt;span class=&quot;s2&quot;&gt;&quot;2.2.0&quot;&lt;/span&gt;
-  libraryDependencies +&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;org.apache.spark&quot;&lt;/span&gt; % &lt;span class=&quot;s2&quot;&gt;&quot;spark-streaming_2.11&quot;&lt;/span&gt; % &lt;span class=&quot;s2&quot;&gt;&quot;2.2.0&quot;&lt;/span&gt;
-  libraryDependencies +&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;org.apache.spark&quot;&lt;/span&gt; % &lt;span class=&quot;s2&quot;&gt;&quot;spark-mllib-local_2.11&quot;&lt;/span&gt; % &lt;span class=&quot;s2&quot;&gt;&quot;2.2.0&quot;&lt;/span&gt;
-  libraryDependencies +&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;dibbhatt&quot;&lt;/span&gt; % &lt;span class=&quot;s2&quot;&gt;&quot;kafka-spark-consumer&quot;&lt;/span&gt; % &lt;span class=&quot;s2&quot;&gt;&quot;1.0.12&quot;&lt;/span&gt;
-  libraryDependencies +&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;org.apache.kafka&quot;&lt;/span&gt; % &lt;span class=&quot;s2&quot;&gt;&quot;kafka_2.11&quot;&lt;/span&gt; % &lt;span class=&quot;s2&quot;&gt;&quot;1.0.0&quot;&lt;/span&gt;
-  libraryDependencies +&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;org.apache.spark&quot;&lt;/span&gt; % &lt;span class=&quot;s2&quot;&gt;&quot;spark-streaming-kafka-0-8_2.11&quot;&lt;/span&gt; % &lt;span class=&quot;s2&quot;&gt;&quot;2.1.0&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;/span&gt;libraryDependencies +&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;org.apache.spark&quot;&lt;/span&gt; % &lt;span class=&quot;s2&quot;&gt;&quot;spark-streaming_2.11&quot;&lt;/span&gt; % &lt;span class=&quot;s2&quot;&gt;&quot;2.2.0&quot;&lt;/span&gt;
+
+libraryDependencies +&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;org.apache.spark&quot;&lt;/span&gt; % &lt;span class=&quot;s2&quot;&gt;&quot;spark-streaming-kafka-0-8_2.11&quot;&lt;/span&gt; % &lt;span class=&quot;s2&quot;&gt;&quot;2.1.0&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;integrating-spark-streaming-and-apache-kafka&quot;&gt;Integrating Spark Streaming and Apache Kafka&lt;/h3&gt;
 
-&lt;p&gt;Here we are going to fetch data from kafka topic to our spark app. if you are absoulute newbie to these area, I’m recomending you to google on &lt;em&gt;what is kafka?, how it works, what are kafka topics? what spark does?&lt;/em&gt; . I’m leaving it to you as a homework.&lt;/p&gt;
+&lt;p&gt;Here we are going to fetch data from kafka topic to our spark app. if you are absolute newbie to these area, I’m recommending you to google on &lt;em&gt;what is kafka?, how it works, what are kafka topics? what spark does?&lt;/em&gt; . I’m leaving it to you as a homework.&lt;/p&gt;
 
 &lt;p&gt;So this will be the code&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;kr&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;apache&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;spark&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;SparkConf&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;kr&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;apache&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log4j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Level&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Logger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;kr&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;apache&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;spark&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;SparkConf&lt;/span&gt;
 &lt;span class=&quot;kr&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;apache&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;spark&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;streaming&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;kafka&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;KafkaUtils&lt;/span&gt;
 &lt;span class=&quot;kr&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;apache&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;spark&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;streaming&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Seconds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;StreamingContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
 
-&lt;span class=&quot;nx&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;kafkaConsumer&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;kafkar&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 
   &lt;span class=&quot;nx&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 
+    &lt;span class=&quot;nx&quot;&gt;Logger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getLogger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;org&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setLevel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Level&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;OFF&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;Logger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getLogger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;akka&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setLevel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Level&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;OFF&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
     &lt;span class=&quot;nx&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;program started&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
-    &lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;conf&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SparkConf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setMaster&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;local[*]&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setAppName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;kafkaConsumer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-    &lt;span class=&quot;c1&quot;&gt;//app consumes messages every 5 seconds from kafka&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ssc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;StreamingContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;conf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Seconds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;conf&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SparkConf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setMaster&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;local[4]&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setAppName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;kafkar&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ssc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;StreamingContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;conf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Seconds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
 
     &lt;span class=&quot;c1&quot;&gt;// my kafka topic name is 'test'&lt;/span&gt;
     &lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;kafkaStream&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;KafkaUtils&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createStream&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ssc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;localhost:2181&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;spark-streaming-consumer-group&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;test&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
@@ -96,14 +117,17 @@
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;lets identify what the code consist of.
-8
-8explain the keywords
-8
-8
-8
-8
-8&lt;/p&gt;
+&lt;p&gt;You would need a multi-core machine (&amp;gt;= 2 cores) for spark-streaming to work while running in standalone mode. But it will work fine if you run it in local mode with master as local[4].&lt;/p&gt;
+
+&lt;p&gt;there are several Master Urls passed to Spark&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;local&lt;/strong&gt; - Run Spark locally with one worker thread (no parallelism at all).&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;local[K]&lt;/strong&gt; -	Run Spark locally with K worker threads (ideally, set this to the number of cores on your machine).&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;local[* ]&lt;/strong&gt;	- Run Spark locally with as many worker threads as logical cores on your machine.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;spark://HOST:PORT&lt;/strong&gt; - 	Connect to the given Spark standalone cluster master.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;are some of them&lt;/p&gt;
 
 &lt;p&gt;so we are now done with the spark app. prior to run our app, we have to make sure we have Up &amp;amp; running kafka topic with name of &lt;code class=&quot;highlighter-rouge&quot;&gt;test&lt;/code&gt;. If not Spark app wont be able to consume the streams.&lt;/p&gt;
 
@@ -114,7 +138,7 @@
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;h1 id=&quot;configuring-up-kafka-broker&quot;&gt;Configuring up Kafka broker&lt;/h1&gt;
 
-&lt;p&gt;If you dont have kafka installed in your environment, you can refer my post &lt;a href=&quot;8888888 link 88888888&quot;&gt;88888888888&lt;/a&gt; to setup it from the scratch.
+&lt;p&gt;If you don’t have kafka installed in your environment, you can refer my post &lt;a href=&quot;https://omalperera.github.io/general/bigdata/2017/11/10/Setting-Up-Apache-Kafka-localy.html&quot;&gt;Setting Up Apache Kafka locally&lt;/a&gt; to setup it from the scratch.
 if you have already installed kafka, we have to create a topic named &lt;code class=&quot;highlighter-rouge&quot;&gt;test&lt;/code&gt; &amp;amp; start kafka producer.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
@@ -122,7 +146,7 @@ if you have already installed kafka, we have to create a topic named &lt;code cl
 &lt;h3 id=&quot;starting-the-zookeeper-server&quot;&gt;Starting the Zookeeper Server&lt;/h3&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;As you are now in the &lt;code class=&quot;highlighter-rouge&quot;&gt;kafka_2.10-0.10.2.0&lt;/code&gt; directory (can be differ depends on youy kafka version), execute the following command&lt;/li&gt;
+  &lt;li&gt;As you are now in the &lt;code class=&quot;highlighter-rouge&quot;&gt;kafka_2.10-0.10.2.0&lt;/code&gt; directory (can be differ depends on your kafka version), execute the following command&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;  sudo bin/zookeeper-server-start.sh config/zookeeper.properties
@@ -196,12 +220,78 @@ if you have already installed kafka, we have to create a topic named &lt;code cl
 &lt;hr /&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h1 id=&quot;running-spark-application&quot;&gt;Running Spark Application&lt;/h1&gt;
+&lt;h1 id=&quot;running-spark-application-with-sbt&quot;&gt;Running Spark Application with sbt&lt;/h1&gt;
 
+&lt;p&gt;We are all set for running the application. So open a terminal window &amp;amp; navigate to the project directory. Now we just want to compile the code with &lt;code class=&quot;highlighter-rouge&quot;&gt;sbt compile&lt;/code&gt; &amp;amp; run it with &lt;code class=&quot;highlighter-rouge&quot;&gt;sbt run&lt;/code&gt; on sbt console.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;sbt compile
+
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;info] Loading project definition from /root/xc/project
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;info] Loading settings from build.sbt ...
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;info] Set current project to kafkar &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;build file:/root/xc/&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;info] Executing &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;batch mode. For better performance use sbt&lt;span class=&quot;s1&quot;&gt;'s shell
+[success] Total time: 6 s, completed Dec 1, 2017 12:36:52 PM&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;sbt run
+
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;info] Loading project definition from /root/xc/project
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;info] Loading settings from build.sbt ...
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;info] Set current project to kafkar &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;build file:/root/xcity/&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;info] Running &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;fork&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; kafkar
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;info] program started
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;info] -------------------------------------------
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;info] Time: 1512131872000 ms
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;info] -------------------------------------------
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;info] -------------------------------------------
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;info] Time: 1512131873000 ms
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;info] -------------------------------------------
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;info] -------------------------------------------
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;info] Time: 1512131874000 ms
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;info] -------------------------------------------&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;We are done! Spark Streaming is now connected to Apache Kafka and consumes messages every 2 seconds. Leave it running and switch to kafka Producer terminal and enter some messages&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;gp&quot;&gt;omal@ubuntu-london:~/kafka_2.10-0.10.2.1# &lt;/span&gt;sudo bin/kafka-console-producer.sh --broker-list localhost:9092 --topic &lt;span class=&quot;nb&quot;&gt;test
+
+&lt;/span&gt;OK,41,14,690,41,2014-11-13T09:15:00,3,32502142,158355
+OK,36,19,690,36,2014-11-13T09:20:00,1,32502581,158355
+OK,36,11,690,36,2014-11-13T09:25:00,0,32503023,158355&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Switch to the terminal with Spark application running and see the message printed out.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;info] -------------------------------------------
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;info] Time: 1512137948000 ms
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;info] -------------------------------------------
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;info] -------------------------------------------
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;info] Time: 1512137949000 ms
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;info] -------------------------------------------
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;info] &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;null,OK,41,14,690,41,2014-11-13T09:15:00,3,32502142,158355&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;info] &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;null,OK,36,19,690,36,2014-11-13T09:20:00,1,32502581,158355&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;info] &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;null,OK,36,11,690,36,2014-11-13T09:25:00,0,32503023,158355&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;info] -------------------------------------------
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;info] Time: 1512137950000 ms
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;info] -------------------------------------------
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;info] -------------------------------------------
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;info] Time: 1512137951000 ms
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;info] -------------------------------------------&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Additionally you can visit Apache Spark web UI (most of the time http://localhost:4040/) to get more details, histograms on your Spark job.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;congratulations-----you-have-completed-the-mission&quot;&gt;Congratulations!  🎉   you have completed the mission&lt;/h4&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
 </description>
 				<pubDate>Thu, 30 Nov 2017 00:00:00 +0530</pubDate>
-				<link>/general/bigdata/2017/11/30/Real-time-Data-Processing-with-Apache-Kafka-Spark-Streaming-and-Scala.html</link>
-				<guid isPermaLink="true">/general/bigdata/2017/11/30/Real-time-Data-Processing-with-Apache-Kafka-Spark-Streaming-and-Scala.html</guid>
+				<link>/bigdata/2017/11/30/Real-time-Data-Processing-with-Apache-Kafka-Spark-Streaming-and-Scala.html</link>
+				<guid isPermaLink="true">/bigdata/2017/11/30/Real-time-Data-Processing-with-Apache-Kafka-Spark-Streaming-and-Scala.html</guid>
 			</item>
 		
 			<item>

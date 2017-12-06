@@ -6,7 +6,7 @@ exclude: ["README.md"] # files to exclude
 highlighter: rouge
 markdown: kramdown
 disqus: omalperera-github-io
-google_analytics: omalperera8
+google_analytics: UA-110155922-1
 title: Omal Perera
 
 
@@ -76,5 +76,7 @@ comments :
         baseURL : # Piwik installation address (without protocol)
         idsite :                   # the id of the site on Piwik
 
-plugins:
+plugins :
   - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-sitemap
