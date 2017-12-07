@@ -76,6 +76,8 @@ comments :
         baseURL : # Piwik installation address (without protocol)
         idsite :                   # the id of the site on Piwik
 
+url: https://omalperera.github.io
+
 plugins :
   - jekyll-paginate
   - jekyll-seo-tag
