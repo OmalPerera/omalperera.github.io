@@ -7,6 +7,65 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Up & Run Apache Spark within seconds with all dependencies</title>
+				<description>&lt;p&gt;&lt;a href=&quot;https://github.com/OmalPerera/install-Spark&quot;&gt;install-spark&lt;/a&gt; is a fully automated Spark installation bash script for linux Dabian based Servers.&lt;/p&gt;
+
+&lt;p&gt;Script will install following key components needes to install Real-time data processing with few clicks.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Full Update &amp;amp; Upgrade&lt;/li&gt;
+  &lt;li&gt;install up-to-date JRE&lt;/li&gt;
+  &lt;li&gt;install up-to-date JDK&lt;/li&gt;
+  &lt;li&gt;install scala 2.11.11&lt;/li&gt;
+  &lt;li&gt;install Apache kafka 2.10 0.10.2.1&lt;/li&gt;
+  &lt;li&gt;install git&lt;/li&gt;
+  &lt;li&gt;install sbt&lt;/li&gt;
+  &lt;li&gt;install Apache spark spark-2.2.0 pre-built for Apache hadoop 2.7 &amp;amp; later&lt;/li&gt;
+  &lt;li&gt;all the environmental + all the PATH variables&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;using-the-script&quot;&gt;Using the Script&lt;/h1&gt;
+
+&lt;h3 id=&quot;1-granting-the-executing-permission-to-the-script&quot;&gt;1. Granting the executing permission to the script&lt;/h3&gt;
+
+&lt;p&gt;Navigate to the directory where the script is.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;chmod +x install-spark.sh&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;2-run-the-script&quot;&gt;2. Run the script&lt;/h3&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;chmod +x install-spark.sh&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;customizing-the-script&quot;&gt;Customizing the Script&lt;/h1&gt;
+
+&lt;p&gt;In the script you can define the &lt;strong&gt;versions&lt;/strong&gt; of libraries that you need to install.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;eg: spark-2.2.0-bin-hadoop2.7 , scala-2.11.11&lt;/em&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Under the &lt;code class=&quot;highlighter-rouge&quot;&gt;# Default Application versions&lt;/code&gt; define your prefered version.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# Default Application versions&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;SCALA_VERSION&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;scala-2.11.11&quot;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;SPARK_VERSION&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;spark-2.2.0-bin-hadoop2.7&quot;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;KAFKA_VERSION&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;kafka_2.10-0.10.2.1&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+</description>
+				<pubDate>Sat, 16 Dec 2017 00:00:00 +0530</pubDate>
+				<link>/bigdata/2017/12/16/Install-Spark-within-seconds.html</link>
+				<guid isPermaLink="true">/bigdata/2017/12/16/Install-Spark-within-seconds.html</guid>
+			</item>
+		
+			<item>
 				<title>Apache Spark - Kafka Integration for Real-time Data Processing with Scala</title>
 				<description>&lt;p&gt;Real-time processing! kind of a trending term that techie people talks &amp;amp; do things. So actually what are the components do we need to perform Real-time Processing. Apache Spark Streaming, Apache Kafka are key two components out of many that comes in to my mind.&lt;/p&gt;
 
