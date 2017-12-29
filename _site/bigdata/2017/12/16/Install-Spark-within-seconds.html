@@ -2,9 +2,9 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Setting Up Apache Kafka locally</title>
+	<title>Up & Run Apache Spark within seconds with all dependencies</title>
 	
-	<meta name="description" content="Step-by-step, Linux based guide to setup Apache Kafka.">
+	<meta name="description" content="Fully automated bash script for Spark installation in linux Dabian based Servers.">
 	
 	<meta name="author" content="Omal Perera">
 
@@ -44,19 +44,19 @@
 
 
 	<!-- Begin Jekyll SEO tag v2.3.0 -->
-<title>Setting Up Apache Kafka locally | Omal Perera</title>
-<meta property="og:title" content="Setting Up Apache Kafka locally" />
+<title>Up &amp; Run Apache Spark within seconds with all dependencies | Omal Perera</title>
+<meta property="og:title" content="Up &amp; Run Apache Spark within seconds with all dependencies" />
 <meta name="author" content="Omal Perera" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Step-by-step, Linux based guide to setup Apache Kafka." />
-<meta property="og:description" content="Step-by-step, Linux based guide to setup Apache Kafka." />
-<link rel="canonical" href="http://localhost:4000/general/bigdata/2017/11/10/Setting-Up-Apache-Kafka-localy.html" />
-<meta property="og:url" content="http://localhost:4000/general/bigdata/2017/11/10/Setting-Up-Apache-Kafka-localy.html" />
+<meta name="description" content="Fully automated bash script for Spark installation in linux Dabian based Servers." />
+<meta property="og:description" content="Fully automated bash script for Spark installation in linux Dabian based Servers." />
+<link rel="canonical" href="http://localhost:4000/bigdata/2017/12/16/Install-Spark-within-seconds.html" />
+<meta property="og:url" content="http://localhost:4000/bigdata/2017/12/16/Install-Spark-within-seconds.html" />
 <meta property="og:site_name" content="Omal Perera" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2017-11-10T00:00:00+05:30" />
+<meta property="article:published_time" content="2017-12-16T00:00:00+05:30" />
 <script type="application/ld+json">
-{"name":null,"description":"Step-by-step, Linux based guide to setup Apache Kafka.","url":"http://localhost:4000/general/bigdata/2017/11/10/Setting-Up-Apache-Kafka-localy.html","headline":"Setting Up Apache Kafka locally","dateModified":"2017-11-10T00:00:00+05:30","datePublished":"2017-11-10T00:00:00+05:30","sameAs":null,"@type":"BlogPosting","author":{"@type":"Person","name":"Omal Perera"},"image":null,"publisher":null,"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/general/bigdata/2017/11/10/Setting-Up-Apache-Kafka-localy.html"},"@context":"http://schema.org"}</script>
+{"name":null,"description":"Fully automated bash script for Spark installation in linux Dabian based Servers.","url":"http://localhost:4000/bigdata/2017/12/16/Install-Spark-within-seconds.html","headline":"Up &amp; Run Apache Spark within seconds with all dependencies","dateModified":"2017-12-16T00:00:00+05:30","datePublished":"2017-12-16T00:00:00+05:30","sameAs":null,"@type":"BlogPosting","author":{"@type":"Person","name":"Omal Perera"},"image":null,"publisher":null,"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/bigdata/2017/12/16/Install-Spark-within-seconds.html"},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -179,7 +179,7 @@
 
 	<div class="col-sm-9 col-sm-offset-3">
 		<div class="page-header">
-  <h1>Setting Up Apache Kafka locally </h1>
+  <h1>Up & Run Apache Spark within seconds with all dependencies </h1>
 </div>
 
 <article>
@@ -187,128 +187,63 @@
 	<div class="col-sm-10">
 	 <span class="post-date">
 	   
-	   November
-	   10th,
+	   December
+	   16th,
 	   
 	   2017
 	 </span>
 	  <div class="article_body">
-	  <p>This Guide is for the linux based OS &amp; directories in the Kafka setup can be slightly different in the windows setup.
-Mainly we deal with the <code class="highlighter-rouge">/bin</code> folder.</p>
+	  <p><a href="https://github.com/OmalPerera/install-Spark">install-spark</a> is a fully automated Spark installation bash script for linux Dabian based Servers.</p>
+
+<p>Script will install following key components needes to install Real-time data processing with few clicks.</p>
 
 <ul>
-  <li>for mac     - <code class="highlighter-rouge">kafka_2.10-0.10.2.0/bin/</code></li>
-  <li>for Windows - <code class="highlighter-rouge">kafka_2.10-0.10.2.0\bin\windows\</code></li>
+  <li>Full Update &amp; Upgrade</li>
+  <li>install up-to-date JRE</li>
+  <li>install up-to-date JDK</li>
+  <li>install scala 2.11.11</li>
+  <li>install Apache kafka 2.10 0.10.2.1</li>
+  <li>install git</li>
+  <li>install sbt</li>
+  <li>install Apache spark spark-2.2.0 pre-built for Apache hadoop 2.7 &amp; later</li>
+  <li>all the environmental + all the PATH variables</li>
 </ul>
 
 <p><br /></p>
 
-<p><strong>Note</strong> : Every command must be executed in a separate terminal or console except for creating the topic and ending a server.</p>
+<h1 id="using-the-script">Using the Script</h1>
+
+<h3 id="1-granting-the-executing-permission-to-the-script">1. Granting the executing permission to the script</h3>
+
+<p>Navigate to the directory where the script is.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>chmod +x install-spark.sh</code></pre></figure>
+
+<h3 id="2-run-the-script">2. Run the script</h3>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>chmod +x install-spark.sh</code></pre></figure>
+
+<p><br />
+<br /></p>
+
+<h1 id="customizing-the-script">Customizing the Script</h1>
+
+<p>In the script you can define the <strong>versions</strong> of libraries that you need to install.<br /></p>
+
+<p><em>eg: spark-2.2.0-bin-hadoop2.7 , scala-2.11.11</em>
+<br /></p>
+
+<p>Under the <code class="highlighter-rouge"># Default Application versions</code> define your prefered version.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># Default Application versions</span>
+
+<span class="nv">SCALA_VERSION</span><span class="o">=</span><span class="s2">"scala-2.11.11"</span>
+<span class="nv">SPARK_VERSION</span><span class="o">=</span><span class="s2">"spark-2.2.0-bin-hadoop2.7"</span>
+<span class="nv">KAFKA_VERSION</span><span class="o">=</span><span class="s2">"kafka_2.10-0.10.2.1"</span></code></pre></figure>
 
 <p><br /></p>
 
-<h3 id="step-1---download-the-source-code--extract-it">Step 1 - Download the source code &amp; extract it</h3>
-
-<ul>
-  <li>
-    <p>Download Apache kafka from <a href="https://www.apache.org/dyn/closer.cgi?path=/kafka/1.0.0/kafka_2.10-0.10.2.0.tgz">here</a></p>
-  </li>
-  <li>
-    <p>Navigate to the downloaded directory &amp; <code class="highlighter-rouge">untar</code> the kafka_2.10-0.10.2.0.tar</p>
-  </li>
-</ul>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">  tar -xzf kafka_2.10-0.10.2.0.tgz
-  <span class="nb">cd </span>kafka_2.10-0.10.2.0
-  </code></pre></figure>
-
-<p><br /></p>
-
-<h3 id="step-2---starting-the-server">Step 2 - Starting the Server</h3>
-
-<ul>
-  <li>
-    <p>You first need to start a ZooKeeper serve, since Kafka uses Zookeeper for the tasks such as Electing a controller, Topic configuration, ACLs &amp; for many more.</p>
-  </li>
-  <li>
-    <p>As you are now in the <code class="highlighter-rouge">kafka_2.10-0.10.2.0</code> directory execute the following command</p>
-  </li>
-</ul>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">  bin/zookeeper-server-start.sh config/zookeeper.properties
-  </code></pre></figure>
-
-<ul>
-  <li>Starting the Kafka Server</li>
-</ul>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">  bin/kafka-server-start.sh config/server.properties
-  </code></pre></figure>
-
-<p><br /></p>
-
-<h3 id="step-3---creating-a-topic">Step 3 - Creating a Topic</h3>
-
-<ul>
-  <li>Creating a topic located at zookeeper at the <code class="highlighter-rouge">localhost:2181</code> named <code class="highlighter-rouge">mytopic</code> with a <code class="highlighter-rouge">single partition</code> &amp; <code class="highlighter-rouge">single replica</code>.</li>
-</ul>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">  bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic mytopic
-  </code></pre></figure>
-
-<ul>
-  <li>To ensure that our topic is created, execute following command</li>
-</ul>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">  bin/kafka-topics.sh --list --zookeeper localhost:2181
-  </code></pre></figure>
-
-<p><br /></p>
-
-<h3 id="step-4---running-the-producer">Step 4 - Running the Producer</h3>
-
-<ul>
-  <li>This is for feed the <code class="highlighter-rouge">mytopic</code> Topic (do it in a separate console)</li>
-</ul>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">  bin/kafka-console-producer.sh --broker-list localhost:9092 --topic mytopic
-  </code></pre></figure>
-
-<ul>
-  <li>You can send messages to the Kafka cluster from the console even except the standard file inputs. just  type the message in the console.</li>
-</ul>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">  This is a Sample message
-  </code></pre></figure>
-
-<p><br /></p>
-
-<h3 id="step-5---running-the-consumer">Step 5 - Running the Consumer</h3>
-
-<ul>
-  <li>This is for listen to the producer at that port (do it in a separate terminal).</li>
-  <li>Following command will listens for the topic inputs and outputs</li>
-</ul>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic mytopic
-    </code></pre></figure>
-
-<ul>
-  <li>If you type messages into the producer terminal you should see them appear in the consumer terminal.</li>
-</ul>
-
-<p><br /></p>
-
-<h3 id="step-6---stopping-the-kafka-server">Step 6 - Stopping the Kafka Server</h3>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">bin/kafka-server-stop.sh  </code></pre></figure>
-
-<p><br /></p>
-
-<h3 id="step-7---stopping-the-zookeeper-server">Step 7 - Stopping the Zookeeper Server</h3>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">bin/zookeeper-server-stop.sh</code></pre></figure>
-
+<hr />
 
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <ins class="adsbygoogle"
@@ -328,11 +263,6 @@ Mainly we deal with the <code class="highlighter-rouge">/bin</code> folder.</p>
 		  <li><i class="fa fa-folder-open"></i></li>
 		  
 		  
-			
-				<li><a href="/categories.html#general-ref">
-					general <span>(1)</span>
-					,
-				</a></li>
 			
 				<li><a href="/categories.html#bigdata-ref">
 					bigdata <span>(3)</span>
@@ -366,6 +296,48 @@ Mainly we deal with the <code class="highlighter-rouge">/bin</code> folder.</p>
 				<li>
 					<a href="/tags.html#bigdata-ref">
 					bigdata <span>(3)</span>
+					,
+					</a>
+				</li>
+			
+				<li>
+					<a href="/tags.html#scala-ref">
+					scala <span>(2)</span>
+					,
+					</a>
+				</li>
+			
+				<li>
+					<a href="/tags.html#Real-Time-Processing-ref">
+					Real-Time-Processing <span>(2)</span>
+					,
+					</a>
+				</li>
+			
+				<li>
+					<a href="/tags.html#Spark-ref">
+					Spark <span>(2)</span>
+					,
+					</a>
+				</li>
+			
+				<li>
+					<a href="/tags.html#streaming-ref">
+					streaming <span>(2)</span>
+					,
+					</a>
+				</li>
+			
+				<li>
+					<a href="/tags.html#java-ref">
+					java <span>(1)</span>
+					,
+					</a>
+				</li>
+			
+				<li>
+					<a href="/tags.html#git-ref">
+					git <span>(1)</span>
 					
 					</a>
 				</li>
@@ -380,7 +352,7 @@ Mainly we deal with the <code class="highlighter-rouge">/bin</code> folder.</p>
 		<div>
       <section class="share col-sm-6">
         <h4 class="section-title">Share Post</h4>
-        <a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=Setting Up Apache Kafka locally&via=OmalPerera"
+        <a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=Up & Run Apache Spark within seconds with all dependencies&via=OmalPerera"
            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
           <i class="fa fa-twitter fa-lg"></i>
           Twitter
@@ -408,10 +380,10 @@ Mainly we deal with the <code class="highlighter-rouge">/bin</code> folder.</p>
 
 		<ul class="pager">
 		  
-		  <li class="previous disabled"><a>&larr; Previous</a></li>
+		  <li class="previous"><a href="/bigdata/2017/11/30/Real-time-Data-Processing-with-Apache-Kafka-Spark-Streaming-and-Scala.html" title="Apache Spark - Kafka Integration for Real-time Data Processing with Scala">&larr; Previous</a></li>
 		  
 		  
-		  <li class="next"><a href="/bigdata/2017/11/30/Real-time-Data-Processing-with-Apache-Kafka-Spark-Streaming-and-Scala.html" title="Apache Spark - Kafka Integration for Real-time Data Processing with Scala">Next &rarr;</a></li>
+			<li class="next disabled"><a>Next &rarr;</a>
 		  
 		</ul>
 
