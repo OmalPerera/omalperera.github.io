@@ -38,7 +38,7 @@ $ chmod +x install-spark.sh
 ### 2. Run the script ###
 
 {% highlight bash %}
-$ chmod +x install-spark.sh
+$ source install-spark.sh
 {% endhighlight %}
 
 <br>

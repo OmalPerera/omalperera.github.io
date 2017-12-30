@@ -7,6 +7,103 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Playing with GIT Branches</title>
+				<description>&lt;p&gt;Once you clone a git repository from github, you may need to figure out what other branches really exist on the remote repository so you can &lt;code class=&quot;highlighter-rouge&quot;&gt;pull&lt;/code&gt; them down and &lt;code class=&quot;highlighter-rouge&quot;&gt;checkout&lt;/code&gt; them, &lt;code class=&quot;highlighter-rouge&quot;&gt;merge&lt;/code&gt; them into your local branches. It is not a hard task if you are using GitHub Desktop. But much better to know if you interacting with command line.&lt;br /&gt;
+&lt;br /&gt;
+For the sake of better understanding, lets look into an example of cloning a remote repository into your local machine.
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;git clone https://github.com/OmalPerera/sample-project.git
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;sample-project&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;to-check-the-local-branches-in-your-repository&quot;&gt;To check the local branches in your repository&lt;/h4&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;git branch
+
+&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; master&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;to-list-all-existing-branches&quot;&gt;To list all existing Branches&lt;/h4&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;git branch -av
+
+&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; master                cc30c0f Initial commit
+  remotes/origin/HEAD   -&amp;gt; origin/master
+  remotes/origin/dev    cc30c0f Initial commit
+  remotes/origin/master cc30c0f Initial commit&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;create-a-local-tracking-branch-in-order-to-work-on-it&quot;&gt;Create a local tracking branch in order to work on it&lt;/h4&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;git checkout &amp;lt;dev&amp;gt;
+
+  Branch dev &lt;span class=&quot;nb&quot;&gt;set &lt;/span&gt;up to track remote branch dev from origin.
+  Switched to a new branch &lt;span class=&quot;s1&quot;&gt;'dev'&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;fetching-all-remote-branches-at-once&quot;&gt;Fetching all remote branches at once&lt;/h4&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;git pull --all&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Below I have explained the difference between &lt;code class=&quot;highlighter-rouge&quot;&gt;git pull&lt;/code&gt; &amp;amp; &lt;code class=&quot;highlighter-rouge&quot;&gt;git fetch&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;switching-between-branches&quot;&gt;Switching between branches&lt;/h4&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;git checkout &amp;lt;branch&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;creating-a-new-tracking-branch-based-on-a-remote-branch&quot;&gt;Creating a new tracking branch based on a remote branch&lt;/h4&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;git checkout --track &amp;lt;remote/branch&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;deleting-local-branch&quot;&gt;Deleting local branch&lt;/h4&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;git branch -d &amp;lt;branch&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h3 id=&quot;git-pull-vs-git-fetch&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git pull&lt;/code&gt; vs &lt;code class=&quot;highlighter-rouge&quot;&gt;git fetch&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;git-pull&quot;&gt;git pull&lt;/h4&gt;
+&lt;p&gt;Git tries to automate your work for you. Since it is context sensitive, git will merge any pulled commits into the branch you are currently working in. pull automatically merges the commits without letting you review them first. You may run into frequent conflicts if you are mot managing your branches in a proper way.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;git-fetch&quot;&gt;git fetch&lt;/h4&gt;
+&lt;p&gt;Git gathers any commits from the particular branch that do not exist in your current branch &amp;amp; saves them in your local repository. But it doesn’t merge them with your current branch. This is particularly useful if you need to keep your repository up to date, but are working on something that might break if you update your files.
+&lt;img src=&quot;https://i.imgur.com/w4sr7bp.png&quot; alt=&quot;pull vs fetch diagram&quot; style=&quot;width: 400px;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h3 id=&quot;explaining-downstream--upstream&quot;&gt;Explaining &lt;code class=&quot;highlighter-rouge&quot;&gt;Downstream&lt;/code&gt; &amp;amp; &lt;code class=&quot;highlighter-rouge&quot;&gt;UpStream&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;br /&gt;
+In terms of source control, you’re &lt;code class=&quot;highlighter-rouge&quot;&gt;downstream&lt;/code&gt; when you copy (clone, checkout, etc) from a repository. Information flowed &lt;code class=&quot;highlighter-rouge&quot;&gt;downstream&lt;/code&gt; to you.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+When you make changes, you usually want to send them back &lt;code class=&quot;highlighter-rouge&quot;&gt;upstream&lt;/code&gt; so they make it into that repository so that everyone pulling from the same source is working with all the same changes.
+&lt;a href=&quot;https://stackoverflow.com/questions/2739376/definition-of-downstream-and-upstream&quot;&gt;Source&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+</description>
+				<pubDate>Fri, 29 Dec 2017 00:00:00 +0530</pubDate>
+				<link>/git/2017/12/29/Playing-with-GIT-Branches.html</link>
+				<guid isPermaLink="true">/git/2017/12/29/Playing-with-GIT-Branches.html</guid>
+			</item>
+		
+			<item>
 				<title>Up & Run Apache Spark within seconds with all dependencies</title>
 				<description>&lt;p&gt;&lt;a href=&quot;https://github.com/OmalPerera/install-Spark&quot;&gt;install-spark&lt;/a&gt; is a fully automated Spark installation bash script for linux Dabian based Servers.&lt;/p&gt;
 
@@ -36,7 +133,7 @@
 
 &lt;h3 id=&quot;2-run-the-script&quot;&gt;2. Run the script&lt;/h3&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;chmod +x install-spark.sh&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;source &lt;/span&gt;install-spark.sh&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;br /&gt;
 &lt;br /&gt;&lt;/p&gt;

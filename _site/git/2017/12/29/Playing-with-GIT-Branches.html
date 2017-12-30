@@ -2,9 +2,9 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Up & Run Apache Spark within seconds with all dependencies</title>
+	<title>Playing with GIT Branches</title>
 	
-	<meta name="description" content="Fully automated bash script for Spark installation in linux Dabian based Servers.">
+	<meta name="description" content="Silly things you need to know about git, when dealing with branches.">
 	
 	<meta name="author" content="Omal Perera">
 
@@ -44,19 +44,19 @@
 
 
 	<!-- Begin Jekyll SEO tag v2.3.0 -->
-<title>Up &amp; Run Apache Spark within seconds with all dependencies | Omal Perera</title>
-<meta property="og:title" content="Up &amp; Run Apache Spark within seconds with all dependencies" />
+<title>Playing with GIT Branches | Omal Perera</title>
+<meta property="og:title" content="Playing with GIT Branches" />
 <meta name="author" content="Omal Perera" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Fully automated bash script for Spark installation in linux Dabian based Servers." />
-<meta property="og:description" content="Fully automated bash script for Spark installation in linux Dabian based Servers." />
-<link rel="canonical" href="http://localhost:4000/bigdata/2017/12/16/Install-Spark-within-seconds.html" />
-<meta property="og:url" content="http://localhost:4000/bigdata/2017/12/16/Install-Spark-within-seconds.html" />
+<meta name="description" content="Silly things you need to know about git, when dealing with branches." />
+<meta property="og:description" content="Silly things you need to know about git, when dealing with branches." />
+<link rel="canonical" href="http://localhost:4000/git/2017/12/29/Playing-with-GIT-Branches.html" />
+<meta property="og:url" content="http://localhost:4000/git/2017/12/29/Playing-with-GIT-Branches.html" />
 <meta property="og:site_name" content="Omal Perera" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2017-12-16T00:00:00+05:30" />
+<meta property="article:published_time" content="2017-12-29T00:00:00+05:30" />
 <script type="application/ld+json">
-{"name":null,"description":"Fully automated bash script for Spark installation in linux Dabian based Servers.","url":"http://localhost:4000/bigdata/2017/12/16/Install-Spark-within-seconds.html","headline":"Up &amp; Run Apache Spark within seconds with all dependencies","dateModified":"2017-12-16T00:00:00+05:30","datePublished":"2017-12-16T00:00:00+05:30","sameAs":null,"@type":"BlogPosting","author":{"@type":"Person","name":"Omal Perera"},"image":null,"publisher":null,"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/bigdata/2017/12/16/Install-Spark-within-seconds.html"},"@context":"http://schema.org"}</script>
+{"name":null,"description":"Silly things you need to know about git, when dealing with branches.","url":"http://localhost:4000/git/2017/12/29/Playing-with-GIT-Branches.html","headline":"Playing with GIT Branches","dateModified":"2017-12-29T00:00:00+05:30","datePublished":"2017-12-29T00:00:00+05:30","sameAs":null,"@type":"BlogPosting","author":{"@type":"Person","name":"Omal Perera"},"image":null,"publisher":null,"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/git/2017/12/29/Playing-with-GIT-Branches.html"},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -179,7 +179,7 @@
 
 	<div class="col-sm-9 col-sm-offset-3">
 		<div class="page-header">
-  <h1>Up & Run Apache Spark within seconds with all dependencies </h1>
+  <h1>Playing with GIT Branches </h1>
 </div>
 
 <article>
@@ -188,58 +188,96 @@
 	 <span class="post-date">
 	   
 	   December
-	   16th,
+	   29th,
 	   
 	   2017
 	 </span>
 	  <div class="article_body">
-	  <p><a href="https://github.com/OmalPerera/install-Spark">install-spark</a> is a fully automated Spark installation bash script for linux Dabian based Servers.</p>
+	  <p>Once you clone a git repository from github, you may need to figure out what other branches really exist on the remote repository so you can <code class="highlighter-rouge">pull</code> them down and <code class="highlighter-rouge">checkout</code> them, <code class="highlighter-rouge">merge</code> them into your local branches. It is not a hard task if you are using GitHub Desktop. But much better to know if you interacting with command line.<br />
+<br />
+For the sake of better understanding, lets look into an example of cloning a remote repository into your local machine.
+<br /></p>
 
-<p>Script will install following key components needes to install Real-time data processing with few clicks.</p>
-
-<ul>
-  <li>Full Update &amp; Upgrade</li>
-  <li>install up-to-date JRE</li>
-  <li>install up-to-date JDK</li>
-  <li>install scala 2.11.11</li>
-  <li>install Apache kafka 2.10 0.10.2.1</li>
-  <li>install git</li>
-  <li>install sbt</li>
-  <li>install Apache spark spark-2.2.0 pre-built for Apache hadoop 2.7 &amp; later</li>
-  <li>all the environmental + all the PATH variables</li>
-</ul>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>git clone https://github.com/OmalPerera/sample-project.git
+<span class="gp">$ </span><span class="nb">cd </span>sample-project</code></pre></figure>
 
 <p><br /></p>
 
-<h1 id="using-the-script">Using the Script</h1>
+<h4 id="to-check-the-local-branches-in-your-repository">To check the local branches in your repository</h4>
 
-<h3 id="1-granting-the-executing-permission-to-the-script">1. Granting the executing permission to the script</h3>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>git branch
 
-<p>Navigate to the directory where the script is.</p>
+<span class="k">*</span> master</code></pre></figure>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>chmod +x install-spark.sh</code></pre></figure>
+<p><br /></p>
 
-<h3 id="2-run-the-script">2. Run the script</h3>
+<h4 id="to-list-all-existing-branches">To list all existing Branches</h4>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span><span class="nb">source </span>install-spark.sh</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>git branch -av
+
+<span class="k">*</span> master                cc30c0f Initial commit
+  remotes/origin/HEAD   -&gt; origin/master
+  remotes/origin/dev    cc30c0f Initial commit
+  remotes/origin/master cc30c0f Initial commit</code></pre></figure>
+
+<p><br /></p>
+
+<h4 id="create-a-local-tracking-branch-in-order-to-work-on-it">Create a local tracking branch in order to work on it</h4>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>git checkout &lt;dev&gt;
+
+  Branch dev <span class="nb">set </span>up to track remote branch dev from origin.
+  Switched to a new branch <span class="s1">'dev'</span></code></pre></figure>
+
+<p><br /></p>
+
+<h4 id="fetching-all-remote-branches-at-once">Fetching all remote branches at once</h4>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>git pull --all</code></pre></figure>
+
+<p>Below I have explained the difference between <code class="highlighter-rouge">git pull</code> &amp; <code class="highlighter-rouge">git fetch</code></p>
+
+<p><br /></p>
+
+<h4 id="switching-between-branches">Switching between branches</h4>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>git checkout &lt;branch&gt;</code></pre></figure>
+
+<p><br /></p>
+
+<h4 id="creating-a-new-tracking-branch-based-on-a-remote-branch">Creating a new tracking branch based on a remote branch</h4>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>git checkout --track &lt;remote/branch&gt;</code></pre></figure>
+
+<p><br /></p>
+
+<h4 id="deleting-local-branch">Deleting local branch</h4>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>git branch -d &lt;branch&gt;</code></pre></figure>
+
+<p><br /><br /></p>
+
+<hr />
+<h3 id="git-pull-vs-git-fetch"><code class="highlighter-rouge">git pull</code> vs <code class="highlighter-rouge">git fetch</code></h3>
+<p><br /></p>
+<h4 id="git-pull">git pull</h4>
+<p>Git tries to automate your work for you. Since it is context sensitive, git will merge any pulled commits into the branch you are currently working in. pull automatically merges the commits without letting you review them first. You may run into frequent conflicts if you are mot managing your branches in a proper way.</p>
+
+<p><br /></p>
+<h4 id="git-fetch">git fetch</h4>
+<p>Git gathers any commits from the particular branch that do not exist in your current branch &amp; saves them in your local repository. But it doesn’t merge them with your current branch. This is particularly useful if you need to keep your repository up to date, but are working on something that might break if you update your files.
+<img src="https://i.imgur.com/w4sr7bp.png" alt="pull vs fetch diagram" style="width: 400px;" /></p>
+
+<p><br /></p>
+
+<hr />
+<h3 id="explaining-downstream--upstream">Explaining <code class="highlighter-rouge">Downstream</code> &amp; <code class="highlighter-rouge">UpStream</code></h3>
+<p><br />
+In terms of source control, you’re <code class="highlighter-rouge">downstream</code> when you copy (clone, checkout, etc) from a repository. Information flowed <code class="highlighter-rouge">downstream</code> to you.</p>
 
 <p><br />
-<br /></p>
-
-<h1 id="customizing-the-script">Customizing the Script</h1>
-
-<p>In the script you can define the <strong>versions</strong> of libraries that you need to install.<br /></p>
-
-<p><em>eg: spark-2.2.0-bin-hadoop2.7 , scala-2.11.11</em>
-<br /></p>
-
-<p>Under the <code class="highlighter-rouge"># Default Application versions</code> define your prefered version.</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># Default Application versions</span>
-
-<span class="nv">SCALA_VERSION</span><span class="o">=</span><span class="s2">"scala-2.11.11"</span>
-<span class="nv">SPARK_VERSION</span><span class="o">=</span><span class="s2">"spark-2.2.0-bin-hadoop2.7"</span>
-<span class="nv">KAFKA_VERSION</span><span class="o">=</span><span class="s2">"kafka_2.10-0.10.2.1"</span></code></pre></figure>
+When you make changes, you usually want to send them back <code class="highlighter-rouge">upstream</code> so they make it into that repository so that everyone pulling from the same source is working with all the same changes.
+<a href="https://stackoverflow.com/questions/2739376/definition-of-downstream-and-upstream">Source</a></p>
 
 <p><br /></p>
 
@@ -264,8 +302,8 @@
 		  
 		  
 			
-				<li><a href="/categories.html#bigdata-ref">
-					bigdata <span>(3)</span>
+				<li><a href="/categories.html#git-ref">
+					git <span>(1)</span>
 					
 				</a></li>
 			
@@ -280,64 +318,43 @@
 		  
 			
 				<li>
-					<a href="/tags.html#apache-ref">
-					apache <span>(3)</span>
-					,
-					</a>
-				</li>
-			
-				<li>
-					<a href="/tags.html#kafka-ref">
-					kafka <span>(3)</span>
-					,
-					</a>
-				</li>
-			
-				<li>
-					<a href="/tags.html#bigdata-ref">
-					bigdata <span>(3)</span>
-					,
-					</a>
-				</li>
-			
-				<li>
-					<a href="/tags.html#scala-ref">
-					scala <span>(2)</span>
-					,
-					</a>
-				</li>
-			
-				<li>
-					<a href="/tags.html#Real-Time-Processing-ref">
-					Real-Time-Processing <span>(2)</span>
-					,
-					</a>
-				</li>
-			
-				<li>
-					<a href="/tags.html#Spark-ref">
-					Spark <span>(2)</span>
-					,
-					</a>
-				</li>
-			
-				<li>
-					<a href="/tags.html#streaming-ref">
-					streaming <span>(2)</span>
-					,
-					</a>
-				</li>
-			
-				<li>
-					<a href="/tags.html#java-ref">
-					java <span>(1)</span>
-					,
-					</a>
-				</li>
-			
-				<li>
 					<a href="/tags.html#git-ref">
 					git <span>(2)</span>
+					,
+					</a>
+				</li>
+			
+				<li>
+					<a href="/tags.html#branch-ref">
+					branch <span>(1)</span>
+					,
+					</a>
+				</li>
+			
+				<li>
+					<a href="/tags.html#remote-ref">
+					remote <span>(1)</span>
+					,
+					</a>
+				</li>
+			
+				<li>
+					<a href="/tags.html#local-ref">
+					local <span>(1)</span>
+					,
+					</a>
+				</li>
+			
+				<li>
+					<a href="/tags.html#git pull-ref">
+					git pull <span>(1)</span>
+					,
+					</a>
+				</li>
+			
+				<li>
+					<a href="/tags.html#git fetch-ref">
+					git fetch <span>(1)</span>
 					
 					</a>
 				</li>
@@ -352,7 +369,7 @@
 		<div>
       <section class="share col-sm-6">
         <h4 class="section-title">Share Post</h4>
-        <a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=Up & Run Apache Spark within seconds with all dependencies&via=OmalPerera"
+        <a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=Playing with GIT Branches&via=OmalPerera"
            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
           <i class="fa fa-twitter fa-lg"></i>
           Twitter
@@ -380,10 +397,10 @@
 
 		<ul class="pager">
 		  
-		  <li class="previous"><a href="/bigdata/2017/11/30/Real-time-Data-Processing-with-Apache-Kafka-Spark-Streaming-and-Scala.html" title="Apache Spark - Kafka Integration for Real-time Data Processing with Scala">&larr; Previous</a></li>
+		  <li class="previous"><a href="/bigdata/2017/12/16/Install-Spark-within-seconds.html" title="Up & Run Apache Spark within seconds with all dependencies">&larr; Previous</a></li>
 		  
 		  
-		  <li class="next"><a href="/git/2017/12/29/Playing-with-GIT-Branches.html" title="Playing with GIT Branches">Next &rarr;</a></li>
+			<li class="next disabled"><a>Next &rarr;</a>
 		  
 		</ul>
 
