@@ -89,6 +89,7 @@ Git tries to automate your work for you. Since it is context sensitive, git will
 <br>
 #### git fetch
 Git gathers any commits from the particular branch that do not exist in your current branch & saves them in your local repository. But it doesn't merge them with your current branch. This is particularly useful if you need to keep your repository up to date, but are working on something that might break if you update your files.
+<br>
 <img src="https://i.imgur.com/w4sr7bp.png" alt="pull vs fetch diagram" style="width: 400px;"/>
 
 <br>

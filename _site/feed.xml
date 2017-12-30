@@ -81,6 +81,7 @@ For the sake of better understanding, lets look into an example of cloning a rem
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;h4 id=&quot;git-fetch&quot;&gt;git fetch&lt;/h4&gt;
 &lt;p&gt;Git gathers any commits from the particular branch that do not exist in your current branch &amp;amp; saves them in your local repository. But it doesn’t merge them with your current branch. This is particularly useful if you need to keep your repository up to date, but are working on something that might break if you update your files.
+&lt;br /&gt;
 &lt;img src=&quot;https://i.imgur.com/w4sr7bp.png&quot; alt=&quot;pull vs fetch diagram&quot; style=&quot;width: 400px;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
