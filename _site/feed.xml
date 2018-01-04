@@ -105,6 +105,78 @@ When you make changes, you usually want to send them back &lt;code class=&quot;h
 			</item>
 		
 			<item>
+				<title>Install Maven on Mac OSX</title>
+				<description>&lt;p&gt;First of all lets check for Maven in your system, because some versions of OS X came with Apache Maven 3 built in installed.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;mvn -version&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;if you are getting a response as follows.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;Apache Maven 3.5.2 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;138edd61fd100ec658bfa2d307c43b76940a5d7d; 2017-10-18T13:28:13+05:30&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+Maven home: /usr/share/maven
+Java version: 1.8.0_60, vendor: Oracle Corporation
+Java home: /Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: &lt;span class=&quot;s2&quot;&gt;&quot;mac os x&quot;&lt;/span&gt;, version: &lt;span class=&quot;s2&quot;&gt;&quot;10.12.5&quot;&lt;/span&gt;, arch: &lt;span class=&quot;s2&quot;&gt;&quot;x86_64&quot;&lt;/span&gt;, family: &lt;span class=&quot;s2&quot;&gt;&quot;mac&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Congratulations!! you don’t want to install Maven, You already have it.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+But if you are getting a message like this, you can go ahead with the tutorial&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;-bash: mvn: &lt;span class=&quot;nb&quot;&gt;command &lt;/span&gt;not found&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;installing-maven&quot;&gt;Installing Maven&lt;/h2&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;step-i---downloading-maven&quot;&gt;Step I - Downloading Maven&lt;/h3&gt;
+&lt;p&gt;Download maven from &lt;a href=&quot;http://maven.apache.org/download.cgi&quot;&gt;maven.apache.org&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;step-ii---extract-the-targz&quot;&gt;Step II - Extract the tar.gz&lt;/h3&gt;
+&lt;p&gt;Navigate to the directory where &lt;code class=&quot;highlighter-rouge&quot;&gt;tar.gz&lt;/code&gt; file downloaded &amp;amp; extract it to &lt;code class=&quot;highlighter-rouge&quot;&gt;/usr/share/maven&lt;/code&gt;. You can use following terminal commands to exact directly in to &lt;code class=&quot;highlighter-rouge&quot;&gt;/usr/share/maven&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Remember to change the maven version in the command!.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo tar -xvf apache-maven-3.5.2.tar.gz -C /usr/share/
+&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /usr/share/
+sudo mv apache-maven-3.5.2 maven&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;step-iii---update-the-home--path-variables&quot;&gt;Step III - Update the HOME &amp;amp; PATH variables&lt;/h3&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;M2_HOME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/share/maven
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;:&lt;span class=&quot;nv&quot;&gt;$M2_HOME&lt;/span&gt;/bin&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Okay! now check the previous command again&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;mvn -version&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;if you are getting a response as follows.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;Apache Maven 3.5.2 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;138edd61fd100ec658bfa2d307c43b76940a5d7d; 2017-10-18T13:28:13+05:30&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+Maven home: /usr/share/maven
+Java version: 1.8.0_60, vendor: Oracle Corporation
+Java home: /Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: &lt;span class=&quot;s2&quot;&gt;&quot;mac os x&quot;&lt;/span&gt;, version: &lt;span class=&quot;s2&quot;&gt;&quot;10.12.5&quot;&lt;/span&gt;, arch: &lt;span class=&quot;s2&quot;&gt;&quot;x86_64&quot;&lt;/span&gt;, family: &lt;span class=&quot;s2&quot;&gt;&quot;mac&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Congratulations! 🎉   you have correctly configured the Maven in your Mac!&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+</description>
+				<pubDate>Thu, 21 Dec 2017 00:00:00 +0530</pubDate>
+				<link>/howto/2017/12/21/Install-Maven-on-Mac-OSX.html</link>
+				<guid isPermaLink="true">/howto/2017/12/21/Install-Maven-on-Mac-OSX.html</guid>
+			</item>
+		
+			<item>
 				<title>Up & Run Apache Spark within seconds with all dependencies</title>
 				<description>&lt;p&gt;&lt;a href=&quot;https://github.com/OmalPerera/install-Spark&quot;&gt;install-spark&lt;/a&gt; is a fully automated Spark installation bash script for linux Dabian based Servers.&lt;/p&gt;
 
