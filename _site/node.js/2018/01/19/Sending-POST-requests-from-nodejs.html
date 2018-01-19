@@ -2,9 +2,9 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Playing with GIT Branches</title>
+	<title>Sending POST requests from Node.js</title>
 	
-	<meta name="description" content="Silly things you need to know about git, when dealing with branches.">
+	<meta name="description" content="How to send post requests from Node.js">
 	
 	<meta name="author" content="Omal Perera">
 
@@ -44,19 +44,19 @@
 
 
 	<!-- Begin Jekyll SEO tag v2.3.0 -->
-<title>Playing with GIT Branches | Omal Perera</title>
-<meta property="og:title" content="Playing with GIT Branches" />
+<title>Sending POST requests from Node.js | Omal Perera</title>
+<meta property="og:title" content="Sending POST requests from Node.js" />
 <meta name="author" content="Omal Perera" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Silly things you need to know about git, when dealing with branches." />
-<meta property="og:description" content="Silly things you need to know about git, when dealing with branches." />
-<link rel="canonical" href="http://localhost:4000/git/2017/12/29/Playing-with-GIT-Branches.html" />
-<meta property="og:url" content="http://localhost:4000/git/2017/12/29/Playing-with-GIT-Branches.html" />
+<meta name="description" content="How to send post requests from Node.js" />
+<meta property="og:description" content="How to send post requests from Node.js" />
+<link rel="canonical" href="http://localhost:4000/node.js/2018/01/19/Sending-POST-requests-from-nodejs.html" />
+<meta property="og:url" content="http://localhost:4000/node.js/2018/01/19/Sending-POST-requests-from-nodejs.html" />
 <meta property="og:site_name" content="Omal Perera" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2017-12-29T00:00:00+05:30" />
+<meta property="article:published_time" content="2018-01-19T00:00:00+05:30" />
 <script type="application/ld+json">
-{"name":null,"description":"Silly things you need to know about git, when dealing with branches.","url":"http://localhost:4000/git/2017/12/29/Playing-with-GIT-Branches.html","headline":"Playing with GIT Branches","dateModified":"2017-12-29T00:00:00+05:30","datePublished":"2017-12-29T00:00:00+05:30","sameAs":null,"@type":"BlogPosting","author":{"@type":"Person","name":"Omal Perera"},"image":null,"publisher":null,"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/git/2017/12/29/Playing-with-GIT-Branches.html"},"@context":"http://schema.org"}</script>
+{"name":null,"description":"How to send post requests from Node.js","url":"http://localhost:4000/node.js/2018/01/19/Sending-POST-requests-from-nodejs.html","headline":"Sending POST requests from Node.js","dateModified":"2018-01-19T00:00:00+05:30","datePublished":"2018-01-19T00:00:00+05:30","sameAs":null,"@type":"BlogPosting","author":{"@type":"Person","name":"Omal Perera"},"image":null,"publisher":null,"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/node.js/2018/01/19/Sending-POST-requests-from-nodejs.html"},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -179,7 +179,7 @@
 
 	<div class="col-sm-9 col-sm-offset-3">
 		<div class="page-header">
-  <h1>Playing with GIT Branches </h1>
+  <h1>Sending POST requests from Node.js </h1>
 </div>
 
 <article>
@@ -187,98 +187,76 @@
 	<div class="col-sm-10">
 	 <span class="post-date">
 	   
-	   December
-	   29th,
+	   January
+	   19th,
 	   
-	   2017
+	   2018
 	 </span>
 	  <div class="article_body">
-	  <p>Once you clone a git repository from github, you may need to figure out what other branches really exist on the remote repository so you can <code class="highlighter-rouge">pull</code> them down and <code class="highlighter-rouge">checkout</code> them, <code class="highlighter-rouge">merge</code> them into your local branches. It is not a hard task if you are using GitHub Desktop. But much better to know if you interacting with command line.<br />
-<br />
-For the sake of better understanding, lets look into an example of cloning a remote repository into your local machine.
+	  <p>Hello all of you! from this article we are going to explore how to send POST requests from a Node.js Application. Node application using here is very much simple &amp; very easy to understand.
 <br /></p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>git clone https://github.com/OmalPerera/sample-project.git
-<span class="gp">$ </span><span class="nb">cd </span>sample-project</code></pre></figure>
+<p>For the easy coding we are using <a href="https://www.npmjs.com/package/request"><code class="highlighter-rouge">requests</code></a> npm package to send the requests. In <code class="highlighter-rouge">requests</code> npm package you can find many easy http method implementations</p>
+
+<ul>
+  <li><em>request.get()</em>: Defaults to method: “GET”.</li>
+  <li><em>request.post()</em>: Defaults to method: “POST”.</li>
+  <li><em>request.put()</em>: Defaults to method: “PUT”.</li>
+  <li><em>request.patch()</em>: Defaults to method: “PATCH”.</li>
+  <li><em>request.del() / request.delete()</em>: Defaults to method: “DELETE”.</li>
+  <li><em>request.head()</em>: Defaults to method: “HEAD”.</li>
+  <li><em>request.options()</em>: Defaults to method: “OPTIONS”.</li>
+</ul>
 
 <p><br /></p>
+<h3 id="so-lets-directly-go-into-the-code">So lets directly go into the code</h3>
 
-<h4 id="to-check-the-local-branches-in-your-repository">To check the local branches in your repository</h4>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">var</span> <span class="n">http</span>       <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s1">'http'</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">express</span>    <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s1">'express'</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">request</span>    <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s1">'request'</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">app</span>        <span class="o">=</span> <span class="n">express</span><span class="p">();</span>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>git branch
+<span class="n">var</span> <span class="n">server</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">createServer</span><span class="p">(</span><span class="n">app</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">port</span> <span class="o">=</span> <span class="mi">9000</span><span class="p">;</span>
 
-<span class="k">*</span> master</code></pre></figure>
+<span class="sr">//</span><span class="no">Starting</span> <span class="n">the</span> <span class="n">server</span>
+<span class="n">server</span><span class="p">.</span><span class="nf">listen</span><span class="p">(</span><span class="n">port</span><span class="p">);</span>
+<span class="n">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="s1">'Server Started on port '</span> <span class="o">+</span> <span class="n">port</span><span class="p">);</span>
 
-<p><br /></p>
-
-<h4 id="to-list-all-existing-branches">To list all existing Branches</h4>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>git branch -av
-
-<span class="k">*</span> master                cc30c0f Initial commit
-  remotes/origin/HEAD   -&gt; origin/master
-  remotes/origin/dev    cc30c0f Initial commit
-  remotes/origin/master cc30c0f Initial commit</code></pre></figure>
-
-<p><br /></p>
-
-<h4 id="create-a-local-tracking-branch-in-order-to-work-on-it">Create a local tracking branch in order to work on it</h4>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>git checkout &lt;dev&gt;
-
-  Branch dev <span class="nb">set </span>up to track remote branch dev from origin.
-  Switched to a new branch <span class="s1">'dev'</span></code></pre></figure>
-
-<p><br /></p>
-
-<h4 id="fetching-all-remote-branches-at-once">Fetching all remote branches at once</h4>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>git pull --all</code></pre></figure>
-
-<p>Below I have explained the difference between <code class="highlighter-rouge">git pull</code> &amp; <code class="highlighter-rouge">git fetch</code></p>
-
-<p><br /></p>
-
-<h4 id="switching-between-branches">Switching between branches</h4>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>git checkout &lt;branch&gt;</code></pre></figure>
-
-<p><br /></p>
-
-<h4 id="creating-a-new-tracking-branch-based-on-a-remote-branch">Creating a new tracking branch based on a remote branch</h4>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>git checkout --track &lt;remote/branch&gt;</code></pre></figure>
-
-<p><br /></p>
-
-<h4 id="deleting-local-branch">Deleting local branch</h4>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>git branch -d &lt;branch&gt;</code></pre></figure>
-
-<p><br /><br /></p>
-
-<hr />
-<h3 id="git-pull-vs-git-fetch"><code class="highlighter-rouge">git pull</code> vs <code class="highlighter-rouge">git fetch</code></h3>
-<p><br /></p>
-<h4 id="git-pull">git pull</h4>
-<p>Git tries to automate your work for you. Since it is context sensitive, git will merge any pulled commits into the branch you are currently working in. pull automatically merges the commits without letting you review them first. You may run into frequent conflicts if you are mot managing your branches in a proper way.</p>
-
-<p><br /></p>
-<h4 id="git-fetch">git fetch</h4>
-<p>Git gathers any commits from the particular branch that do not exist in your current branch &amp; saves them in your local repository. But it doesn’t merge them with your current branch. This is particularly useful if you need to keep your repository up to date, but are working on something that might break if you update your files.
-<br />
-<img src="https://i.imgur.com/w4sr7bp.png" alt="pull vs fetch diagram" style="width: 400px;" /></p>
+<span class="sr">//</span><span class="no">POST</span> <span class="n">request</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">post</span><span class="p">(</span>
+  <span class="s1">'http://localhost:8090/api/users'</span><span class="p">,</span>
+  <span class="p">{</span> <span class="ss">json: </span><span class="p">{</span> <span class="ss">key1: </span><span class="s1">'value1'</span><span class="p">,</span> <span class="ss">key2: </span><span class="s1">'value2'</span> <span class="p">}</span> <span class="p">},</span>
+  <span class="n">function</span> <span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="n">body</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">error</span> <span class="o">&amp;&amp;</span> <span class="n">response</span><span class="p">.</span><span class="nf">statusCode</span> <span class="o">==</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="n">body</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">);</span></code></pre></figure>
 
 <p><br /></p>
 
 <hr />
-<h3 id="explaining-downstream--upstream">Explaining <code class="highlighter-rouge">Downstream</code> &amp; <code class="highlighter-rouge">UpStream</code></h3>
-<p><br />
-In terms of source control, you’re <code class="highlighter-rouge">downstream</code> when you copy (clone, checkout, etc) from a repository. Information flowed <code class="highlighter-rouge">downstream</code> to you.</p>
 
-<p><br />
-When you make changes, you usually want to send them back <code class="highlighter-rouge">upstream</code> so they make it into that repository so that everyone pulling from the same source is working with all the same changes.
-<a href="https://stackoverflow.com/questions/2739376/definition-of-downstream-and-upstream">Source</a></p>
+<h3 id="to-run-the-code-snippet">To run the code snippet</h3>
+
+<p><strong>Step 1</strong> - run <code class="highlighter-rouge">npm init</code> to initiate a command line questionnaire that will conclude with the creation of a package.json in the directory</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>npm init</code></pre></figure>
+
+<p><br /></p>
+
+<p><strong>Step 2</strong> - You first need to install related npm packages using <code class="highlighter-rouge">npm install &lt;package-name&gt;</code> command</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>npm install body-parser
+<span class="gp">$ </span>npm install express
+<span class="gp">$ </span>npm install request</code></pre></figure>
+
+<p><br /></p>
+
+<p><strong>Step 3</strong> Run the js file</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>node file-name.js</code></pre></figure>
 
 <p><br /></p>
 
@@ -303,8 +281,8 @@ When you make changes, you usually want to send them back <code class="highlight
 		  
 		  
 			
-				<li><a href="/categories.html#git-ref">
-					git <span>(1)</span>
+				<li><a href="/categories.html#Node.js-ref">
+					Node.js <span>(1)</span>
 					
 				</a></li>
 			
@@ -319,43 +297,22 @@ When you make changes, you usually want to send them back <code class="highlight
 		  
 			
 				<li>
-					<a href="/tags.html#git-ref">
-					git <span>(2)</span>
+					<a href="/tags.html#node.js-ref">
+					node.js <span>(1)</span>
 					,
 					</a>
 				</li>
 			
 				<li>
-					<a href="/tags.html#branch-ref">
-					branch <span>(1)</span>
+					<a href="/tags.html#javaScript-ref">
+					javaScript <span>(1)</span>
 					,
 					</a>
 				</li>
 			
 				<li>
-					<a href="/tags.html#remote-ref">
-					remote <span>(1)</span>
-					,
-					</a>
-				</li>
-			
-				<li>
-					<a href="/tags.html#local-ref">
-					local <span>(1)</span>
-					,
-					</a>
-				</li>
-			
-				<li>
-					<a href="/tags.html#git pull-ref">
-					git pull <span>(1)</span>
-					,
-					</a>
-				</li>
-			
-				<li>
-					<a href="/tags.html#git fetch-ref">
-					git fetch <span>(1)</span>
+					<a href="/tags.html#POST-ref">
+					POST <span>(1)</span>
 					
 					</a>
 				</li>
@@ -370,7 +327,7 @@ When you make changes, you usually want to send them back <code class="highlight
 		<div>
       <section class="share col-sm-6">
         <h4 class="section-title">Share Post</h4>
-        <a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=Playing with GIT Branches&via=OmalPerera"
+        <a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=Sending POST requests from Node.js&via=OmalPerera"
            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
           <i class="fa fa-twitter fa-lg"></i>
           Twitter
@@ -398,10 +355,10 @@ When you make changes, you usually want to send them back <code class="highlight
 
 		<ul class="pager">
 		  
-		  <li class="previous"><a href="/howto/2017/12/21/Install-Maven-on-Mac-OSX.html" title="Install Maven on Mac OSX">&larr; Previous</a></li>
+		  <li class="previous"><a href="/git/2017/12/29/Playing-with-GIT-Branches.html" title="Playing with GIT Branches">&larr; Previous</a></li>
 		  
 		  
-		  <li class="next"><a href="/node.js/2018/01/19/Sending-POST-requests-from-nodejs.html" title="Sending POST requests from Node.js">Next &rarr;</a></li>
+			<li class="next disabled"><a>Next &rarr;</a>
 		  
 		</ul>
 
