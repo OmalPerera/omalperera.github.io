@@ -7,6 +7,212 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>kerberos Simplified</title>
+				<description>&lt;p&gt;Hello all of you! lets discuss what is kerberos in a simple manner. This article is not going into a deep level of kerberos technology. But you all can get a highlevel overview, with regards to its History, how it works, why is it needed, advantages as well as disadvantages etc.
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;Kerberos is a popular &lt;strong&gt;authentication protocol&lt;/strong&gt; that can be used for single sign-on (SSO). The main key concept behind SSO is getting the services that a user is authorized, with a single login (one time activity). So, user don’t want to login on each of those services in many different times. Kerberos systems offers protection against many network attacks and vulnerabilities. Following are some characteristics of Kerberos.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;uses tickets to authenticate&lt;/li&gt;
+  &lt;li&gt;avoids saving passwords locally&lt;/li&gt;
+  &lt;li&gt;avoids sending passwords over the internet&lt;/li&gt;
+  &lt;li&gt;involves a trusted 3rd-party&lt;/li&gt;
+  &lt;li&gt;built on symmetric-key cryptography&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;history&quot;&gt;History&lt;/h2&gt;
+
+&lt;p&gt;Initially, Massachusetts Institute of Technology (MIT) developed Kerberos to protect network services provided by Project Athena in 1980. The current version of the protocol is version 5. Previous versions of the protocol were based on the earlier Needham–Schroeder symmetric key protocol. Version 4 of the Kerberos protocol was the first version that was publicly released, and is now deprecated for security reasons. In 1987, MIT released the Kerberos software freely available, under a certain copyright permissions and in 2007, MIT formed the Kerberos Consortium to encourage development. In 1993, It became an IETF Standard which is the premier Internet standard.&lt;/p&gt;
+
+&lt;p&gt;The name Kerberos arrived from the three-headed dog that guarded the entrance to Hades in Greek mythology. It’s pretty matching for the Kerberos concept since it takes a third-party (a Key Distribution Center) to authenticate between a client and a service or host machine.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;why-kerberos&quot;&gt;Why Kerberos&lt;/h2&gt;
+
+&lt;p&gt;Kerberos has two basic purposes namely &lt;strong&gt;security&lt;/strong&gt; and &lt;strong&gt;authentication&lt;/strong&gt;. On non-distributed computer systems, a secret key or a password can be used to prove a user’s identity. But on a distributed computer network system, scenario is different than standalone computer systems. If same theory applied for the distributed systems, password must be transmitted over the network, from one machine to another machine. For an example if a user requests a private file from a server, that typical user needs to send his secret key to the server in order to authenticate him. Because this password is the one secret piece of information that identifies a user, anyone in that network knowing a user’s password can access their files as that user.&lt;/p&gt;
+
+&lt;p&gt;Therefore, it is necessary to prevent anyone from intercepting or eavesdropping on the transmitted password. In addition, it is necessary to provide a means of authenticating users any time a user requests a service, they must prove their identity.&lt;/p&gt;
+
+&lt;p&gt;In order to fill above mentioned gap in the security in distributed systems, Kerberos has:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Strong mutual authentication.
+    &lt;ul&gt;
+      &lt;li&gt;Secrets are not transmitted across the network.&lt;/li&gt;
+      &lt;li&gt;Critical authentication data is encrypted.&lt;/li&gt;
+      &lt;li&gt;The client (user) is authenticated to the server and the server is authenticated to the client. The client identity is used to authorize services on the server.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Single sign-on.
+    &lt;ul&gt;
+      &lt;li&gt;A user convenience meaning a single identity and password can be used for many services with only one login sequence.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;so-what-is-the-different-between-firewall--kerberos&quot;&gt;So what is the different between Firewall &amp;amp; Kerberos&lt;/h2&gt;
+
+&lt;p&gt;A firewall is a kind of network security system. Firewalls can be presents in either hardware or software based. Those are basically depending on rules that controls incoming and outgoing network traffic. A firewall acts as a barrier between a trusted network and untrusted network and controls access to the resources of a network through a positive control model. Firewalls assumes, that the attackers are coming from the outside. But in distributed systems, attacks are frequently from within the system.&lt;/p&gt;
+
+&lt;p&gt;In contrast, Kerberos assumes that network connections are the weak link in network security rather than servers and work stations.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;kerberos-components&quot;&gt;Kerberos Components&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Key Distribution Center (KDC)&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Each Kerberos realm will have at least one Kerberos server. This server, the Key Distribution Center, contains the Authentication Service, the Ticket-Granting Service, and the master database for Kerberos. These services are implemented as a single daemon.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Authentication Service&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;The authentication service handles user authentication, or the process of verifying that principals are correctly identified.&lt;/li&gt;
+      &lt;li&gt;Consists of the security servers in the KDC (or KDCs), and security clients.&lt;/li&gt;
+      &lt;li&gt;A security client communicates with a security server to request information and operations. The security server accesses the registry database to perform queries and updates and to validate user logins.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Ticket-Granting Service&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Once authenticated, a principal will be granted a TGT and a ticket session key, which gives the principal the right to use the ticket. This combination of the ticket and its associated key is known as your credentials.&lt;/li&gt;
+      &lt;li&gt;A principal’s credentials are stored in a credentials cache, which is often just a file in the principal’s local directory tree.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;The Kerberos Database&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;The Kerberos database contains all of the realm’s Kerberos principals, their passwords, and other administrative information about each principal.&lt;/li&gt;
+      &lt;li&gt;Each KDC contains its own copy of the Kerberos database. The master KDC contains the primary copy of the database, which it propagates at regular intervals to the slave KDCs.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Kerberos Utility Programs&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;OpenVMS provides three different versions of each of the Kerberos user interface programs, the original UNIX style, a DCL version, and an X Windows version.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Kerberos Registry&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;The Kerberos registry can be manipulated in several ways. It is initially created
+via the KRB$CONFIGURE command procedure. Other tools used to access the Kerberos information are:&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;kadmin&lt;/code&gt; - Used for reading or updating the Kerberos registry.&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;kinit&lt;/code&gt; - Creates credentials for a user.&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;klist&lt;/code&gt; - Displays the existing credentials for a user.&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;kdestroy&lt;/code&gt; - Deletes a user’s credentials.&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;kpasswd&lt;/code&gt; - Changes a user’s Kerberos password.&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;kdb5_util&lt;/code&gt; - Dumps or loads the Kerberos database for save and restore operations.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;authenticating-using-kerberos&quot;&gt;Authenticating using Kerberos&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;/images/kerberos-auth-omalperera.github.io&quot; alt=&quot;Authentication mechanisam&quot; /&gt;&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;When a client logs in to the realm, an authentication request is sent to the Kerberos Key Distribution Center (KDC).&lt;/li&gt;
+  &lt;li&gt;A Ticket-Granting Ticket (TGT) is returned as the result of authentication.&lt;/li&gt;
+  &lt;li&gt;When the client application starts, the TGT is used to request an application ticket.&lt;/li&gt;
+  &lt;li&gt;The application ticket is then sent to the application server, which verifies the
+application ticket with the KDC.&lt;/li&gt;
+  &lt;li&gt;Service ticket for the required Service is sent to the server.&lt;/li&gt;
+  &lt;li&gt;Server sends the requested data to the client&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;advantages-of-kerberos&quot;&gt;Advantages of Kerberos&lt;/h2&gt;
+&lt;p&gt;There are many advantages of Kerberos than traditional securing methodologies.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Scalable
+    &lt;ul&gt;
+      &lt;li&gt;Servers do not need to contact KDC to authenticate users&lt;/li&gt;
+      &lt;li&gt;Only users and machine account authenticate with the KDC, once per 10h of activity&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Secure
+    &lt;ul&gt;
+      &lt;li&gt;Passwords are not transmitted over the wire&lt;/li&gt;
+      &lt;li&gt;Ticket based authentication based on certificates trusts&lt;/li&gt;
+      &lt;li&gt;Short-term session keys (Long-term secrets used only to derive short-term keys)&lt;/li&gt;
+      &lt;li&gt;Separate session key for each user-server pair&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Advanced Features
+    &lt;ul&gt;
+      &lt;li&gt;Single Sign-On&lt;/li&gt;
+      &lt;li&gt;Delegation&lt;/li&gt;
+      &lt;li&gt;Cross Domain Authentication&lt;/li&gt;
+      &lt;li&gt;Interoperability&lt;/li&gt;
+      &lt;li&gt;Mutual authentication&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;kerberos-applications&quot;&gt;Kerberos Applications&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Local authentication
+    &lt;ul&gt;
+      &lt;li&gt;login and su in OpenBSD&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Authentication for network protocols
+    &lt;ul&gt;
+      &lt;li&gt;Remote login&lt;/li&gt;
+      &lt;li&gt;Remote Shell&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Secure windowing systems&lt;/li&gt;
+  &lt;li&gt;Microsoft Windows (used in Security Support Provider(SSP))&lt;/li&gt;
+  &lt;li&gt;For Kerberizing applications such as Email, FTP, network file systems&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;weaknesses--limitations&quot;&gt;Weaknesses / Limitations&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Single point of failure
+    &lt;ul&gt;
+      &lt;li&gt;It requires continuous availability of a central Kerberos server. In a case of Knock out the Kerberos server and no one can log in&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Password guessing
+    &lt;ul&gt;
+      &lt;li&gt;no authentication is required to request a ticket, so attacker can gather equivalent of &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/passwd&lt;/code&gt; by requesting many tickets.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Kerberos is vulnerable if the local machine is compromised and malware captures the password.&lt;/li&gt;
+  &lt;li&gt;Ticket hijacking – Malicious user may steal the service ticket of another user on the same workstation and try to use it&lt;/li&gt;
+  &lt;li&gt;server authentication – Attacker may misconfigure the network so that he receives messages addressed to a legitimate server&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;Image Copyrights : www.freepik.com .&lt;/em&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+</description>
+				<pubDate>Thu, 01 Feb 2018 00:00:00 +0530</pubDate>
+				<link>/security/2018/02/01/kerberos-simplified.html</link>
+				<guid isPermaLink="true">/security/2018/02/01/kerberos-simplified.html</guid>
+			</item>
+		
+			<item>
 				<title>Sending POST requests from Node.js</title>
 				<description>&lt;p&gt;Hello all of you! from this article we are going to explore how to send POST requests from a Node.js Application. Node application using here is very much simple &amp;amp; very easy to understand.
 &lt;br /&gt;&lt;/p&gt;
