@@ -2,9 +2,9 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Sending POST requests from Node.js</title>
+	<title>How Data Pipelines Supports IoT Data Pre-Processing</title>
 	
-	<meta name="description" content="How to send post requests from Node.js">
+	<meta name="description" content="A white Paper on How Data Pipelines Supports IoT Data Pre-Processing">
 	
 	<meta name="author" content="Omal Perera">
 
@@ -44,19 +44,19 @@
 
 
 	<!-- Begin Jekyll SEO tag v2.3.0 -->
-<title>Sending POST requests from Node.js | Omal Perera</title>
-<meta property="og:title" content="Sending POST requests from Node.js" />
+<title>How Data Pipelines Supports IoT Data Pre-Processing | Omal Perera</title>
+<meta property="og:title" content="How Data Pipelines Supports IoT Data Pre-Processing" />
 <meta name="author" content="Omal Perera" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="How to send post requests from Node.js" />
-<meta property="og:description" content="How to send post requests from Node.js" />
-<link rel="canonical" href="https://omalperera.github.io/node.js/2018/01/19/Sending-POST-requests-from-nodejs.html" />
-<meta property="og:url" content="https://omalperera.github.io/node.js/2018/01/19/Sending-POST-requests-from-nodejs.html" />
+<meta name="description" content="A white Paper on How Data Pipelines Supports IoT Data Pre-Processing" />
+<meta property="og:description" content="A white Paper on How Data Pipelines Supports IoT Data Pre-Processing" />
+<link rel="canonical" href="https://omalperera.github.io/bigdata/real-time%20processing/iot/2018/07/03/How-Data-Pipelines-Supports-to-IoT-data-Pre-processing.html" />
+<meta property="og:url" content="https://omalperera.github.io/bigdata/real-time%20processing/iot/2018/07/03/How-Data-Pipelines-Supports-to-IoT-data-Pre-processing.html" />
 <meta property="og:site_name" content="Omal Perera" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2018-01-19T00:00:00+05:30" />
+<meta property="article:published_time" content="2018-07-03T00:00:00+05:30" />
 <script type="application/ld+json">
-{"name":null,"description":"How to send post requests from Node.js","author":{"@type":"Person","name":"Omal Perera"},"@type":"BlogPosting","url":"https://omalperera.github.io/node.js/2018/01/19/Sending-POST-requests-from-nodejs.html","publisher":null,"image":null,"headline":"Sending POST requests from Node.js","dateModified":"2018-01-19T00:00:00+05:30","datePublished":"2018-01-19T00:00:00+05:30","sameAs":null,"mainEntityOfPage":{"@type":"WebPage","@id":"https://omalperera.github.io/node.js/2018/01/19/Sending-POST-requests-from-nodejs.html"},"@context":"http://schema.org"}</script>
+{"name":null,"description":"A white Paper on How Data Pipelines Supports IoT Data Pre-Processing","author":{"@type":"Person","name":"Omal Perera"},"@type":"BlogPosting","url":"https://omalperera.github.io/bigdata/real-time%20processing/iot/2018/07/03/How-Data-Pipelines-Supports-to-IoT-data-Pre-processing.html","publisher":null,"image":null,"headline":"How Data Pipelines Supports IoT Data Pre-Processing","dateModified":"2018-07-03T00:00:00+05:30","datePublished":"2018-07-03T00:00:00+05:30","sameAs":null,"mainEntityOfPage":{"@type":"WebPage","@id":"https://omalperera.github.io/bigdata/real-time%20processing/iot/2018/07/03/How-Data-Pipelines-Supports-to-IoT-data-Pre-processing.html"},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -179,7 +179,7 @@
 
 	<div class="col-sm-9 col-sm-offset-3">
 		<div class="page-header">
-  <h1>Sending POST requests from Node.js </h1>
+  <h1>How Data Pipelines Supports IoT Data Pre-Processing </h1>
 </div>
 
 <article>
@@ -187,78 +187,45 @@
 	<div class="col-sm-10">
 	 <span class="post-date">
 	   
-	   January
-	   19th,
-	   
+	   July
+	   3rd,
+	     
 	   2018
 	 </span>
 	  <div class="article_body">
-	  <p>Hello all of you! from this article we are going to explore how to send POST requests from a Node.js Application. Node application using here is very much simple &amp; very easy to understand.
-<br /></p>
+	  <p>Hello all! let’s have a productive discussion on How Data Pipelines Supports IoT Data Pre-Processing.</p>
 
-<p>For the easy coding we are using <a href="https://www.npmjs.com/package/request"><code class="highlighter-rouge">requests</code></a> npm package to send the requests. In <code class="highlighter-rouge">requests</code> npm package you can find many easy http method implementations</p>
+<p>Today The Internet of Things (IoT) has the capability to change our world. And while we are starting to see its incredible impact, we are still very much at the beginning of the transformational journey. Soon every device you own – and nearly every element you can imagine – will be linked to the Internet. Whether it’s through your phone, wearable tech or everyday household objects, the Internet of Things (IoT) will connect us in ways we can’t even imagine yet.</p>
 
 <ul>
-  <li><em>request.get()</em>: Defaults to method: “GET”.</li>
-  <li><em>request.post()</em>: Defaults to method: “POST”.</li>
-  <li><em>request.put()</em>: Defaults to method: “PUT”.</li>
-  <li><em>request.patch()</em>: Defaults to method: “PATCH”.</li>
-  <li><em>request.del() / request.delete()</em>: Defaults to method: “DELETE”.</li>
-  <li><em>request.head()</em>: Defaults to method: “HEAD”.</li>
-  <li><em>request.options()</em>: Defaults to method: “OPTIONS”.</li>
+  <li>There were more devices connected to the Internet in 2008, than there were people.</li>
+  <li>In 2015, there were 4.9 billion (4,9000,000,000+) connected Internet of Things. Smartphone users topped at over 6.1 billion (6,100,000,000+).</li>
+  <li>Predictions for the number of connected IoT by 2020, meets or goes over 50 billion (50,0000,000,000+). A quarter of a billion vehicles are expected to be connected to the Internet.</li>
+</ul>
+
+<p>IoT plays a big role in each and every domain which essentialy needs computation on data records sent by them. But there are number of implementation challenges such as <br /></p>
+
+<ul>
+  <li>Hardware Compatibility Issues</li>
+  <li>Incorrect Data Capture difficulties</li>
+  <li>Analysis Challenges</li>
+  <li>Data Security Issues
+  and many more…</li>
 </ul>
 
 <p><br /></p>
-<h3 id="so-lets-directly-go-into-the-code">So lets directly go into the code</h3>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">var</span> <span class="n">http</span>       <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s1">'http'</span><span class="p">);</span>
-<span class="n">var</span> <span class="n">express</span>    <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s1">'express'</span><span class="p">);</span>
-<span class="n">var</span> <span class="n">request</span>    <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s1">'request'</span><span class="p">);</span>
-<span class="n">var</span> <span class="n">app</span>        <span class="o">=</span> <span class="n">express</span><span class="p">();</span>
+<p>In order to cope with these challanges we need a different approach.</p>
 
-<span class="n">var</span> <span class="n">server</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">createServer</span><span class="p">(</span><span class="n">app</span><span class="p">);</span>
-<span class="n">var</span> <span class="n">port</span> <span class="o">=</span> <span class="mi">9000</span><span class="p">;</span>
+<p>Here we are discussing a way to overcome the heterogenity of IoT devices when comes to the big data processing.</p>
 
-<span class="sr">//</span><span class="no">Starting</span> <span class="n">the</span> <span class="n">server</span>
-<span class="n">server</span><span class="p">.</span><span class="nf">listen</span><span class="p">(</span><span class="n">port</span><span class="p">);</span>
-<span class="n">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="s1">'Server Started on port '</span> <span class="o">+</span> <span class="n">port</span><span class="p">);</span>
+<h1 id="white-paper-on-how-data-pipelines-supports-iot-data-pre-processing">WHITE PAPER on How Data Pipelines Supports IoT Data Pre-Processing</h1>
 
-<span class="sr">//</span><span class="no">POST</span> <span class="n">request</span>
-<span class="n">request</span><span class="p">.</span><span class="nf">post</span><span class="p">(</span>
-  <span class="s1">'http://localhost:8090/api/users'</span><span class="p">,</span>
-  <span class="p">{</span> <span class="ss">json: </span><span class="p">{</span> <span class="ss">key1: </span><span class="s1">'value1'</span><span class="p">,</span> <span class="ss">key2: </span><span class="s1">'value2'</span> <span class="p">}</span> <span class="p">},</span>
-  <span class="n">function</span> <span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="n">body</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">error</span> <span class="o">&amp;&amp;</span> <span class="n">response</span><span class="p">.</span><span class="nf">statusCode</span> <span class="o">==</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="n">body</span><span class="p">);</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">);</span></code></pre></figure>
+<p><img src="../../../../assets/whitepapers/HowDataPipelinesSupportsIoTDataPreprocessing.pdf" alt="Download White Paper from here" /></p>
 
 <p><br /></p>
 
-<hr />
-
-<h3 id="to-run-the-code-snippet">To run the code snippet</h3>
-
-<p><strong>Step 1</strong> - run <code class="highlighter-rouge">npm init</code> to initiate a command line questionnaire that will conclude with the creation of a package.json in the directory</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>npm init</code></pre></figure>
-
-<p><br /></p>
-
-<p><strong>Step 2</strong> - You first need to install related npm packages using <code class="highlighter-rouge">npm install &lt;package-name&gt;</code> command</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>npm install body-parser
-<span class="gp">$ </span>npm install express
-<span class="gp">$ </span>npm install request</code></pre></figure>
-
-<p><br /></p>
-
-<p><strong>Step 3</strong> Run the js file</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>node file-name.js</code></pre></figure>
-
-<p><br /></p>
+<p>Image Source : http://datascience.esy.es/tag/mapa/</p>
 
 <hr />
 
@@ -281,8 +248,18 @@
 		  
 		  
 			
-				<li><a href="/categories.html#Node.js-ref">
-					Node.js <span>(1)</span>
+				<li><a href="/categories.html#Bigdata-ref">
+					Bigdata <span>(1)</span>
+					,
+				</a></li>
+			
+				<li><a href="/categories.html#Real-Time Processing-ref">
+					Real-Time Processing <span>(1)</span>
+					,
+				</a></li>
+			
+				<li><a href="/categories.html#IoT-ref">
+					IoT <span>(1)</span>
 					
 				</a></li>
 			
@@ -297,22 +274,29 @@
 		  
 			
 				<li>
-					<a href="/tags.html#node.js-ref">
-					node.js <span>(1)</span>
+					<a href="/tags.html#Bigdata-ref">
+					Bigdata <span>(1)</span>
 					,
 					</a>
 				</li>
 			
 				<li>
-					<a href="/tags.html#javaScript-ref">
-					javaScript <span>(1)</span>
+					<a href="/tags.html#Real-Time Processing-ref">
+					Real-Time Processing <span>(1)</span>
 					,
 					</a>
 				</li>
 			
 				<li>
-					<a href="/tags.html#POST-ref">
-					POST <span>(1)</span>
+					<a href="/tags.html#IoT-ref">
+					IoT <span>(1)</span>
+					,
+					</a>
+				</li>
+			
+				<li>
+					<a href="/tags.html#Distributed-Systems-ref">
+					Distributed-Systems <span>(2)</span>
 					
 					</a>
 				</li>
@@ -327,7 +311,7 @@
 		<div>
       <section class="share col-sm-6">
         <h4 class="section-title">Share Post</h4>
-        <a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=Sending POST requests from Node.js&via=OmalPerera"
+        <a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=How Data Pipelines Supports IoT Data Pre-Processing&via=OmalPerera"
            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
           <i class="fa fa-twitter fa-lg"></i>
           Twitter
@@ -355,10 +339,10 @@
 
 		<ul class="pager">
 		  
-		  <li class="previous"><a href="/git/2017/12/29/Playing-with-GIT-Branches.html" title="Playing with GIT Branches">&larr; Previous</a></li>
+		  <li class="previous"><a href="/security/2018/02/01/kerberos-simplified.html" title="kerberos Simplified">&larr; Previous</a></li>
 		  
 		  
-		  <li class="next"><a href="/security/2018/02/01/kerberos-simplified.html" title="kerberos Simplified">Next &rarr;</a></li>
+			<li class="next disabled"><a>Next &rarr;</a>
 		  
 		</ul>
 
