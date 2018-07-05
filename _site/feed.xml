@@ -7,7 +7,7 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
-				<title>Omal Perera</title>
+				<title>How Data Pipelines Supports IoT Data Pre-Processing</title>
 				<description>&lt;p&gt;Hello all! let’s have a productive discussion on How Data Pipelines Supports IoT Data Pre-Processing.&lt;/p&gt;
 
 &lt;p&gt;Today The Internet of Things (IoT) has the capability to change our world. And while we are starting to see its incredible impact, we are still very much at the beginning of the transformational journey. Soon every device you own – and nearly every element you can imagine – will be linked to the Internet. Whether it’s through your phone, wearable tech or everyday household objects, the Internet of Things (IoT) will connect us in ways we can’t even imagine yet.&lt;/p&gt;
@@ -44,1022 +44,224 @@
 
 &lt;hr /&gt;
 </description>
-				<pubDate>Fri, 06 Jul 2018 04:18:11 +0530</pubDate>
-				<link>/2018/07/06/2018-07-03-How-Data-Pipelines-Supports-to-IoT-data-Pre-processing.html</link>
-				<guid isPermaLink="true">/2018/07/06/2018-07-03-How-Data-Pipelines-Supports-to-IoT-data-Pre-processing.html</guid>
+				<pubDate>Tue, 03 Jul 2018 00:00:00 +0530</pubDate>
+				<link>/bigdata/real-time%20processing/iot/2018/07/03/How-Data-Pipelines-Supports-to-IoT-data-Pre-processing.html</link>
+				<guid isPermaLink="true">/bigdata/real-time%20processing/iot/2018/07/03/How-Data-Pipelines-Supports-to-IoT-data-Pre-processing.html</guid>
 			</item>
 		
 			<item>
-				<title>Omal Perera</title>
-				<description>
-&lt;p&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/p&gt;
-&lt;html lang=&quot;en&quot;&gt;
-  &lt;head&gt;
-    &lt;meta charset=&quot;utf-8&quot; /&gt;
-  &lt;link rel=&quot;dns-prefetch&quot; href=&quot;https://assets-cdn.github.com&quot; /&gt;
-  &lt;link rel=&quot;dns-prefetch&quot; href=&quot;https://avatars0.githubusercontent.com&quot; /&gt;
-  &lt;link rel=&quot;dns-prefetch&quot; href=&quot;https://avatars1.githubusercontent.com&quot; /&gt;
-  &lt;link rel=&quot;dns-prefetch&quot; href=&quot;https://avatars2.githubusercontent.com&quot; /&gt;
-  &lt;link rel=&quot;dns-prefetch&quot; href=&quot;https://avatars3.githubusercontent.com&quot; /&gt;
-  &lt;link rel=&quot;dns-prefetch&quot; href=&quot;https://github-cloud.s3.amazonaws.com&quot; /&gt;
-  &lt;link rel=&quot;dns-prefetch&quot; href=&quot;https://user-images.githubusercontent.com/&quot; /&gt;
-
-
-
-  &lt;link crossorigin=&quot;anonymous&quot; media=&quot;all&quot; integrity=&quot;sha512-pCRDtdb3GlUU48h+oRJVA8f0GddrLnU97wB7mHQ7q6c40vMbMMZsFdk0IMhkUFRqw1M/y4EkWxtaKwfeFezOkQ==&quot; rel=&quot;stylesheet&quot; href=&quot;https://assets-cdn.github.com/assets/frameworks-73f533b7cc08a9d040e601cfd38fa585.css&quot; /&gt;
-  &lt;link crossorigin=&quot;anonymous&quot; media=&quot;all&quot; integrity=&quot;sha512-uwob2Yx0B3HNfTXKcXEs6Cvv7nrad1kGvB8zcJ9pArQGPxkbmzImhYvIptH/ewJvqDo5vEg9M2WG2nTh6ILtBQ==&quot; rel=&quot;stylesheet&quot; href=&quot;https://assets-cdn.github.com/assets/github-414e93ec6791e541197cff8a6dd898ba.css&quot; /&gt;
-  
-  
-  
-  
-
-  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot; /&gt;
-  
-  &lt;title&gt;omalperera.github.io/2018-02-01-kerberos-simplified.md at master · OmalPerera/omalperera.github.io&lt;/title&gt;
-    &lt;meta name=&quot;description&quot; content=&quot;GitHub is where people build software. More than 28 million people use GitHub to discover, fork, and contribute to over 85 million projects.&quot; /&gt;
-    &lt;link rel=&quot;search&quot; type=&quot;application/opensearchdescription+xml&quot; href=&quot;/opensearch.xml&quot; title=&quot;GitHub&quot; /&gt;
-  &lt;link rel=&quot;fluid-icon&quot; href=&quot;https://github.com/fluidicon.png&quot; title=&quot;GitHub&quot; /&gt;
-  &lt;meta property=&quot;fb:app_id&quot; content=&quot;1401488693436528&quot; /&gt;
-
-    
-    &lt;meta property=&quot;og:image&quot; content=&quot;https://avatars0.githubusercontent.com/u/11645048?s=400&amp;amp;v=4&quot; /&gt;&lt;meta property=&quot;og:site_name&quot; content=&quot;GitHub&quot; /&gt;&lt;meta property=&quot;og:type&quot; content=&quot;object&quot; /&gt;&lt;meta property=&quot;og:title&quot; content=&quot;OmalPerera/omalperera.github.io&quot; /&gt;&lt;meta property=&quot;og:url&quot; content=&quot;https://github.com/OmalPerera/omalperera.github.io&quot; /&gt;&lt;meta property=&quot;og:description&quot; content=&quot;omalperera.github.io - Jekyll blogging Site&quot; /&gt;
-
-  &lt;link rel=&quot;assets&quot; href=&quot;https://assets-cdn.github.com/&quot; /&gt;
-  &lt;link rel=&quot;web-socket&quot; href=&quot;wss://live.github.com/_sockets/VjI6MjUyNjMwMTE1OjQ2OWMxMjgwOWQ3MWI5ZGVhNjhlNWE0YTJjNTYxMWRlMTU3MTAyYjA4ZTc3MGQwMjg4ZGI4NGE3ZWUxNWJkNGU=--d6617932ac2bc1ec4d1d52adfef79f4ab05e4f7c&quot; /&gt;
-  &lt;meta name=&quot;pjax-timeout&quot; content=&quot;1000&quot; /&gt;
-  &lt;link rel=&quot;sudo-modal&quot; href=&quot;/sessions/sudo_modal&quot; /&gt;
-  &lt;meta name=&quot;request-id&quot; content=&quot;3C48:0808:30420AB:5FC5DCE:5B3E9FC4&quot; data-pjax-transient=&quot;&quot; /&gt;
-
-
-  
-
-  &lt;meta name=&quot;selected-link&quot; value=&quot;repo_source&quot; data-pjax-transient=&quot;&quot; /&gt;
-
-    &lt;meta name=&quot;google-site-verification&quot; content=&quot;KT5gs8h0wvaagLKAVWq8bbeNwnZZK1r1XQysX3xurLU&quot; /&gt;
-  &lt;meta name=&quot;google-site-verification&quot; content=&quot;ZzhVyEFwb7w3e0-uOTltm8Jsck2F5StVihD0exw2fsA&quot; /&gt;
-  &lt;meta name=&quot;google-site-verification&quot; content=&quot;GXs5KoUUkNCoaAZn7wPN-t01Pywp9M3sEjnt_3_ZWPc&quot; /&gt;
-    &lt;meta name=&quot;google-analytics&quot; content=&quot;UA-3769691-2&quot; /&gt;
-
-&lt;meta name=&quot;octolytics-host&quot; content=&quot;collector.githubapp.com&quot; /&gt;&lt;meta name=&quot;octolytics-app-id&quot; content=&quot;github&quot; /&gt;&lt;meta name=&quot;octolytics-event-url&quot; content=&quot;https://collector.githubapp.com/github-external/browser_event&quot; /&gt;&lt;meta name=&quot;octolytics-dimension-request_id&quot; content=&quot;3C48:0808:30420AB:5FC5DCE:5B3E9FC4&quot; /&gt;&lt;meta name=&quot;octolytics-dimension-region_edge&quot; content=&quot;iad&quot; /&gt;&lt;meta name=&quot;octolytics-dimension-region_render&quot; content=&quot;iad&quot; /&gt;&lt;meta name=&quot;octolytics-actor-id&quot; content=&quot;11645048&quot; /&gt;&lt;meta name=&quot;octolytics-actor-login&quot; content=&quot;OmalPerera&quot; /&gt;&lt;meta name=&quot;octolytics-actor-hash&quot; content=&quot;ecae81c2f01df7224383e09d00ef4523b8352a61d43e100ae9cb41210dd55c23&quot; /&gt;
-&lt;meta name=&quot;analytics-location&quot; content=&quot;/&amp;lt;user-name&amp;gt;/&amp;lt;repo-name&amp;gt;/blob/show&quot; data-pjax-transient=&quot;true&quot; /&gt;
-
-
-
-
-&lt;meta class=&quot;js-ga-set&quot; name=&quot;dimension1&quot; content=&quot;Logged In&quot; /&gt;
-
-
-  
-
-      &lt;meta name=&quot;hostname&quot; content=&quot;github.com&quot; /&gt;
-    &lt;meta name=&quot;user-login&quot; content=&quot;OmalPerera&quot; /&gt;
-
-      &lt;meta name=&quot;expected-hostname&quot; content=&quot;github.com&quot; /&gt;
-    &lt;meta name=&quot;js-proxy-site-detection-payload&quot; content=&quot;NjYyMTg0Mzg2YzA5YzA2MzMzODc2MmEyNTZhOWM0Yjg3NWJjNDcwOGY5ZWEwYjFlZDAyNmRjNWRlOWVmMTZkMHx7InJlbW90ZV9hZGRyZXNzIjoiMTIzLjIzMS4xMjAuMTI1IiwicmVxdWVzdF9pZCI6IjNDNDg6MDgwODozMDQyMEFCOjVGQzVEQ0U6NUIzRTlGQzQiLCJ0aW1lc3RhbXAiOjE1MzA4MzA3OTYsImhvc3QiOiJnaXRodWIuY29tIn0=&quot; /&gt;
-
-    &lt;meta name=&quot;enabled-features&quot; content=&quot;UNIVERSE_BANNER,FREE_TRIALS,MARKETPLACE_INSIGHTS,MARKETPLACE_SEARCH,MARKETPLACE_INSIGHTS_CONVERSION_PERCENTAGES&quot; /&gt;
-
-  &lt;meta name=&quot;html-safe-nonce&quot; content=&quot;5ff4117d78bd2886d936a745711b9e1f8a048771&quot; /&gt;
-
-  &lt;meta http-equiv=&quot;x-pjax-version&quot; content=&quot;2c4fd9877b447d78b4de34635d4e303f&quot; /&gt;
-  
-
-      &lt;link href=&quot;https://github.com/OmalPerera/omalperera.github.io/commits/master.atom?token=ALGweFWGh-O0pj0OV9XhSyYgnK_RqaM5ks65S9JMwA%3D%3D&quot; rel=&quot;alternate&quot; title=&quot;Recent Commits to omalperera.github.io:master&quot; type=&quot;application/atom+xml&quot; /&gt;
-
-  &lt;meta name=&quot;description&quot; content=&quot;omalperera.github.io - Jekyll blogging Site&quot; /&gt;
-  &lt;meta name=&quot;go-import&quot; content=&quot;github.com/OmalPerera/omalperera.github.io git https://github.com/OmalPerera/omalperera.github.io.git&quot; /&gt;
-
-  &lt;meta name=&quot;octolytics-dimension-user_id&quot; content=&quot;11645048&quot; /&gt;&lt;meta name=&quot;octolytics-dimension-user_login&quot; content=&quot;OmalPerera&quot; /&gt;&lt;meta name=&quot;octolytics-dimension-repository_id&quot; content=&quot;56443762&quot; /&gt;&lt;meta name=&quot;octolytics-dimension-repository_nwo&quot; content=&quot;OmalPerera/omalperera.github.io&quot; /&gt;&lt;meta name=&quot;octolytics-dimension-repository_public&quot; content=&quot;false&quot; /&gt;&lt;meta name=&quot;octolytics-dimension-repository_is_fork&quot; content=&quot;false&quot; /&gt;&lt;meta name=&quot;octolytics-dimension-repository_network_root_id&quot; content=&quot;56443762&quot; /&gt;&lt;meta name=&quot;octolytics-dimension-repository_network_root_nwo&quot; content=&quot;OmalPerera/omalperera.github.io&quot; /&gt;&lt;meta name=&quot;octolytics-dimension-repository_explore_github_marketplace_ci_cta_shown&quot; content=&quot;false&quot; /&gt;
-
-
-    &lt;link rel=&quot;canonical&quot; href=&quot;https://github.com/OmalPerera/omalperera.github.io/blob/master/_posts/2018-02-01-kerberos-simplified.md&quot; data-pjax-transient=&quot;&quot; /&gt;
-
-
-  &lt;meta name=&quot;browser-stats-url&quot; content=&quot;https://api.github.com/_private/browser/stats&quot; /&gt;
-
-  &lt;meta name=&quot;browser-errors-url&quot; content=&quot;https://api.github.com/_private/browser/errors&quot; /&gt;
-
-  &lt;link rel=&quot;mask-icon&quot; href=&quot;https://assets-cdn.github.com/pinned-octocat.svg&quot; color=&quot;#000000&quot; /&gt;
-  &lt;link rel=&quot;icon&quot; type=&quot;image/x-icon&quot; class=&quot;js-site-favicon&quot; href=&quot;https://assets-cdn.github.com/favicon.ico&quot; /&gt;
-
-&lt;meta name=&quot;theme-color&quot; content=&quot;#1e2327&quot; /&gt;
-
-
-  &lt;meta name=&quot;u2f-support&quot; content=&quot;true&quot; /&gt;
-
-&lt;link rel=&quot;manifest&quot; href=&quot;/manifest.json&quot; crossorigin=&quot;use-credentials&quot; /&gt;
-
-  &lt;/head&gt;
-
-  &lt;body class=&quot;logged-in env-production emoji-size-boost page-blob&quot;&gt;
-    
-
-  &lt;div class=&quot;position-relative js-header-wrapper &quot;&gt;
-    &lt;a href=&quot;#start-of-content&quot; tabindex=&quot;1&quot; class=&quot;p-3 bg-blue text-white show-on-focus js-skip-to-content&quot;&gt;Skip to content&lt;/a&gt;
-    &lt;div id=&quot;js-pjax-loader-bar&quot; class=&quot;pjax-loader-bar&quot;&gt;&lt;div class=&quot;progress&quot;&gt;&lt;/div&gt;&lt;/div&gt;
-
-    
-    
-    
-
-
-
-        
-&lt;header class=&quot;Header  f5&quot; role=&quot;banner&quot;&gt;
-  &lt;div class=&quot;d-flex flex-justify-between px-3 container-lg&quot;&gt;
-    &lt;div class=&quot;d-flex flex-justify-between &quot;&gt;
-      &lt;div class=&quot;&quot;&gt;
-        &lt;a class=&quot;header-logo-invertocat&quot; href=&quot;https://github.com/&quot; data-hotkey=&quot;g d&quot; aria-label=&quot;Homepage&quot; data-ga-click=&quot;Header, go to dashboard, icon:logo&quot;&gt;
-  &lt;svg height=&quot;32&quot; class=&quot;octicon octicon-mark-github&quot; viewBox=&quot;0 0 16 16&quot; version=&quot;1.1&quot; width=&quot;32&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z&quot; /&gt;&lt;/svg&gt;
-&lt;/a&gt;
-
-      &lt;/div&gt;
-
-    &lt;/div&gt;
-
-    &lt;div class=&quot;HeaderMenu d-flex flex-justify-between flex-auto&quot;&gt;
-      &lt;div class=&quot;d-flex&quot;&gt;
-            &lt;div class=&quot;&quot;&gt;
-              &lt;div class=&quot;header-search scoped-search site-scoped-search js-site-search position-relative js-jump-to&quot; role=&quot;search combobox&quot; aria-owns=&quot;jump-to-results&quot; aria-label=&quot;Search or jump to&quot; aria-haspopup=&quot;listbox&quot; aria-expanded=&quot;true&quot;&gt;
-  &lt;div class=&quot;position-relative&quot;&gt;
-    &lt;!-- '&quot;` --&gt;&lt;!-- &lt;/textarea&gt;&lt;/xmp&gt; --&gt;&amp;lt;/option&amp;gt;&amp;lt;/form&amp;gt;&lt;form class=&quot;js-site-search-form&quot; data-scope-type=&quot;Repository&quot; data-scope-id=&quot;56443762&quot; data-scoped-search-url=&quot;/OmalPerera/omalperera.github.io/search&quot; data-unscoped-search-url=&quot;/search&quot; action=&quot;/OmalPerera/omalperera.github.io/search&quot; accept-charset=&quot;UTF-8&quot; method=&quot;get&quot;&gt;&lt;input name=&quot;utf8&quot; type=&quot;hidden&quot; value=&quot;&amp;#x2713;&quot; /&gt;
-      &lt;label class=&quot;form-control header-search-wrapper header-search-wrapper-jump-to position-relative d-flex flex-justify-between flex-items-center js-chromeless-input-container&quot;&gt;
-        &lt;input type=&quot;text&quot; class=&quot;form-control header-search-input jump-to-field js-jump-to-field js-site-search-focus js-site-search-field is-clearable&quot; data-hotkey=&quot;s,/&quot; name=&quot;q&quot; value=&quot;&quot; placeholder=&quot;Search or jump to…&quot; data-unscoped-placeholder=&quot;Search or jump to…&quot; data-scoped-placeholder=&quot;Search or jump to…&quot; autocapitalize=&quot;off&quot; aria-autocomplete=&quot;list&quot; aria-controls=&quot;jump-to-results&quot; data-jump-to-suggestions-path=&quot;/_graphql/GetSuggestedNavigationDestinations#csrf-token=ow+RbR+pOlvoH9xKZP8tHIJpcWUkDjMyFYwi4wjM+RZKRkfCbJhetc8eicafcjp6p6L01+c05z4tePBNuD2X8A==&quot; spellcheck=&quot;false&quot; autocomplete=&quot;off&quot; /&gt;
-          &lt;input type=&quot;hidden&quot; class=&quot;js-site-search-type-field&quot; name=&quot;type&quot; /&gt;
-            &lt;img src=&quot;https://assets-cdn.github.com/images/search-shortcut-hint.svg&quot; alt=&quot;&quot; class=&quot;mr-2 header-search-key-slash&quot; /&gt;
-
-            &lt;div class=&quot;Box position-absolute overflow-hidden d-none jump-to-suggestions js-jump-to-suggestions-container&quot;&gt;
-              &lt;ul class=&quot;d-none js-jump-to-suggestions-template-container&quot;&gt;
-                &lt;li class=&quot;d-flex flex-justify-start flex-items-center p-0 f5 navigation-item js-navigation-item&quot;&gt;
-                  &lt;a tabindex=&quot;-1&quot; class=&quot;no-underline d-flex flex-auto flex-items-center p-2 jump-to-suggestions-path js-jump-to-suggestion-path js-navigation-open&quot; href=&quot;&quot;&gt;
-                    &lt;div class=&quot;jump-to-octicon js-jump-to-octicon mr-2 text-center d-none&quot;&gt;&lt;/div&gt;
-                    &lt;img class=&quot;avatar mr-2 flex-shrink-0 js-jump-to-suggestion-avatar&quot; alt=&quot;&quot; aria-label=&quot;Team&quot; src=&quot;&quot; width=&quot;28&quot; height=&quot;28&quot; /&gt;
-
-                    &lt;div class=&quot;jump-to-suggestion-name js-jump-to-suggestion-name flex-auto overflow-hidden no-wrap css-truncate css-truncate-target&quot;&gt;
-                    &lt;/div&gt;
-
-                    &lt;div class=&quot;border rounded-1 flex-shrink-0 bg-gray px-1 text-gray-light ml-1 f6 d-none js-jump-to-badge-search&quot;&gt;
-                      &lt;span class=&quot;js-jump-to-badge-search-text-default d-none&quot; aria-label=&quot;in this repository&quot;&gt;
-                        In this repository
-                      &lt;/span&gt;
-                      &lt;span class=&quot;js-jump-to-badge-search-text-global d-none&quot; aria-label=&quot;in all of GitHub&quot;&gt;
-                        All GitHub
-                      &lt;/span&gt;
-                      &lt;span aria-hidden=&quot;true&quot; class=&quot;d-inline-block ml-1 v-align-middle&quot;&gt;↵&lt;/span&gt;
-                    &lt;/div&gt;
-
-                    &lt;div aria-hidden=&quot;true&quot; class=&quot;border rounded-1 flex-shrink-0 bg-gray px-1 text-gray-light ml-1 f6 d-none d-on-nav-focus js-jump-to-badge-jump&quot;&gt;
-                      Jump to
-                      &lt;span class=&quot;d-inline-block ml-1 v-align-middle&quot;&gt;↵&lt;/span&gt;
-                    &lt;/div&gt;
-                  &lt;/a&gt;
-                &lt;/li&gt;
-                &lt;svg height=&quot;16&quot; width=&quot;16&quot; class=&quot;octicon octicon-repo flex-shrink-0 js-jump-to-repo-octicon-template&quot; title=&quot;Repository&quot; aria-label=&quot;Repository&quot; viewBox=&quot;0 0 12 16&quot; version=&quot;1.1&quot; role=&quot;img&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z&quot; /&gt;&lt;/svg&gt;
-                &lt;svg height=&quot;16&quot; width=&quot;16&quot; class=&quot;octicon octicon-project flex-shrink-0 js-jump-to-project-octicon-template&quot; title=&quot;Project&quot; aria-label=&quot;Project&quot; viewBox=&quot;0 0 15 16&quot; version=&quot;1.1&quot; role=&quot;img&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M10 12h3V2h-3v10zm-4-2h3V2H6v8zm-4 4h3V2H2v12zm-1 1h13V1H1v14zM14 0H1a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1z&quot; /&gt;&lt;/svg&gt;
-                &lt;svg height=&quot;16&quot; width=&quot;16&quot; class=&quot;octicon octicon-search flex-shrink-0 js-jump-to-search-octicon-template&quot; title=&quot;Search&quot; aria-label=&quot;Search&quot; viewBox=&quot;0 0 16 16&quot; version=&quot;1.1&quot; role=&quot;img&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z&quot; /&gt;&lt;/svg&gt;
-              &lt;/ul&gt;
-              &lt;ul class=&quot;d-none js-jump-to-no-results-template-container&quot;&gt;
-                &lt;li class=&quot;d-flex flex-justify-center flex-items-center p-3 f5 d-none&quot;&gt;
-                  &lt;span class=&quot;text-gray&quot;&gt;No suggested jump to results&lt;/span&gt;
-                &lt;/li&gt;
-              &lt;/ul&gt;
-
-              &lt;ul id=&quot;jump-to-results&quot; class=&quot;js-navigation-container jump-to-suggestions-results-container js-jump-to-suggestions-results-container&quot;&gt;
-                &lt;li class=&quot;d-flex flex-justify-center flex-items-center p-0 f5&quot;&gt;
-                  &lt;img src=&quot;https://assets-cdn.github.com/images/spinners/octocat-spinner-128.gif&quot; alt=&quot;Octocat Spinner Icon&quot; class=&quot;m-2&quot; width=&quot;28&quot; /&gt;
-                &lt;/li&gt;
-              &lt;/ul&gt;
-            &lt;/div&gt;
-      &lt;/label&gt;
-&lt;/form&gt;  &lt;/div&gt;
-&lt;/div&gt;
-
-            &lt;/div&gt;
-
-          &lt;ul class=&quot;d-flex pl-2 flex-items-center text-bold list-style-none&quot; role=&quot;navigation&quot;&gt;
-            &lt;li&gt;
-              &lt;a class=&quot;js-selected-navigation-item HeaderNavlink px-2&quot; data-hotkey=&quot;g p&quot; data-ga-click=&quot;Header, click, Nav menu - item:pulls context:user&quot; aria-label=&quot;Pull requests you created&quot; data-selected-links=&quot;/pulls /pulls/assigned /pulls/mentioned /pulls&quot; href=&quot;/pulls&quot;&gt;
-                Pull requests
-&lt;/a&gt;            &lt;/li&gt;
-            &lt;li&gt;
-              &lt;a class=&quot;js-selected-navigation-item HeaderNavlink px-2&quot; data-hotkey=&quot;g i&quot; data-ga-click=&quot;Header, click, Nav menu - item:issues context:user&quot; aria-label=&quot;Issues you created&quot; data-selected-links=&quot;/issues /issues/assigned /issues/mentioned /issues&quot; href=&quot;/issues&quot;&gt;
-                Issues
-&lt;/a&gt;            &lt;/li&gt;
-              &lt;li&gt;
-                &lt;a class=&quot;js-selected-navigation-item HeaderNavlink px-2&quot; data-ga-click=&quot;Header, click, Nav menu - item:marketplace context:user&quot; data-octo-click=&quot;marketplace_click&quot; data-octo-dimensions=&quot;location:nav_bar&quot; data-selected-links=&quot; /marketplace&quot; href=&quot;/marketplace&quot;&gt;
-                   Marketplace
-&lt;/a&gt;              &lt;/li&gt;
-            &lt;li&gt;
-              &lt;a class=&quot;js-selected-navigation-item HeaderNavlink px-2&quot; data-ga-click=&quot;Header, click, Nav menu - item:explore&quot; data-selected-links=&quot;/explore /trending /trending/developers /integrations /integrations/feature/code /integrations/feature/collaborate /integrations/feature/ship showcases showcases_search showcases_landing /explore&quot; href=&quot;/explore&quot;&gt;
-                Explore
-&lt;/a&gt;            &lt;/li&gt;
-          &lt;/ul&gt;
-      &lt;/div&gt;
-
-      &lt;div class=&quot;d-flex&quot;&gt;
-        
-&lt;ul class=&quot;user-nav d-flex flex-items-center list-style-none&quot; id=&quot;user-links&quot;&gt;
-  &lt;li class=&quot;dropdown&quot;&gt;
-    &lt;span class=&quot;d-inline-block  px-2&quot;&gt;
-      
-    &lt;a aria-label=&quot;You have no unread notifications&quot; class=&quot;notification-indicator tooltipped tooltipped-s  js-socket-channel js-notification-indicator&quot; data-hotkey=&quot;g n&quot; data-ga-click=&quot;Header, go to notifications, icon:read&quot; data-channel=&quot;notification-changed:11645048&quot; href=&quot;/notifications&quot;&gt;
-        &lt;span class=&quot;mail-status &quot;&gt;&lt;/span&gt;
-        &lt;svg class=&quot;octicon octicon-bell&quot; viewBox=&quot;0 0 14 16&quot; version=&quot;1.1&quot; width=&quot;14&quot; height=&quot;16&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M13.99 11.991v1H0v-1l.73-.58c.769-.769.809-2.547 1.189-4.416.77-3.767 4.077-4.996 4.077-4.996 0-.55.45-1 .999-1 .55 0 1 .45 1 1 0 0 3.387 1.229 4.156 4.996.38 1.879.42 3.657 1.19 4.417l.659.58h-.01zM6.995 15.99c1.11 0 1.999-.89 1.999-1.999H4.996c0 1.11.89 1.999 1.999 1.999z&quot; /&gt;&lt;/svg&gt;
-&lt;/a&gt;
-    &lt;/span&gt;
-  &lt;/li&gt;
-
-  &lt;li class=&quot;dropdown&quot;&gt;
-    &lt;details class=&quot;details-overlay details-reset js-dropdown-details d-flex px-2 flex-items-center&quot;&gt;
-      &lt;summary class=&quot;HeaderNavlink&quot; aria-label=&quot;Create new…&quot; data-ga-click=&quot;Header, create new, icon:add&quot;&gt;
-        &lt;svg class=&quot;octicon octicon-plus float-left mr-1 mt-1&quot; viewBox=&quot;0 0 12 16&quot; version=&quot;1.1&quot; width=&quot;12&quot; height=&quot;16&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M12 9H7v5H5V9H0V7h5V2h2v5h5v2z&quot; /&gt;&lt;/svg&gt;
-        &lt;span class=&quot;dropdown-caret mt-1&quot;&gt;&lt;/span&gt;
-      &lt;/summary&gt;
-
-      &lt;ul class=&quot;dropdown-menu dropdown-menu-sw&quot;&gt;
-        
-&lt;a class=&quot;dropdown-item&quot; href=&quot;/new&quot; data-ga-click=&quot;Header, create new repository&quot;&gt;
-  New repository
-&lt;/a&gt;
-
-  &lt;a class=&quot;dropdown-item&quot; href=&quot;/new/import&quot; data-ga-click=&quot;Header, import a repository&quot;&gt;
-    Import repository
-  &lt;/a&gt;
-
-&lt;a class=&quot;dropdown-item&quot; href=&quot;https://gist.github.com/&quot; data-ga-click=&quot;Header, create new gist&quot;&gt;
-  New gist
-&lt;/a&gt;
-
-  &lt;a class=&quot;dropdown-item&quot; href=&quot;/organizations/new&quot; data-ga-click=&quot;Header, create new organization&quot;&gt;
-    New organization
-  &lt;/a&gt;
-
-
-
-  &lt;div class=&quot;dropdown-divider&quot;&gt;&lt;/div&gt;
-  &lt;div class=&quot;dropdown-header&quot;&gt;
-    &lt;span title=&quot;OmalPerera/omalperera.github.io&quot;&gt;This repository&lt;/span&gt;
-  &lt;/div&gt;
-    &lt;a class=&quot;dropdown-item&quot; href=&quot;/OmalPerera/omalperera.github.io/issues/new&quot; data-ga-click=&quot;Header, create new issue&quot;&gt;
-      New issue
-    &lt;/a&gt;
-
-      &lt;/ul&gt;
-    &lt;/details&gt;
-  &lt;/li&gt;
-
-  &lt;li class=&quot;dropdown&quot;&gt;
-
-    &lt;details class=&quot;details-overlay details-reset js-dropdown-details d-flex pl-2 flex-items-center&quot;&gt;
-      &lt;summary class=&quot;HeaderNavlink name mt-1&quot; aria-label=&quot;View profile and more&quot; data-ga-click=&quot;Header, show menu, icon:avatar&quot;&gt;
-        &lt;img alt=&quot;@OmalPerera&quot; class=&quot;avatar float-left mr-1&quot; src=&quot;https://avatars3.githubusercontent.com/u/11645048?s=40&amp;amp;v=4&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt;
-        &lt;span class=&quot;dropdown-caret&quot;&gt;&lt;/span&gt;
-      &lt;/summary&gt;
-
-      &lt;ul class=&quot;dropdown-menu dropdown-menu-sw&quot;&gt;
-        &lt;li class=&quot;dropdown-header header-nav-current-user css-truncate&quot;&gt;
-          Signed in as &lt;strong class=&quot;css-truncate-target&quot;&gt;OmalPerera&lt;/strong&gt;
-        &lt;/li&gt;
-
-        &lt;li class=&quot;dropdown-divider&quot;&gt;&lt;/li&gt;
-
-        &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;/OmalPerera&quot; data-ga-click=&quot;Header, go to profile, text:your profile&quot;&gt;
-          Your profile
-        &lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;/OmalPerera?tab=stars&quot; data-ga-click=&quot;Header, go to starred repos, text:your stars&quot;&gt;
-          Your stars
-        &lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;https://gist.github.com/&quot; data-ga-click=&quot;Header, your gists, text:your gists&quot;&gt;Your gists&lt;/a&gt;&lt;/li&gt;
-
-        &lt;li class=&quot;dropdown-divider&quot;&gt;&lt;/li&gt;
-
-        &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;https://help.github.com&quot; data-ga-click=&quot;Header, go to help, text:help&quot;&gt;
-          Help
-        &lt;/a&gt;&lt;/li&gt;
-
-        &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;/settings/profile&quot; data-ga-click=&quot;Header, go to settings, icon:settings&quot;&gt;
-          Settings
-        &lt;/a&gt;&lt;/li&gt;
-
-        &lt;li&gt;&lt;!-- '&quot;` --&gt;&lt;!-- &lt;/textarea&gt;&lt;/xmp&gt; --&gt;&amp;lt;/option&amp;gt;&amp;lt;/form&amp;gt;&lt;form class=&quot;logout-form&quot; action=&quot;/logout&quot; accept-charset=&quot;UTF-8&quot; method=&quot;post&quot;&gt;&lt;input name=&quot;utf8&quot; type=&quot;hidden&quot; value=&quot;&amp;#x2713;&quot; /&gt;&lt;input type=&quot;hidden&quot; name=&quot;authenticity_token&quot; value=&quot;34Mlxh69UPQ6lrCuAbv2OGPpTH69NmSJtuWRh766IVtYMXXwo27VzsVb/qehVPkHyoSwhkyZa1OcqhJy3fAJ0A==&quot; /&gt;
-          &lt;button type=&quot;submit&quot; class=&quot;dropdown-item dropdown-signout&quot; data-ga-click=&quot;Header, sign out, icon:logout&quot;&gt;
-            Sign out
-          &lt;/button&gt;
-        &lt;/form&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-    &lt;/details&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-        &lt;!-- '&quot;` --&gt;&lt;!-- &lt;/textarea&gt;&lt;/xmp&gt; --&gt;&amp;lt;/option&amp;gt;&amp;lt;/form&amp;gt;&lt;form class=&quot;sr-only right-0&quot; action=&quot;/logout&quot; accept-charset=&quot;UTF-8&quot; method=&quot;post&quot;&gt;&lt;input name=&quot;utf8&quot; type=&quot;hidden&quot; value=&quot;&amp;#x2713;&quot; /&gt;&lt;input type=&quot;hidden&quot; name=&quot;authenticity_token&quot; value=&quot;kbvJlgx3zjBqA+Z59ZRIb8NnDxPqMaJaHbNpC9aW2KoWCZmgsaRLCpXOqHBVe0dQagrz6xuerYA3/Or+tdzwIQ==&quot; /&gt;
-          &lt;button type=&quot;submit&quot; class=&quot;dropdown-item dropdown-signout&quot; data-ga-click=&quot;Header, sign out, icon:logout&quot;&gt;
-            Sign out
-          &lt;/button&gt;
-&lt;/form&gt;      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/header&gt;
-
-      
-
-  &lt;/div&gt;
-
-  &lt;div id=&quot;start-of-content&quot; class=&quot;show-on-focus&quot;&gt;&lt;/div&gt;
-
-    &lt;div id=&quot;js-flash-container&quot;&gt;
-&lt;/div&gt;
-
-
-
-  &lt;div role=&quot;main&quot; class=&quot;application-main &quot;&gt;
-        &lt;div itemscope=&quot;&quot; itemtype=&quot;http://schema.org/SoftwareSourceCode&quot; class=&quot;&quot;&gt;
-    &lt;div id=&quot;js-repo-pjax-container&quot; data-pjax-container=&quot;&quot;&gt;
-      
-
-
-
-
-
-
-
-  &lt;div class=&quot;pagehead repohead instapaper_ignore readability-menu experiment-repo-nav  &quot;&gt;
-    &lt;div class=&quot;repohead-details-container clearfix container&quot;&gt;
-
-      &lt;ul class=&quot;pagehead-actions&quot;&gt;
-  &lt;li&gt;
-        &lt;!-- '&quot;` --&gt;&lt;!-- &lt;/textarea&gt;&lt;/xmp&gt; --&gt;&amp;lt;/option&amp;gt;&amp;lt;/form&amp;gt;&lt;form data-autosubmit=&quot;true&quot; data-remote=&quot;true&quot; class=&quot;js-social-container&quot; action=&quot;/notifications/subscribe&quot; accept-charset=&quot;UTF-8&quot; method=&quot;post&quot;&gt;&lt;input name=&quot;utf8&quot; type=&quot;hidden&quot; value=&quot;&amp;#x2713;&quot; /&gt;&lt;input type=&quot;hidden&quot; name=&quot;authenticity_token&quot; value=&quot;mswrUQgwn6mjJ2ViCrsHhE8jZBRJPk3VokNWvfcCPh6ax2QgVjDhANlzy4xxMJxsGMFttVvQQPHCiE8gEtnRoQ==&quot; /&gt;      &lt;input type=&quot;hidden&quot; name=&quot;repository_id&quot; id=&quot;repository_id&quot; value=&quot;56443762&quot; class=&quot;form-control&quot; /&gt;
-
-        &lt;div class=&quot;select-menu js-menu-container js-select-menu&quot;&gt;
-          &lt;a href=&quot;/OmalPerera/omalperera.github.io/subscription&quot; class=&quot;btn btn-sm btn-with-count select-menu-button js-menu-target&quot; role=&quot;button&quot; aria-haspopup=&quot;true&quot; aria-expanded=&quot;false&quot; aria-label=&quot;Toggle repository notifications menu&quot; data-ga-click=&quot;Repository, click Watch settings, action:blob#show&quot;&gt;
-            &lt;span class=&quot;js-select-button&quot;&gt;
-                &lt;svg class=&quot;octicon octicon-eye&quot; viewBox=&quot;0 0 16 16&quot; version=&quot;1.1&quot; width=&quot;16&quot; height=&quot;16&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M8.06 2C3 2 0 8 0 8s3 6 8.06 6C13 14 16 8 16 8s-3-6-7.94-6zM8 12c-2.2 0-4-1.78-4-4 0-2.2 1.8-4 4-4 2.22 0 4 1.8 4 4 0 2.22-1.78 4-4 4zm2-4c0 1.11-.89 2-2 2-1.11 0-2-.89-2-2 0-1.11.89-2 2-2 1.11 0 2 .89 2 2z&quot; /&gt;&lt;/svg&gt;
-                Watch
-            &lt;/span&gt;
-          &lt;/a&gt;
-          &lt;a class=&quot;social-count js-social-count&quot; href=&quot;/OmalPerera/omalperera.github.io/watchers&quot; aria-label=&quot;0 users are watching this repository&quot;&gt;
-            0
-          &lt;/a&gt;
-
-        &lt;div class=&quot;select-menu-modal-holder&quot;&gt;
-          &lt;div class=&quot;select-menu-modal subscription-menu-modal js-menu-content&quot;&gt;
-            &lt;div class=&quot;select-menu-header js-navigation-enable&quot; tabindex=&quot;-1&quot;&gt;
-              &lt;svg class=&quot;octicon octicon-x js-menu-close&quot; role=&quot;img&quot; aria-label=&quot;Close&quot; viewBox=&quot;0 0 12 16&quot; version=&quot;1.1&quot; width=&quot;12&quot; height=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z&quot; /&gt;&lt;/svg&gt;
-              &lt;span class=&quot;select-menu-title&quot;&gt;Notifications&lt;/span&gt;
-            &lt;/div&gt;
-
-              &lt;div class=&quot;select-menu-list js-navigation-container&quot; role=&quot;menu&quot;&gt;
-
-                &lt;div class=&quot;select-menu-item js-navigation-item selected&quot; role=&quot;menuitem&quot; tabindex=&quot;0&quot;&gt;
-                  &lt;svg class=&quot;octicon octicon-check select-menu-item-icon&quot; viewBox=&quot;0 0 12 16&quot; version=&quot;1.1&quot; width=&quot;12&quot; height=&quot;16&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5L12 5z&quot; /&gt;&lt;/svg&gt;
-                  &lt;div class=&quot;select-menu-item-text&quot;&gt;
-                    &lt;input type=&quot;radio&quot; name=&quot;do&quot; id=&quot;do_included&quot; value=&quot;included&quot; checked=&quot;checked&quot; /&gt;
-                    &lt;span class=&quot;select-menu-item-heading&quot;&gt;Not watching&lt;/span&gt;
-                    &lt;span class=&quot;description&quot;&gt;Be notified when participating or @mentioned.&lt;/span&gt;
-                    &lt;span class=&quot;js-select-button-text hidden-select-button-text&quot;&gt;
-                      &lt;svg class=&quot;octicon octicon-eye&quot; viewBox=&quot;0 0 16 16&quot; version=&quot;1.1&quot; width=&quot;16&quot; height=&quot;16&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M8.06 2C3 2 0 8 0 8s3 6 8.06 6C13 14 16 8 16 8s-3-6-7.94-6zM8 12c-2.2 0-4-1.78-4-4 0-2.2 1.8-4 4-4 2.22 0 4 1.8 4 4 0 2.22-1.78 4-4 4zm2-4c0 1.11-.89 2-2 2-1.11 0-2-.89-2-2 0-1.11.89-2 2-2 1.11 0 2 .89 2 2z&quot; /&gt;&lt;/svg&gt;
-                      Watch
-                    &lt;/span&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-
-                &lt;div class=&quot;select-menu-item js-navigation-item &quot; role=&quot;menuitem&quot; tabindex=&quot;0&quot;&gt;
-                  &lt;svg class=&quot;octicon octicon-check select-menu-item-icon&quot; viewBox=&quot;0 0 12 16&quot; version=&quot;1.1&quot; width=&quot;12&quot; height=&quot;16&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5L12 5z&quot; /&gt;&lt;/svg&gt;
-                  &lt;div class=&quot;select-menu-item-text&quot;&gt;
-                    &lt;input type=&quot;radio&quot; name=&quot;do&quot; id=&quot;do_subscribed&quot; value=&quot;subscribed&quot; /&gt;
-                    &lt;span class=&quot;select-menu-item-heading&quot;&gt;Watching&lt;/span&gt;
-                    &lt;span class=&quot;description&quot;&gt;Be notified of all conversations.&lt;/span&gt;
-                    &lt;span class=&quot;js-select-button-text hidden-select-button-text&quot;&gt;
-                      &lt;svg class=&quot;octicon octicon-eye&quot; viewBox=&quot;0 0 16 16&quot; version=&quot;1.1&quot; width=&quot;16&quot; height=&quot;16&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M8.06 2C3 2 0 8 0 8s3 6 8.06 6C13 14 16 8 16 8s-3-6-7.94-6zM8 12c-2.2 0-4-1.78-4-4 0-2.2 1.8-4 4-4 2.22 0 4 1.8 4 4 0 2.22-1.78 4-4 4zm2-4c0 1.11-.89 2-2 2-1.11 0-2-.89-2-2 0-1.11.89-2 2-2 1.11 0 2 .89 2 2z&quot; /&gt;&lt;/svg&gt;
-                        Unwatch
-                    &lt;/span&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-
-                &lt;div class=&quot;select-menu-item js-navigation-item &quot; role=&quot;menuitem&quot; tabindex=&quot;0&quot;&gt;
-                  &lt;svg class=&quot;octicon octicon-check select-menu-item-icon&quot; viewBox=&quot;0 0 12 16&quot; version=&quot;1.1&quot; width=&quot;12&quot; height=&quot;16&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5L12 5z&quot; /&gt;&lt;/svg&gt;
-                  &lt;div class=&quot;select-menu-item-text&quot;&gt;
-                    &lt;input type=&quot;radio&quot; name=&quot;do&quot; id=&quot;do_ignore&quot; value=&quot;ignore&quot; /&gt;
-                    &lt;span class=&quot;select-menu-item-heading&quot;&gt;Ignoring&lt;/span&gt;
-                    &lt;span class=&quot;description&quot;&gt;Never be notified.&lt;/span&gt;
-                    &lt;span class=&quot;js-select-button-text hidden-select-button-text&quot;&gt;
-                      &lt;svg class=&quot;octicon octicon-mute&quot; viewBox=&quot;0 0 16 16&quot; version=&quot;1.1&quot; width=&quot;16&quot; height=&quot;16&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M8 2.81v10.38c0 .67-.81 1-1.28.53L3 10H1c-.55 0-1-.45-1-1V7c0-.55.45-1 1-1h2l3.72-3.72C7.19 1.81 8 2.14 8 2.81zm7.53 3.22l-1.06-1.06-1.97 1.97-1.97-1.97-1.06 1.06L11.44 8 9.47 9.97l1.06 1.06 1.97-1.97 1.97 1.97 1.06-1.06L13.56 8l1.97-1.97z&quot; /&gt;&lt;/svg&gt;
-                        Stop ignoring
-                    &lt;/span&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-
-              &lt;/div&gt;
-
-            &lt;/div&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;
-&lt;/form&gt;
-  &lt;/li&gt;
-
-  &lt;li&gt;
-    
-  &lt;div class=&quot;js-toggler-container js-social-container starring-container &quot;&gt;
-    &lt;!-- '&quot;` --&gt;&lt;!-- &lt;/textarea&gt;&lt;/xmp&gt; --&gt;&amp;lt;/option&amp;gt;&amp;lt;/form&amp;gt;&lt;form class=&quot;starred js-social-form&quot; action=&quot;/OmalPerera/omalperera.github.io/unstar&quot; accept-charset=&quot;UTF-8&quot; method=&quot;post&quot;&gt;&lt;input name=&quot;utf8&quot; type=&quot;hidden&quot; value=&quot;&amp;#x2713;&quot; /&gt;&lt;input type=&quot;hidden&quot; name=&quot;authenticity_token&quot; value=&quot;LXpEr4v6aNFLtuuMCsZDiCNFcjA6Etk/e/qdRF4D9JDUfgRaj6YHCDh8HBjYI/Oj+bvFUvPc1ZgZd8r8bPQyYg==&quot; /&gt;
-      &lt;input type=&quot;hidden&quot; name=&quot;context&quot; value=&quot;repository&quot; /&gt;&amp;lt;/input&amp;gt;
-      &lt;button type=&quot;submit&quot; class=&quot;btn btn-sm btn-with-count js-toggler-target&quot; aria-label=&quot;Unstar this repository&quot; title=&quot;Unstar OmalPerera/omalperera.github.io&quot; data-ga-click=&quot;Repository, click unstar button, action:blob#show; text:Unstar&quot;&gt;
-        &lt;svg class=&quot;octicon octicon-star&quot; viewBox=&quot;0 0 14 16&quot; version=&quot;1.1&quot; width=&quot;14&quot; height=&quot;16&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z&quot; /&gt;&lt;/svg&gt;
-        Unstar
-      &lt;/button&gt;
-        &lt;a class=&quot;social-count js-social-count&quot; href=&quot;/OmalPerera/omalperera.github.io/stargazers&quot; aria-label=&quot;0 users starred this repository&quot;&gt;
-          0
-        &lt;/a&gt;
-&lt;/form&gt;
-    &lt;!-- '&quot;` --&gt;&lt;!-- &lt;/textarea&gt;&lt;/xmp&gt; --&gt;&amp;lt;/option&amp;gt;&amp;lt;/form&amp;gt;&lt;form class=&quot;unstarred js-social-form&quot; action=&quot;/OmalPerera/omalperera.github.io/star&quot; accept-charset=&quot;UTF-8&quot; method=&quot;post&quot;&gt;&lt;input name=&quot;utf8&quot; type=&quot;hidden&quot; value=&quot;&amp;#x2713;&quot; /&gt;&lt;input type=&quot;hidden&quot; name=&quot;authenticity_token&quot; value=&quot;hVC+XwQ5cVl+u9yXXldVmqCocBC+i9hYN4HE5GoLeA5HKy5vltodGLGD276QnlT3kZ+U16sIhMzlewwIFzKXbw==&quot; /&gt;
-      &lt;input type=&quot;hidden&quot; name=&quot;context&quot; value=&quot;repository&quot; /&gt;&amp;lt;/input&amp;gt;
-      &lt;button type=&quot;submit&quot; class=&quot;btn btn-sm btn-with-count js-toggler-target&quot; aria-label=&quot;Star this repository&quot; title=&quot;Star OmalPerera/omalperera.github.io&quot; data-ga-click=&quot;Repository, click star button, action:blob#show; text:Star&quot;&gt;
-        &lt;svg class=&quot;octicon octicon-star&quot; viewBox=&quot;0 0 14 16&quot; version=&quot;1.1&quot; width=&quot;14&quot; height=&quot;16&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z&quot; /&gt;&lt;/svg&gt;
-        Star
-      &lt;/button&gt;
-        &lt;a class=&quot;social-count js-social-count&quot; href=&quot;/OmalPerera/omalperera.github.io/stargazers&quot; aria-label=&quot;0 users starred this repository&quot;&gt;
-          0
-        &lt;/a&gt;
-&lt;/form&gt;  &lt;/div&gt;
-
-  &lt;/li&gt;
-
-  &lt;li&gt;
-          &lt;details class=&quot;details-reset details-overlay details-overlay-dark d-inline-block float-left&quot; data-deferred-details-content-url=&quot;/OmalPerera/omalperera.github.io/fork?fragment=1&quot;&gt;
-            &lt;summary class=&quot;btn btn-sm btn-with-count&quot; title=&quot;Fork your own copy of OmalPerera/omalperera.github.io to your account&quot; data-ga-click=&quot;Repository, show fork modal, action:blob#show; text:Fork&quot;&gt;
-              Fork
-            &lt;/summary&gt;
-            &lt;details-dialog class=&quot;anim-fade-in fast Box Box--overlay d-flex flex-column&quot;&gt;
-              &lt;div class=&quot;Box-header&quot;&gt;
-                &lt;button class=&quot;Box-btn-octicon btn-octicon float-right&quot; type=&quot;button&quot; aria-label=&quot;Close dialog&quot; data-close-dialog=&quot;&quot;&gt;
-                  &lt;svg class=&quot;octicon octicon-x&quot; viewBox=&quot;0 0 12 16&quot; version=&quot;1.1&quot; width=&quot;12&quot; height=&quot;16&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z&quot; /&gt;&lt;/svg&gt;
-                &lt;/button&gt;
-                &lt;h3 class=&quot;Box-title&quot;&gt;Where should we fork this repository?&lt;/h3&gt;
-              &lt;/div&gt;
-              &lt;div class=&quot;Box-body overflow-auto text-center&quot;&gt;
-                &lt;include-fragment&gt;
-                  &lt;div class=&quot;octocat-spinner my-3&quot; aria-label=&quot;Loading...&quot;&gt;&lt;/div&gt;
-                  &lt;p class=&quot;f5 text-gray&quot;&gt;If this dialog fails to load, you can visit &lt;a href=&quot;/OmalPerera/omalperera.github.io/fork&quot;&gt;the fork page&lt;/a&gt; directly.&lt;/p&gt;
-                &lt;/include-fragment&gt;
-              &lt;/div&gt;
-            &lt;/details-dialog&gt;
-          &lt;/details&gt;
-
-    &lt;a href=&quot;/OmalPerera/omalperera.github.io/network&quot; class=&quot;social-count&quot; aria-label=&quot;0 users forked this repository&quot;&gt;
-      0
-    &lt;/a&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-      &lt;h1 class=&quot;private &quot;&gt;
-  &lt;svg class=&quot;octicon octicon-lock&quot; viewBox=&quot;0 0 12 16&quot; version=&quot;1.1&quot; width=&quot;12&quot; height=&quot;16&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 13H3v-1h1v1zm8-6v7c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V7c0-.55.45-1 1-1h1V4c0-2.2 1.8-4 4-4s4 1.8 4 4v2h1c.55 0 1 .45 1 1zM3.8 6h4.41V4c0-1.22-.98-2.2-2.2-2.2-1.22 0-2.2.98-2.2 2.2v2H3.8zM11 7H2v7h9V7zM4 8H3v1h1V8zm0 2H3v1h1v-1z&quot; /&gt;&lt;/svg&gt;
-  &lt;span class=&quot;author&quot; itemprop=&quot;author&quot;&gt;&lt;a class=&quot;url fn&quot; rel=&quot;author&quot; href=&quot;/OmalPerera&quot;&gt;OmalPerera&lt;/a&gt;&lt;/span&gt;&lt;!--
---&gt;&lt;span class=&quot;path-divider&quot;&gt;/&lt;/span&gt;&lt;!--
---&gt;&lt;strong itemprop=&quot;name&quot;&gt;&lt;a data-pjax=&quot;#js-repo-pjax-container&quot; href=&quot;/OmalPerera/omalperera.github.io&quot;&gt;omalperera.github.io&lt;/a&gt;&lt;/strong&gt;
-    &lt;span class=&quot;Label Label--outline v-align-middle&quot;&gt;Private&lt;/span&gt;
-
-&lt;/h1&gt;
-
-    &lt;/div&gt;
-    
-&lt;nav class=&quot;reponav js-repo-nav js-sidenav-container-pjax container&quot; itemscope=&quot;&quot; itemtype=&quot;http://schema.org/BreadcrumbList&quot; role=&quot;navigation&quot; data-pjax=&quot;#js-repo-pjax-container&quot;&gt;
-
-  &lt;span itemscope=&quot;&quot; itemtype=&quot;http://schema.org/ListItem&quot; itemprop=&quot;itemListElement&quot;&gt;
-    &lt;a class=&quot;js-selected-navigation-item selected reponav-item&quot; itemprop=&quot;url&quot; data-hotkey=&quot;g c&quot; data-selected-links=&quot;repo_source repo_downloads repo_commits repo_releases repo_tags repo_branches repo_packages /OmalPerera/omalperera.github.io&quot; href=&quot;/OmalPerera/omalperera.github.io&quot;&gt;
-      &lt;svg class=&quot;octicon octicon-code&quot; viewBox=&quot;0 0 14 16&quot; version=&quot;1.1&quot; width=&quot;14&quot; height=&quot;16&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M9.5 3L8 4.5 11.5 8 8 11.5 9.5 13 14 8 9.5 3zm-5 0L0 8l4.5 5L6 11.5 2.5 8 6 4.5 4.5 3z&quot; /&gt;&lt;/svg&gt;
-      &lt;span itemprop=&quot;name&quot;&gt;Code&lt;/span&gt;
-      &lt;meta itemprop=&quot;position&quot; content=&quot;1&quot; /&gt;
-&lt;/a&gt;  &lt;/span&gt;
-
-    &lt;span itemscope=&quot;&quot; itemtype=&quot;http://schema.org/ListItem&quot; itemprop=&quot;itemListElement&quot;&gt;
-      &lt;a itemprop=&quot;url&quot; data-hotkey=&quot;g i&quot; class=&quot;js-selected-navigation-item reponav-item&quot; data-selected-links=&quot;repo_issues repo_labels repo_milestones /OmalPerera/omalperera.github.io/issues&quot; href=&quot;/OmalPerera/omalperera.github.io/issues&quot;&gt;
-        &lt;svg class=&quot;octicon octicon-issue-opened&quot; viewBox=&quot;0 0 14 16&quot; version=&quot;1.1&quot; width=&quot;14&quot; height=&quot;16&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z&quot; /&gt;&lt;/svg&gt;
-        &lt;span itemprop=&quot;name&quot;&gt;Issues&lt;/span&gt;
-        &lt;span class=&quot;Counter&quot;&gt;6&lt;/span&gt;
-        &lt;meta itemprop=&quot;position&quot; content=&quot;2&quot; /&gt;
-&lt;/a&gt;    &lt;/span&gt;
-
-  &lt;span itemscope=&quot;&quot; itemtype=&quot;http://schema.org/ListItem&quot; itemprop=&quot;itemListElement&quot;&gt;
-    &lt;a data-hotkey=&quot;g p&quot; itemprop=&quot;url&quot; class=&quot;js-selected-navigation-item reponav-item&quot; data-selected-links=&quot;repo_pulls checks /OmalPerera/omalperera.github.io/pulls&quot; href=&quot;/OmalPerera/omalperera.github.io/pulls&quot;&gt;
-      &lt;svg class=&quot;octicon octicon-git-pull-request&quot; viewBox=&quot;0 0 12 16&quot; version=&quot;1.1&quot; width=&quot;12&quot; height=&quot;16&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M11 11.28V5c-.03-.78-.34-1.47-.94-2.06C9.46 2.35 8.78 2.03 8 2H7V0L4 3l3 3V4h1c.27.02.48.11.69.31.21.2.3.42.31.69v6.28A1.993 1.993 0 0 0 10 15a1.993 1.993 0 0 0 1-3.72zm-1 2.92c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zM4 3c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v6.56A1.993 1.993 0 0 0 2 15a1.993 1.993 0 0 0 1-3.72V4.72c.59-.34 1-.98 1-1.72zm-.8 10c0 .66-.55 1.2-1.2 1.2-.65 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z&quot; /&gt;&lt;/svg&gt;
-      &lt;span itemprop=&quot;name&quot;&gt;Pull requests&lt;/span&gt;
-      &lt;span class=&quot;Counter&quot;&gt;0&lt;/span&gt;
-      &lt;meta itemprop=&quot;position&quot; content=&quot;3&quot; /&gt;
-&lt;/a&gt;  &lt;/span&gt;
-
-    &lt;a data-hotkey=&quot;g b&quot; class=&quot;js-selected-navigation-item reponav-item&quot; data-selected-links=&quot;repo_projects new_repo_project repo_project /OmalPerera/omalperera.github.io/projects&quot; href=&quot;/OmalPerera/omalperera.github.io/projects&quot;&gt;
-      &lt;svg class=&quot;octicon octicon-project&quot; viewBox=&quot;0 0 15 16&quot; version=&quot;1.1&quot; width=&quot;15&quot; height=&quot;16&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M10 12h3V2h-3v10zm-4-2h3V2H6v8zm-4 4h3V2H2v12zm-1 1h13V1H1v14zM14 0H1a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1z&quot; /&gt;&lt;/svg&gt;
-      Projects
-      &lt;span class=&quot;Counter&quot;&gt;0&lt;/span&gt;
-&lt;/a&gt;
-    &lt;a class=&quot;js-selected-navigation-item reponav-item&quot; data-hotkey=&quot;g w&quot; data-selected-links=&quot;repo_wiki /OmalPerera/omalperera.github.io/wiki&quot; href=&quot;/OmalPerera/omalperera.github.io/wiki&quot;&gt;
-      &lt;svg class=&quot;octicon octicon-book&quot; viewBox=&quot;0 0 16 16&quot; version=&quot;1.1&quot; width=&quot;16&quot; height=&quot;16&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M3 5h4v1H3V5zm0 3h4V7H3v1zm0 2h4V9H3v1zm11-5h-4v1h4V5zm0 2h-4v1h4V7zm0 2h-4v1h4V9zm2-6v9c0 .55-.45 1-1 1H9.5l-1 1-1-1H2c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h5.5l1 1 1-1H15c.55 0 1 .45 1 1zm-8 .5L7.5 3H2v9h6V3.5zm7-.5H9.5l-.5.5V12h6V3z&quot; /&gt;&lt;/svg&gt;
-      Wiki
-&lt;/a&gt;
-
-  &lt;a class=&quot;js-selected-navigation-item reponav-item&quot; data-selected-links=&quot;repo_graphs repo_contributors dependency_graph pulse /OmalPerera/omalperera.github.io/pulse&quot; href=&quot;/OmalPerera/omalperera.github.io/pulse&quot;&gt;
-    &lt;svg class=&quot;octicon octicon-graph&quot; viewBox=&quot;0 0 16 16&quot; version=&quot;1.1&quot; width=&quot;16&quot; height=&quot;16&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M16 14v1H0V0h1v14h15zM5 13H3V8h2v5zm4 0H7V3h2v10zm4 0h-2V6h2v7z&quot; /&gt;&lt;/svg&gt;
-    Insights
-&lt;/a&gt;
-    &lt;a class=&quot;js-selected-navigation-item reponav-item&quot; data-selected-links=&quot;repo_settings repo_branch_settings hooks integration_installations repo_keys_settings issue_template_editor /OmalPerera/omalperera.github.io/settings&quot; href=&quot;/OmalPerera/omalperera.github.io/settings&quot;&gt;
-      &lt;svg class=&quot;octicon octicon-gear&quot; viewBox=&quot;0 0 14 16&quot; version=&quot;1.1&quot; width=&quot;14&quot; height=&quot;16&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M14 8.77v-1.6l-1.94-.64-.45-1.09.88-1.84-1.13-1.13-1.81.91-1.09-.45-.69-1.92h-1.6l-.63 1.94-1.11.45-1.84-.88-1.13 1.13.91 1.81-.45 1.09L0 7.23v1.59l1.94.64.45 1.09-.88 1.84 1.13 1.13 1.81-.91 1.09.45.69 1.92h1.59l.63-1.94 1.11-.45 1.84.88 1.13-1.13-.92-1.81.47-1.09L14 8.75v.02zM7 11c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z&quot; /&gt;&lt;/svg&gt;
-      Settings
-&lt;/a&gt;
-&lt;/nav&gt;
-
-
-  &lt;/div&gt;
-
-&lt;div class=&quot;container new-discussion-timeline experiment-repo-nav  &quot;&gt;
-  &lt;div class=&quot;repository-content &quot;&gt;
-
-    
-  &lt;a class=&quot;d-none js-permalink-shortcut&quot; data-hotkey=&quot;y&quot; href=&quot;/OmalPerera/omalperera.github.io/blob/7ffd2aa17c2fcbafa606b21a91ffc295c50aa894/_posts/2018-02-01-kerberos-simplified.md&quot;&gt;Permalink&lt;/a&gt;
-
-  &lt;!-- blob contrib key: blob_contributors:v21:cf78e0ec5fcf48598cae708c9b23bacd --&gt;
-
-  
-
-  &lt;div class=&quot;file-navigation&quot;&gt;
-    
-&lt;div class=&quot;select-menu branch-select-menu js-menu-container js-select-menu float-left&quot;&gt;
-  &lt;button class=&quot; btn btn-sm select-menu-button js-menu-target css-truncate&quot; data-hotkey=&quot;w&quot; type=&quot;button&quot; aria-label=&quot;Switch branches or tags&quot; aria-expanded=&quot;false&quot; aria-haspopup=&quot;true&quot;&gt;
-      &lt;i&gt;Branch:&lt;/i&gt;
-      &lt;span class=&quot;js-select-button css-truncate-target&quot;&gt;master&lt;/span&gt;
-  &lt;/button&gt;
-
-  &lt;div class=&quot;select-menu-modal-holder js-menu-content js-navigation-container&quot; data-pjax=&quot;&quot;&gt;
-
-    &lt;div class=&quot;select-menu-modal&quot;&gt;
-      &lt;div class=&quot;select-menu-header&quot;&gt;
-        &lt;svg class=&quot;octicon octicon-x js-menu-close&quot; role=&quot;img&quot; aria-label=&quot;Close&quot; viewBox=&quot;0 0 12 16&quot; version=&quot;1.1&quot; width=&quot;12&quot; height=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z&quot; /&gt;&lt;/svg&gt;
-        &lt;span class=&quot;select-menu-title&quot;&gt;Switch branches/tags&lt;/span&gt;
-      &lt;/div&gt;
-
-      &lt;div class=&quot;select-menu-filters&quot;&gt;
-        &lt;div class=&quot;select-menu-text-filter&quot;&gt;
-          &lt;input type=&quot;text&quot; aria-label=&quot;Find or create a branch…&quot; id=&quot;context-commitish-filter-field&quot; class=&quot;form-control js-filterable-field js-navigation-enable&quot; placeholder=&quot;Find or create a branch…&quot; /&gt;
-        &lt;/div&gt;
-        &lt;div class=&quot;select-menu-tabs&quot;&gt;
-          &lt;ul&gt;
-            &lt;li class=&quot;select-menu-tab&quot;&gt;
-              &lt;a href=&quot;#&quot; data-tab-filter=&quot;branches&quot; data-filter-placeholder=&quot;Find or create a branch…&quot; class=&quot;js-select-menu-tab&quot; role=&quot;tab&quot;&gt;Branches&lt;/a&gt;
-            &lt;/li&gt;
-            &lt;li class=&quot;select-menu-tab&quot;&gt;
-              &lt;a href=&quot;#&quot; data-tab-filter=&quot;tags&quot; data-filter-placeholder=&quot;Find a tag…&quot; class=&quot;js-select-menu-tab&quot; role=&quot;tab&quot;&gt;Tags&lt;/a&gt;
-            &lt;/li&gt;
-          &lt;/ul&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-
-      &lt;div class=&quot;select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket&quot; data-tab-filter=&quot;branches&quot; role=&quot;menu&quot;&gt;
-
-        &lt;div data-filterable-for=&quot;context-commitish-filter-field&quot; data-filterable-type=&quot;substring&quot;&gt;
-
-
-            &lt;a class=&quot;select-menu-item js-navigation-item js-navigation-open &quot; href=&quot;/OmalPerera/omalperera.github.io/blob/dev/_posts/2018-02-01-kerberos-simplified.md&quot; data-name=&quot;dev&quot; data-skip-pjax=&quot;true&quot; rel=&quot;nofollow&quot;&gt;
-              &lt;svg class=&quot;octicon octicon-check select-menu-item-icon&quot; viewBox=&quot;0 0 12 16&quot; version=&quot;1.1&quot; width=&quot;12&quot; height=&quot;16&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5L12 5z&quot; /&gt;&lt;/svg&gt;
-              &lt;span class=&quot;select-menu-item-text css-truncate-target js-select-menu-filter-text&quot;&gt;
-                dev
-              &lt;/span&gt;
-            &lt;/a&gt;
-            &lt;a class=&quot;select-menu-item js-navigation-item js-navigation-open selected&quot; href=&quot;/OmalPerera/omalperera.github.io/blob/master/_posts/2018-02-01-kerberos-simplified.md&quot; data-name=&quot;master&quot; data-skip-pjax=&quot;true&quot; rel=&quot;nofollow&quot;&gt;
-              &lt;svg class=&quot;octicon octicon-check select-menu-item-icon&quot; viewBox=&quot;0 0 12 16&quot; version=&quot;1.1&quot; width=&quot;12&quot; height=&quot;16&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5L12 5z&quot; /&gt;&lt;/svg&gt;
-              &lt;span class=&quot;select-menu-item-text css-truncate-target js-select-menu-filter-text&quot;&gt;
-                master
-              &lt;/span&gt;
-            &lt;/a&gt;
-        &lt;/div&gt;
-
-          &lt;!-- '&quot;` --&gt;&lt;!-- &lt;/textarea&gt;&lt;/xmp&gt; --&gt;&amp;lt;/option&amp;gt;&amp;lt;/form&amp;gt;&lt;form class=&quot;js-create-branch select-menu-item select-menu-new-item-form js-navigation-item js-new-item-form&quot; action=&quot;/OmalPerera/omalperera.github.io/branches&quot; accept-charset=&quot;UTF-8&quot; method=&quot;post&quot;&gt;&lt;input name=&quot;utf8&quot; type=&quot;hidden&quot; value=&quot;&amp;#x2713;&quot; /&gt;&lt;input type=&quot;hidden&quot; name=&quot;authenticity_token&quot; value=&quot;qcULFodb91rgeL3RqORAR2q8jLtAi2vPSO9tPO4qOJVEEbjprVssdTcw71QOayCp6GO9ZAl264sav/XjGIQqOA==&quot; /&gt;
-          &lt;svg class=&quot;octicon octicon-git-branch select-menu-item-icon&quot; viewBox=&quot;0 0 10 16&quot; version=&quot;1.1&quot; width=&quot;10&quot; height=&quot;16&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M10 5c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v.3c-.02.52-.23.98-.63 1.38-.4.4-.86.61-1.38.63-.83.02-1.48.16-2 .45V4.72a1.993 1.993 0 0 0-1-3.72C.88 1 0 1.89 0 3a2 2 0 0 0 1 1.72v6.56c-.59.35-1 .99-1 1.72 0 1.11.89 2 2 2 1.11 0 2-.89 2-2 0-.53-.2-1-.53-1.36.09-.06.48-.41.59-.47.25-.11.56-.17.94-.17 1.05-.05 1.95-.45 2.75-1.25S8.95 7.77 9 6.73h-.02C9.59 6.37 10 5.73 10 5zM2 1.8c.66 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2C1.35 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2zm0 12.41c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm6-8c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z&quot; /&gt;&lt;/svg&gt;
-            &lt;div class=&quot;select-menu-item-text&quot;&gt;
-              &lt;span class=&quot;select-menu-item-heading&quot;&gt;Create branch: &lt;span class=&quot;js-new-item-name&quot;&gt;&lt;/span&gt;&lt;/span&gt;
-              &lt;span class=&quot;description&quot;&gt;from ‘master’&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;input type=&quot;hidden&quot; name=&quot;name&quot; id=&quot;name&quot; class=&quot;js-new-item-value&quot; /&gt;
-            &lt;input type=&quot;hidden&quot; name=&quot;branch&quot; id=&quot;branch&quot; value=&quot;master&quot; /&gt;
-            &lt;input type=&quot;hidden&quot; name=&quot;path&quot; id=&quot;path&quot; value=&quot;_posts/2018-02-01-kerberos-simplified.md&quot; /&gt;
-&lt;/form&gt;
-      &lt;/div&gt;
-
-      &lt;div class=&quot;select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket&quot; data-tab-filter=&quot;tags&quot;&gt;
-        &lt;div data-filterable-for=&quot;context-commitish-filter-field&quot; data-filterable-type=&quot;substring&quot;&gt;
-
-
-        &lt;/div&gt;
-
-        &lt;div class=&quot;select-menu-no-results&quot;&gt;Nothing to show&lt;/div&gt;
-      &lt;/div&gt;
-
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-    &lt;div class=&quot;BtnGroup float-right&quot;&gt;
-      &lt;a href=&quot;/OmalPerera/omalperera.github.io/find/master&quot; class=&quot;js-pjax-capture-input btn btn-sm BtnGroup-item&quot; data-pjax=&quot;&quot; data-hotkey=&quot;t&quot;&gt;
-        Find file
-      &lt;/a&gt;
-      &lt;clipboard-copy for=&quot;blob-path&quot; class=&quot;btn btn-sm BtnGroup-item&quot;&gt;
-        Copy path
-      &lt;/clipboard-copy&gt;
-    &lt;/div&gt;
-    &lt;div id=&quot;blob-path&quot; class=&quot;breadcrumb&quot;&gt;
-      &lt;span class=&quot;repo-root js-repo-root&quot;&gt;&lt;span class=&quot;js-path-segment&quot;&gt;&lt;a data-pjax=&quot;true&quot; href=&quot;/OmalPerera/omalperera.github.io&quot;&gt;&lt;span&gt;omalperera.github.io&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;separator&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;js-path-segment&quot;&gt;&lt;a data-pjax=&quot;true&quot; href=&quot;/OmalPerera/omalperera.github.io/tree/master/_posts&quot;&gt;&lt;span&gt;_posts&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;&lt;span class=&quot;separator&quot;&gt;/&lt;/span&gt;&lt;strong class=&quot;final-path&quot;&gt;2018-02-01-kerberos-simplified.md&lt;/strong&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-
-
-  
-  &lt;div class=&quot;commit-tease&quot;&gt;
-      &lt;span class=&quot;float-right&quot;&gt;
-        &lt;a class=&quot;commit-tease-sha&quot; href=&quot;/OmalPerera/omalperera.github.io/commit/860bb74117ea0ef1bcc7c8382e39a721268b5f96&quot; data-pjax=&quot;&quot;&gt;
-          860bb74
-        &lt;/a&gt;
-        &lt;relative-time datetime=&quot;2018-03-12T13:39:32Z&quot;&gt;Mar 12, 2018&lt;/relative-time&gt;
-      &lt;/span&gt;
-      &lt;div&gt;
-        &lt;a rel=&quot;author&quot; data-skip-pjax=&quot;true&quot; data-hovercard-user-id=&quot;11645048&quot; data-octo-click=&quot;hovercard-link-click&quot; data-octo-dimensions=&quot;link_type:self&quot; href=&quot;/OmalPerera&quot;&gt;&lt;img class=&quot;avatar&quot; src=&quot;https://avatars3.githubusercontent.com/u/11645048?s=40&amp;amp;v=4&quot; width=&quot;20&quot; height=&quot;20&quot; alt=&quot;@OmalPerera&quot; /&gt;&lt;/a&gt;
-        &lt;a class=&quot;user-mention&quot; rel=&quot;author&quot; data-hovercard-user-id=&quot;11645048&quot; data-octo-click=&quot;hovercard-link-click&quot; data-octo-dimensions=&quot;link_type:self&quot; href=&quot;/OmalPerera&quot;&gt;OmalPerera&lt;/a&gt;
-          &lt;a data-pjax=&quot;true&quot; title=&quot;article 6 added - kerberos&quot; class=&quot;message&quot; href=&quot;/OmalPerera/omalperera.github.io/commit/860bb74117ea0ef1bcc7c8382e39a721268b5f96&quot;&gt;article 6 added - kerberos&lt;/a&gt;
-      &lt;/div&gt;
-
-    &lt;div class=&quot;commit-tease-contributors&quot;&gt;
-      &lt;button type=&quot;button&quot; class=&quot;btn-link muted-link contributors-toggle&quot; data-facebox=&quot;#blob_contributors_box&quot;&gt;
-        &lt;strong&gt;1&lt;/strong&gt;
-         contributor
-      &lt;/button&gt;
-      
-    &lt;/div&gt;
-
-    &lt;div id=&quot;blob_contributors_box&quot; style=&quot;display:none&quot;&gt;
-      &lt;h2 class=&quot;facebox-header&quot; data-facebox-id=&quot;facebox-header&quot;&gt;Users who have contributed to this file&lt;/h2&gt;
-      &lt;ul class=&quot;facebox-user-list&quot; data-facebox-id=&quot;facebox-description&quot;&gt;
-          &lt;li class=&quot;facebox-user-list-item&quot;&gt;
-            &lt;a class=&quot;d-inline-block&quot; data-hovercard-user-id=&quot;11645048&quot; data-octo-click=&quot;hovercard-link-click&quot; data-octo-dimensions=&quot;link_type:self&quot; href=&quot;/OmalPerera&quot;&gt;&lt;img src=&quot;https://avatars2.githubusercontent.com/u/11645048?s=48&amp;amp;v=4&quot; width=&quot;24&quot; height=&quot;24&quot; alt=&quot;@OmalPerera&quot; /&gt;&lt;/a&gt;
-            &lt;a data-hovercard-user-id=&quot;11645048&quot; data-octo-click=&quot;hovercard-link-click&quot; data-octo-dimensions=&quot;link_type:self&quot; href=&quot;/OmalPerera&quot;&gt;OmalPerera&lt;/a&gt;
-          &lt;/li&gt;
-      &lt;/ul&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-
-
-
-  &lt;div class=&quot;file&quot;&gt;
-    &lt;div class=&quot;file-header&quot;&gt;
-  &lt;div class=&quot;file-actions&quot;&gt;
-
-    &lt;div class=&quot;BtnGroup&quot;&gt;
-      &lt;a id=&quot;raw-url&quot; class=&quot;btn btn-sm BtnGroup-item&quot; href=&quot;/OmalPerera/omalperera.github.io/raw/master/_posts/2018-02-01-kerberos-simplified.md&quot;&gt;Raw&lt;/a&gt;
-        &lt;a class=&quot;btn btn-sm js-update-url-with-hash BtnGroup-item&quot; data-hotkey=&quot;b&quot; href=&quot;/OmalPerera/omalperera.github.io/blame/master/_posts/2018-02-01-kerberos-simplified.md&quot;&gt;Blame&lt;/a&gt;
-      &lt;a rel=&quot;nofollow&quot; class=&quot;btn btn-sm BtnGroup-item&quot; href=&quot;/OmalPerera/omalperera.github.io/commits/master/_posts/2018-02-01-kerberos-simplified.md&quot;&gt;History&lt;/a&gt;
-    &lt;/div&gt;
-
-        &lt;a class=&quot;btn-octicon tooltipped tooltipped-nw&quot; href=&quot;github-mac://openRepo/https://github.com/OmalPerera/omalperera.github.io?branch=master&amp;amp;filepath=_posts%2F2018-02-01-kerberos-simplified.md&quot; aria-label=&quot;Open this file in GitHub Desktop&quot; data-ga-click=&quot;Repository, open with desktop, type:mac&quot;&gt;
-            &lt;svg class=&quot;octicon octicon-device-desktop&quot; viewBox=&quot;0 0 16 16&quot; version=&quot;1.1&quot; width=&quot;16&quot; height=&quot;16&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M15 2H1c-.55 0-1 .45-1 1v9c0 .55.45 1 1 1h5.34c-.25.61-.86 1.39-2.34 2h8c-1.48-.61-2.09-1.39-2.34-2H15c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm0 9H1V3h14v8z&quot; /&gt;&lt;/svg&gt;
-        &lt;/a&gt;
-
-          &lt;!-- '&quot;` --&gt;&lt;!-- &lt;/textarea&gt;&lt;/xmp&gt; --&gt;&amp;lt;/option&amp;gt;&amp;lt;/form&amp;gt;&lt;form class=&quot;inline-form js-update-url-with-hash&quot; action=&quot;/OmalPerera/omalperera.github.io/edit/master/_posts/2018-02-01-kerberos-simplified.md&quot; accept-charset=&quot;UTF-8&quot; method=&quot;post&quot;&gt;&lt;input name=&quot;utf8&quot; type=&quot;hidden&quot; value=&quot;&amp;#x2713;&quot; /&gt;&lt;input type=&quot;hidden&quot; name=&quot;authenticity_token&quot; value=&quot;6AlhONBfgQ1aRZ7b62euFnu+ZF99lwrKFuTaT8JrfCMfKan7sCVR0lps3BwhMlHdVgBxOXGs9nsVAwM5AcnBVw==&quot; /&gt;
-            &lt;button class=&quot;btn-octicon tooltipped tooltipped-nw&quot; type=&quot;submit&quot; aria-label=&quot;Edit this file&quot; data-hotkey=&quot;e&quot; data-disable-with=&quot;&quot;&gt;
-              &lt;svg class=&quot;octicon octicon-pencil&quot; viewBox=&quot;0 0 14 16&quot; version=&quot;1.1&quot; width=&quot;14&quot; height=&quot;16&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z&quot; /&gt;&lt;/svg&gt;
-            &lt;/button&gt;
-&lt;/form&gt;
-        &lt;!-- '&quot;` --&gt;&lt;!-- &lt;/textarea&gt;&lt;/xmp&gt; --&gt;&amp;lt;/option&amp;gt;&amp;lt;/form&amp;gt;&lt;form class=&quot;inline-form&quot; action=&quot;/OmalPerera/omalperera.github.io/delete/master/_posts/2018-02-01-kerberos-simplified.md&quot; accept-charset=&quot;UTF-8&quot; method=&quot;post&quot;&gt;&lt;input name=&quot;utf8&quot; type=&quot;hidden&quot; value=&quot;&amp;#x2713;&quot; /&gt;&lt;input type=&quot;hidden&quot; name=&quot;authenticity_token&quot; value=&quot;ko3ibheN1OuVBp68CBT3+NRq1Q15txjAcfGx3V+iM+CNyOC+RJaF+cpVNW01nvL0NZ0fTu2RjUbDmfPLFDjulQ==&quot; /&gt;
-          &lt;button class=&quot;btn-octicon btn-octicon-danger tooltipped tooltipped-nw&quot; type=&quot;submit&quot; aria-label=&quot;Delete this file&quot; data-disable-with=&quot;&quot;&gt;
-            &lt;svg class=&quot;octicon octicon-trashcan&quot; viewBox=&quot;0 0 12 16&quot; version=&quot;1.1&quot; width=&quot;12&quot; height=&quot;16&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M11 2H9c0-.55-.45-1-1-1H5c-.55 0-1 .45-1 1H2c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1v9c0 .55.45 1 1 1h7c.55 0 1-.45 1-1V5c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm-1 12H3V5h1v8h1V5h1v8h1V5h1v8h1V5h1v9zm1-10H2V3h9v1z&quot; /&gt;&lt;/svg&gt;
-          &lt;/button&gt;
-&lt;/form&gt;  &lt;/div&gt;
-
-  &lt;div class=&quot;file-info&quot;&gt;
-      166 lines (122 sloc)
-      &lt;span class=&quot;file-info-divider&quot;&gt;&lt;/span&gt;
-    9.22 KB
-  &lt;/div&gt;
-&lt;/div&gt;
-
-    
-  &lt;div id=&quot;readme&quot; class=&quot;readme blob instapaper_body&quot;&gt;
-    &lt;article class=&quot;markdown-body entry-content&quot; itemprop=&quot;text&quot;&gt;&lt;table data-table-type=&quot;yaml-metadata&quot;&gt;
-  &lt;thead&gt;
-  &lt;tr&gt;
-  &lt;th&gt;layout&lt;/th&gt;
-  &lt;th&gt;title&lt;/th&gt;
-  &lt;th&gt;categories&lt;/th&gt;
-  &lt;th&gt;tags&lt;/th&gt;
-  &lt;th&gt;description&lt;/th&gt;
-  &lt;th&gt;comments&lt;/th&gt;
-  &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-  &lt;tr&gt;
-  &lt;td&gt;&lt;div&gt;post&lt;/div&gt;&lt;/td&gt;
-  &lt;td&gt;&lt;div&gt;kerberos Simplified&lt;/div&gt;&lt;/td&gt;
-  &lt;td&gt;&lt;div&gt;&lt;table&gt;
-  &lt;tbody&gt;
-  &lt;tr&gt;
-  &lt;td&gt;&lt;div&gt;Security&lt;/div&gt;&lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/div&gt;&lt;/td&gt;
-  &lt;td&gt;&lt;div&gt;&lt;table&gt;
-  &lt;tbody&gt;
-  &lt;tr&gt;
-  &lt;td&gt;&lt;div&gt;kerberos&lt;/div&gt;&lt;/td&gt;
-  &lt;td&gt;&lt;div&gt;Distributed-Systems&lt;/div&gt;&lt;/td&gt;
-  &lt;td&gt;&lt;div&gt;Security&lt;/div&gt;&lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/div&gt;&lt;/td&gt;
-  &lt;td&gt;&lt;div&gt;simplified concept of kerberos for better understanding&lt;/div&gt;&lt;/td&gt;
-  &lt;td&gt;&lt;div&gt;true&lt;/div&gt;&lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;Hello all of you! lets discuss what is kerberos in a simple manner. This article is not going into a deep level of kerberos technology. But you all can get a highlevel overview, with regards to its History, how it works, why is it needed, advantages as well as disadvantages etc.
+				<title>kerberos Simplified</title>
+				<description>&lt;p&gt;Hello all of you! lets discuss what is kerberos in a simple manner. This article is not going into a deep level of kerberos technology. But you all can get a highlevel overview, with regards to its History, how it works, why is it needed, advantages as well as disadvantages etc.
 &lt;br /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a target=&quot;_blank&quot; href=&quot;/OmalPerera/assets/media/articles/kerberos/kerberos-omalperera.github.io.png&quot;&gt;&lt;img src=&quot;/OmalPerera/assets/media/articles/kerberos/kerberos-omalperera.github.io.png&quot; alt=&quot;Authentication mechanisam&quot; style=&quot;max-width:100%;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;br /&gt;
-&lt;h2&gt;&lt;a id=&quot;user-content-introduction&quot; class=&quot;anchor&quot; aria-hidden=&quot;true&quot; href=&quot;#introduction&quot;&gt;&lt;svg class=&quot;octicon octicon-link&quot; viewBox=&quot;0 0 16 16&quot; version=&quot;1.1&quot; width=&quot;16&quot; height=&quot;16&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;../../../../assets/media/articles/kerberos/kerberos-omalperera.github.io.png&quot; alt=&quot;Authentication mechanisam&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
 &lt;p&gt;Kerberos is a popular &lt;strong&gt;authentication protocol&lt;/strong&gt; that can be used for single sign-on (SSO). The main key concept behind SSO is getting the services that a user is authorized, with a single login (one time activity). So, user don’t want to login on each of those services in many different times. Kerberos systems offers protection against many network attacks and vulnerabilities. Following are some characteristics of Kerberos.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;uses tickets to authenticate&lt;/li&gt;
-&lt;li&gt;avoids saving passwords locally&lt;/li&gt;
-&lt;li&gt;avoids sending passwords over the internet&lt;/li&gt;
-&lt;li&gt;involves a trusted 3rd-party&lt;/li&gt;
-&lt;li&gt;built on symmetric-key cryptography&lt;/li&gt;
+  &lt;li&gt;uses tickets to authenticate&lt;/li&gt;
+  &lt;li&gt;avoids saving passwords locally&lt;/li&gt;
+  &lt;li&gt;avoids sending passwords over the internet&lt;/li&gt;
+  &lt;li&gt;involves a trusted 3rd-party&lt;/li&gt;
+  &lt;li&gt;built on symmetric-key cryptography&lt;/li&gt;
 &lt;/ul&gt;
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;h2&gt;&lt;a id=&quot;user-content-history&quot; class=&quot;anchor&quot; aria-hidden=&quot;true&quot; href=&quot;#history&quot;&gt;&lt;svg class=&quot;octicon octicon-link&quot; viewBox=&quot;0 0 16 16&quot; version=&quot;1.1&quot; width=&quot;16&quot; height=&quot;16&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;History&lt;/h2&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;history&quot;&gt;History&lt;/h2&gt;
+
 &lt;p&gt;Initially, Massachusetts Institute of Technology (MIT) developed Kerberos to protect network services provided by Project Athena in 1980. The current version of the protocol is version 5. Previous versions of the protocol were based on the earlier Needham–Schroeder symmetric key protocol. Version 4 of the Kerberos protocol was the first version that was publicly released, and is now deprecated for security reasons. In 1987, MIT released the Kerberos software freely available, under a certain copyright permissions and in 2007, MIT formed the Kerberos Consortium to encourage development. In 1993, It became an IETF Standard which is the premier Internet standard.&lt;/p&gt;
+
 &lt;p&gt;The name Kerberos arrived from the three-headed dog that guarded the entrance to Hades in Greek mythology. It’s pretty matching for the Kerberos concept since it takes a third-party (a Key Distribution Center) to authenticate between a client and a service or host machine.&lt;/p&gt;
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;h2&gt;&lt;a id=&quot;user-content-authenticating-using-kerberos&quot; class=&quot;anchor&quot; aria-hidden=&quot;true&quot; href=&quot;#authenticating-using-kerberos&quot;&gt;&lt;svg class=&quot;octicon octicon-link&quot; viewBox=&quot;0 0 16 16&quot; version=&quot;1.1&quot; width=&quot;16&quot; height=&quot;16&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Authenticating using Kerberos&lt;/h2&gt;
-&lt;p&gt;&lt;a target=&quot;_blank&quot; href=&quot;/OmalPerera/assets/media/articles/kerberos/kerberos2-omalperera.github.io.png&quot;&gt;&lt;img src=&quot;/OmalPerera/assets/media/articles/kerberos/kerberos2-omalperera.github.io.png&quot; alt=&quot;Authentication mechanisam&quot; style=&quot;max-width:100%;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;&lt;a id=&quot;user-content-why-kerberos&quot; class=&quot;anchor&quot; aria-hidden=&quot;true&quot; href=&quot;#why-kerberos&quot;&gt;&lt;svg class=&quot;octicon octicon-link&quot; viewBox=&quot;0 0 16 16&quot; version=&quot;1.1&quot; width=&quot;16&quot; height=&quot;16&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Why Kerberos&lt;/h2&gt;
-&lt;p&gt;Kerberos has two basic purposes namely &lt;strong&gt;security&lt;/strong&gt; and &lt;strong&gt;authentication&lt;/strong&gt;. On non-distributed computer systems, a secret key or a password can be used to prove a user's identity. But on a distributed computer network system, scenario is different than standalone computer systems. If same theory applied for the distributed systems, password must be transmitted over the network, from one machine to another machine. For an example if a user requests a private file from a server, that typical user needs to send his secret key to the server in order to authenticate him. Because this password is the one secret piece of information that identifies a user, anyone in that network knowing a user's password can access their files as that user.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;authenticating-using-kerberos&quot;&gt;Authenticating using Kerberos&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;../../../../assets/media/articles/kerberos/kerberos2-omalperera.github.io.png&quot; alt=&quot;Authentication mechanisam&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;why-kerberos&quot;&gt;Why Kerberos&lt;/h2&gt;
+
+&lt;p&gt;Kerberos has two basic purposes namely &lt;strong&gt;security&lt;/strong&gt; and &lt;strong&gt;authentication&lt;/strong&gt;. On non-distributed computer systems, a secret key or a password can be used to prove a user’s identity. But on a distributed computer network system, scenario is different than standalone computer systems. If same theory applied for the distributed systems, password must be transmitted over the network, from one machine to another machine. For an example if a user requests a private file from a server, that typical user needs to send his secret key to the server in order to authenticate him. Because this password is the one secret piece of information that identifies a user, anyone in that network knowing a user’s password can access their files as that user.&lt;/p&gt;
+
 &lt;p&gt;Therefore, it is necessary to prevent anyone from intercepting or eavesdropping on the transmitted password. In addition, it is necessary to provide a means of authenticating users any time a user requests a service, they must prove their identity.&lt;/p&gt;
+
 &lt;p&gt;In order to fill above mentioned gap in the security in distributed systems, Kerberos has:&lt;/p&gt;
+
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Strong mutual authentication.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Secrets are not transmitted across the network.&lt;/li&gt;
-&lt;li&gt;Critical authentication data is encrypted.&lt;/li&gt;
-&lt;li&gt;The client (user) is authenticated to the server and the server is authenticated to the client. The client identity is used to authorize services on the server.&lt;/li&gt;
+  &lt;li&gt;Strong mutual authentication.
+    &lt;ul&gt;
+      &lt;li&gt;Secrets are not transmitted across the network.&lt;/li&gt;
+      &lt;li&gt;Critical authentication data is encrypted.&lt;/li&gt;
+      &lt;li&gt;The client (user) is authenticated to the server and the server is authenticated to the client. The client identity is used to authorize services on the server.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Single sign-on.
+    &lt;ul&gt;
+      &lt;li&gt;A user convenience meaning a single identity and password can be used for many services with only one login sequence.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Single sign-on.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;A user convenience meaning a single identity and password can be used for many services with only one login sequence.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;h2&gt;&lt;a id=&quot;user-content-so-what-is-the-different-between-firewall--kerberos&quot; class=&quot;anchor&quot; aria-hidden=&quot;true&quot; href=&quot;#so-what-is-the-different-between-firewall--kerberos&quot;&gt;&lt;svg class=&quot;octicon octicon-link&quot; viewBox=&quot;0 0 16 16&quot; version=&quot;1.1&quot; width=&quot;16&quot; height=&quot;16&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;So what is the different between Firewall &amp;amp; Kerberos&lt;/h2&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;so-what-is-the-different-between-firewall--kerberos&quot;&gt;So what is the different between Firewall &amp;amp; Kerberos&lt;/h2&gt;
+
 &lt;p&gt;A firewall is a kind of network security system. Firewalls can be presents in either hardware or software based. Those are basically depending on rules that controls incoming and outgoing network traffic. A firewall acts as a barrier between a trusted network and untrusted network and controls access to the resources of a network through a positive control model. Firewalls assumes, that the attackers are coming from the outside. But in distributed systems, attacks are frequently from within the system.&lt;/p&gt;
+
 &lt;p&gt;In contrast, Kerberos assumes that network connections are the weak link in network security rather than servers and work stations.&lt;/p&gt;
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;h2&gt;&lt;a id=&quot;user-content-kerberos-components&quot; class=&quot;anchor&quot; aria-hidden=&quot;true&quot; href=&quot;#kerberos-components&quot;&gt;&lt;svg class=&quot;octicon octicon-link&quot; viewBox=&quot;0 0 16 16&quot; version=&quot;1.1&quot; width=&quot;16&quot; height=&quot;16&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Kerberos Components&lt;/h2&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;kerberos-components&quot;&gt;Kerberos Components&lt;/h2&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Key Distribution Center (KDC)&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Key Distribution Center (KDC)&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Each Kerberos realm will have at least one Kerberos server. This server, the Key Distribution Center, contains the Authentication Service, the Ticket-Granting Service, and the master database for Kerberos. These services are implemented as a single daemon.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Authentication Service&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;The authentication service handles user authentication, or the process of verifying that principals are correctly identified.&lt;/li&gt;
+      &lt;li&gt;Consists of the security servers in the KDC (or KDCs), and security clients.&lt;/li&gt;
+      &lt;li&gt;A security client communicates with a security server to request information and operations. The security server accesses the registry database to perform queries and updates and to validate user logins.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Ticket-Granting Service&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Once authenticated, a principal will be granted a TGT and a ticket session key, which gives the principal the right to use the ticket. This combination of the ticket and its associated key is known as your credentials.&lt;/li&gt;
+      &lt;li&gt;A principal’s credentials are stored in a credentials cache, which is often just a file in the principal’s local directory tree.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;The Kerberos Database&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;The Kerberos database contains all of the realm’s Kerberos principals, their passwords, and other administrative information about each principal.&lt;/li&gt;
+      &lt;li&gt;Each KDC contains its own copy of the Kerberos database. The master KDC contains the primary copy of the database, which it propagates at regular intervals to the slave KDCs.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Kerberos Utility Programs&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;OpenVMS provides three different versions of each of the Kerberos user interface programs, the original UNIX style, a DCL version, and an X Windows version.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Kerberos Registry&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;The Kerberos registry can be manipulated in several ways. It is initially created
+via the KRB$CONFIGURE command procedure. Other tools used to access the Kerberos information are:&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;kadmin&lt;/code&gt; - Used for reading or updating the Kerberos registry.&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;kinit&lt;/code&gt; - Creates credentials for a user.&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;klist&lt;/code&gt; - Displays the existing credentials for a user.&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;kdestroy&lt;/code&gt; - Deletes a user’s credentials.&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;kpasswd&lt;/code&gt; - Changes a user’s Kerberos password.&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;kdb5_util&lt;/code&gt; - Dumps or loads the Kerberos database for save and restore operations.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
 &lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;Each Kerberos realm will have at least one Kerberos server. This server, the Key Distribution Center, contains the Authentication Service, the Ticket-Granting Service, and the master database for Kerberos. These services are implemented as a single daemon.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&quot;2&quot;&gt;
-&lt;li&gt;&lt;strong&gt;Authentication Service&lt;/strong&gt;&lt;/li&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;authenticating-using-kerberos-1&quot;&gt;Authenticating using Kerberos&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;../../../../assets/media/articles/kerberos/kerberos-auth-omalperera.github.io.png&quot; alt=&quot;Authentication mechanisam&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;When a client logs in to the realm, an authentication request is sent to the Kerberos Key Distribution Center (KDC).&lt;/li&gt;
+  &lt;li&gt;A Ticket-Granting Ticket (TGT) is returned as the result of authentication.&lt;/li&gt;
+  &lt;li&gt;When the client application starts, the TGT is used to request an application ticket.&lt;/li&gt;
+  &lt;li&gt;The application ticket is then sent to the application server, which verifies the
+application ticket with the KDC.&lt;/li&gt;
+  &lt;li&gt;Service ticket for the required Service is sent to the server.&lt;/li&gt;
+  &lt;li&gt;Server sends the requested data to the client&lt;/li&gt;
 &lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;The authentication service handles user authentication, or the process of verifying that principals are correctly identified.&lt;/li&gt;
-&lt;li&gt;Consists of the security servers in the KDC (or KDCs), and security clients.&lt;/li&gt;
-&lt;li&gt;A security client communicates with a security server to request information and operations. The security server accesses the registry database to perform queries and updates and to validate user logins.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&quot;3&quot;&gt;
-&lt;li&gt;&lt;strong&gt;Ticket-Granting Service&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;Once authenticated, a principal will be granted a TGT and a ticket session key, which gives the principal the right to use the ticket. This combination of the ticket and its associated key is known as your credentials.&lt;/li&gt;
-&lt;li&gt;A principal’s credentials are stored in a credentials cache, which is often just a file in the principal’s local directory tree.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&quot;4&quot;&gt;
-&lt;li&gt;&lt;strong&gt;The Kerberos Database&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;The Kerberos database contains all of the realm’s Kerberos principals, their passwords, and other administrative information about each principal.&lt;/li&gt;
-&lt;li&gt;Each KDC contains its own copy of the Kerberos database. The master KDC contains the primary copy of the database, which it propagates at regular intervals to the slave KDCs.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&quot;5&quot;&gt;
-&lt;li&gt;&lt;strong&gt;Kerberos Utility Programs&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;OpenVMS provides three different versions of each of the Kerberos user interface programs, the original UNIX style, a DCL version, and an X Windows version.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&quot;6&quot;&gt;
-&lt;li&gt;&lt;strong&gt;Kerberos Registry&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;The Kerberos registry can be manipulated in several ways. It is initially created
-via the KRB$CONFIGURE command procedure. Other tools used to access the Kerberos information are:
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;kadmin&lt;/code&gt; - Used for reading or updating the Kerberos registry.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;kinit&lt;/code&gt; - Creates credentials for a user.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;klist&lt;/code&gt; - Displays the existing credentials for a user.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;kdestroy&lt;/code&gt; - Deletes a user’s credentials.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;kpasswd&lt;/code&gt; - Changes a user’s Kerberos password.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;kdb5_util&lt;/code&gt; - Dumps or loads the Kerberos database for save and restore operations.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;h2&gt;&lt;a id=&quot;user-content-authenticating-using-kerberos-1&quot; class=&quot;anchor&quot; aria-hidden=&quot;true&quot; href=&quot;#authenticating-using-kerberos-1&quot;&gt;&lt;svg class=&quot;octicon octicon-link&quot; viewBox=&quot;0 0 16 16&quot; version=&quot;1.1&quot; width=&quot;16&quot; height=&quot;16&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Authenticating using Kerberos&lt;/h2&gt;
-&lt;p&gt;&lt;a target=&quot;_blank&quot; href=&quot;/OmalPerera/assets/media/articles/kerberos/kerberos-auth-omalperera.github.io.png&quot;&gt;&lt;img src=&quot;/OmalPerera/assets/media/articles/kerberos/kerberos-auth-omalperera.github.io.png&quot; alt=&quot;Authentication mechanisam&quot; style=&quot;max-width:100%;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;br /&gt;
-1. When a client logs in to the realm, an authentication request is sent to the Kerberos Key Distribution Center (KDC).
-2. A Ticket-Granting Ticket (TGT) is returned as the result of authentication.
-3. When the client application starts, the TGT is used to request an application ticket.
-4. The application ticket is then sent to the application server, which verifies the
-application ticket with the KDC.
-5. Service ticket for the required Service is sent to the server.
-6. Server sends the requested data to the client
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;h2&gt;&lt;a id=&quot;user-content-advantages-of-kerberos&quot; class=&quot;anchor&quot; aria-hidden=&quot;true&quot; href=&quot;#advantages-of-kerberos&quot;&gt;&lt;svg class=&quot;octicon octicon-link&quot; viewBox=&quot;0 0 16 16&quot; version=&quot;1.1&quot; width=&quot;16&quot; height=&quot;16&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Advantages of Kerberos&lt;/h2&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;advantages-of-kerberos&quot;&gt;Advantages of Kerberos&lt;/h2&gt;
 &lt;p&gt;There are many advantages of Kerberos than traditional securing methodologies.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Scalable
+  &lt;li&gt;Scalable
+    &lt;ul&gt;
+      &lt;li&gt;Servers do not need to contact KDC to authenticate users&lt;/li&gt;
+      &lt;li&gt;Only users and machine account authenticate with the KDC, once per 10h of activity&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Secure
+    &lt;ul&gt;
+      &lt;li&gt;Passwords are not transmitted over the wire&lt;/li&gt;
+      &lt;li&gt;Ticket based authentication based on certificates trusts&lt;/li&gt;
+      &lt;li&gt;Short-term session keys (Long-term secrets used only to derive short-term keys)&lt;/li&gt;
+      &lt;li&gt;Separate session key for each user-server pair&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Advanced Features
+    &lt;ul&gt;
+      &lt;li&gt;Single Sign-On&lt;/li&gt;
+      &lt;li&gt;Delegation&lt;/li&gt;
+      &lt;li&gt;Cross Domain Authentication&lt;/li&gt;
+      &lt;li&gt;Interoperability&lt;/li&gt;
+      &lt;li&gt;Mutual authentication&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;kerberos-applications&quot;&gt;Kerberos Applications&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Servers do not need to contact KDC to authenticate users&lt;/li&gt;
-&lt;li&gt;Only users and machine account authenticate with the KDC, once per 10h of activity&lt;/li&gt;
+  &lt;li&gt;Local authentication
+    &lt;ul&gt;
+      &lt;li&gt;login and su in OpenBSD&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Authentication for network protocols
+    &lt;ul&gt;
+      &lt;li&gt;Remote login&lt;/li&gt;
+      &lt;li&gt;Remote Shell&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Secure windowing systems&lt;/li&gt;
+  &lt;li&gt;Microsoft Windows (used in Security Support Provider(SSP))&lt;/li&gt;
+  &lt;li&gt;For Kerberizing applications such as Email, FTP, network file systems&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Secure
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;weaknesses--limitations&quot;&gt;Weaknesses / Limitations&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Passwords are not transmitted over the wire&lt;/li&gt;
-&lt;li&gt;Ticket based authentication based on certificates trusts&lt;/li&gt;
-&lt;li&gt;Short-term session keys (Long-term secrets used only to derive short-term keys)&lt;/li&gt;
-&lt;li&gt;Separate session key for each user-server pair&lt;/li&gt;
+  &lt;li&gt;Single point of failure
+    &lt;ul&gt;
+      &lt;li&gt;It requires continuous availability of a central Kerberos server. In a case of Knock out the Kerberos server and no one can log in&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Password guessing
+    &lt;ul&gt;
+      &lt;li&gt;no authentication is required to request a ticket, so attacker can gather equivalent of &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/passwd&lt;/code&gt; by requesting many tickets.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Kerberos is vulnerable if the local machine is compromised and malware captures the password.&lt;/li&gt;
+  &lt;li&gt;Ticket hijacking – Malicious user may steal the service ticket of another user on the same workstation and try to use it&lt;/li&gt;
+  &lt;li&gt;server authentication – Attacker may misconfigure the network so that he receives messages addressed to a legitimate server&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Advanced Features
-&lt;ul&gt;
-&lt;li&gt;Single Sign-On&lt;/li&gt;
-&lt;li&gt;Delegation&lt;/li&gt;
-&lt;li&gt;Cross Domain Authentication&lt;/li&gt;
-&lt;li&gt;Interoperability&lt;/li&gt;
-&lt;li&gt;Mutual authentication&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;h2&gt;&lt;a id=&quot;user-content-kerberos-applications&quot; class=&quot;anchor&quot; aria-hidden=&quot;true&quot; href=&quot;#kerberos-applications&quot;&gt;&lt;svg class=&quot;octicon octicon-link&quot; viewBox=&quot;0 0 16 16&quot; version=&quot;1.1&quot; width=&quot;16&quot; height=&quot;16&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Kerberos Applications&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Local authentication
-&lt;ul&gt;
-&lt;li&gt;login and su in OpenBSD&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Authentication for network protocols
-&lt;ul&gt;
-&lt;li&gt;Remote login&lt;/li&gt;
-&lt;li&gt;Remote Shell&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Secure windowing systems&lt;/li&gt;
-&lt;li&gt;Microsoft Windows (used in Security Support Provider(SSP))&lt;/li&gt;
-&lt;li&gt;For Kerberizing applications such as Email, FTP, network file systems&lt;/li&gt;
-&lt;/ul&gt;
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;h2&gt;&lt;a id=&quot;user-content-weaknesses--limitations&quot; class=&quot;anchor&quot; aria-hidden=&quot;true&quot; href=&quot;#weaknesses--limitations&quot;&gt;&lt;svg class=&quot;octicon octicon-link&quot; viewBox=&quot;0 0 16 16&quot; version=&quot;1.1&quot; width=&quot;16&quot; height=&quot;16&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Weaknesses / Limitations&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Single point of failure
-&lt;ul&gt;
-&lt;li&gt;It requires continuous availability of a central Kerberos server. In a case of Knock out the Kerberos server and no one can log in&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Password guessing
-&lt;ul&gt;
-&lt;li&gt;no authentication is required to request a ticket, so attacker can gather equivalent of &lt;code&gt;/etc/passwd&lt;/code&gt; by requesting many tickets.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Kerberos is vulnerable if the local machine is compromised and malware captures the password.&lt;/li&gt;
-&lt;li&gt;Ticket hijacking – Malicious user may steal the service ticket of another user on the same workstation and try to use it&lt;/li&gt;
-&lt;li&gt;server authentication – Attacker may misconfigure the network so that he receives messages addressed to a legitimate server&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;em&gt;Image Copyrights : &lt;a href=&quot;http://www.freepik.com&quot; rel=&quot;nofollow&quot;&gt;www.freepik.com&lt;/a&gt; .&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Image Copyrights : www.freepik.com .&lt;/em&gt;&lt;/p&gt;
+
 &lt;hr /&gt;
-&lt;/article&gt;
-  &lt;/div&gt;
-
-  &lt;/div&gt;
-
-  &lt;button type=&quot;button&quot; data-facebox=&quot;#jump-to-line&quot; data-facebox-class=&quot;linejump&quot; data-hotkey=&quot;l&quot; class=&quot;d-none&quot;&gt;Jump to Line&lt;/button&gt;
-  &lt;div id=&quot;jump-to-line&quot; style=&quot;display:none&quot;&gt;
-    &lt;!-- '&quot;` --&gt;&lt;!-- &lt;/textarea&gt;&lt;/xmp&gt; --&gt;&amp;lt;/option&amp;gt;&amp;lt;/form&amp;gt;&lt;form class=&quot;js-jump-to-line-form&quot; action=&quot;&quot; accept-charset=&quot;UTF-8&quot; method=&quot;get&quot;&gt;&lt;input name=&quot;utf8&quot; type=&quot;hidden&quot; value=&quot;&amp;#x2713;&quot; /&gt;
-      &lt;input class=&quot;form-control linejump-input js-jump-to-line-field&quot; type=&quot;text&quot; placeholder=&quot;Jump to line&amp;hellip;&quot; aria-label=&quot;Jump to line&quot; autofocus=&quot;&quot; /&gt;
-      &lt;button type=&quot;submit&quot; class=&quot;btn&quot;&gt;Go&lt;/button&gt;
-&lt;/form&gt;  &lt;/div&gt;
-
-
-  &lt;/div&gt;
-  &lt;div class=&quot;modal-backdrop js-touch-events&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-
-    &lt;/div&gt;
-  &lt;/div&gt;
-
-  &lt;/div&gt;
-
-      
-&lt;div class=&quot;footer container-lg px-3&quot; role=&quot;contentinfo&quot;&gt;
-  &lt;div class=&quot;position-relative d-flex flex-justify-between pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light &quot;&gt;
-    &lt;ul class=&quot;list-style-none d-flex flex-wrap &quot;&gt;
-      &lt;li class=&quot;mr-3&quot;&gt;&amp;copy; 2018 &lt;span title=&quot;0.28833s from unicorn-1966951984-lctl6&quot;&gt;GitHub&lt;/span&gt;, Inc.&lt;/li&gt;
-        &lt;li class=&quot;mr-3&quot;&gt;&lt;a data-ga-click=&quot;Footer, go to terms, text:terms&quot; href=&quot;https://github.com/site/terms&quot;&gt;Terms&lt;/a&gt;&lt;/li&gt;
-        &lt;li class=&quot;mr-3&quot;&gt;&lt;a data-ga-click=&quot;Footer, go to privacy, text:privacy&quot; href=&quot;https://github.com/site/privacy&quot;&gt;Privacy&lt;/a&gt;&lt;/li&gt;
-        &lt;li class=&quot;mr-3&quot;&gt;&lt;a href=&quot;https://help.github.com/articles/github-security/&quot; data-ga-click=&quot;Footer, go to security, text:security&quot;&gt;Security&lt;/a&gt;&lt;/li&gt;
-        &lt;li class=&quot;mr-3&quot;&gt;&lt;a href=&quot;https://status.github.com/&quot; data-ga-click=&quot;Footer, go to status, text:status&quot;&gt;Status&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a data-ga-click=&quot;Footer, go to help, text:help&quot; href=&quot;https://help.github.com&quot;&gt;Help&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;a aria-label=&quot;Homepage&quot; title=&quot;GitHub&quot; class=&quot;footer-octicon&quot; href=&quot;https://github.com&quot;&gt;
-      &lt;svg height=&quot;24&quot; class=&quot;octicon octicon-mark-github&quot; viewBox=&quot;0 0 16 16&quot; version=&quot;1.1&quot; width=&quot;24&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z&quot; /&gt;&lt;/svg&gt;
-&lt;/a&gt;
-   &lt;ul class=&quot;list-style-none d-flex flex-wrap &quot;&gt;
-        &lt;li class=&quot;mr-3&quot;&gt;&lt;a data-ga-click=&quot;Footer, go to contact, text:contact&quot; href=&quot;https://github.com/contact&quot;&gt;Contact GitHub&lt;/a&gt;&lt;/li&gt;
-      &lt;li class=&quot;mr-3&quot;&gt;&lt;a href=&quot;https://developer.github.com&quot; data-ga-click=&quot;Footer, go to api, text:api&quot;&gt;API&lt;/a&gt;&lt;/li&gt;
-      &lt;li class=&quot;mr-3&quot;&gt;&lt;a href=&quot;https://training.github.com&quot; data-ga-click=&quot;Footer, go to training, text:training&quot;&gt;Training&lt;/a&gt;&lt;/li&gt;
-      &lt;li class=&quot;mr-3&quot;&gt;&lt;a href=&quot;https://shop.github.com&quot; data-ga-click=&quot;Footer, go to shop, text:shop&quot;&gt;Shop&lt;/a&gt;&lt;/li&gt;
-        &lt;li class=&quot;mr-3&quot;&gt;&lt;a href=&quot;https://blog.github.com&quot; data-ga-click=&quot;Footer, go to blog, text:blog&quot;&gt;Blog&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a data-ga-click=&quot;Footer, go to about, text:about&quot; href=&quot;https://github.com/about&quot;&gt;About&lt;/a&gt;&lt;/li&gt;
-
-    &lt;/ul&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;d-flex flex-justify-center pb-6&quot;&gt;
-    &lt;span class=&quot;f6 text-gray-light&quot;&gt;&lt;/span&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-
-
-  &lt;div id=&quot;ajax-error-message&quot; class=&quot;ajax-error-message flash flash-error&quot;&gt;
-    &lt;svg class=&quot;octicon octicon-alert&quot; viewBox=&quot;0 0 16 16&quot; version=&quot;1.1&quot; width=&quot;16&quot; height=&quot;16&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z&quot; /&gt;&lt;/svg&gt;
-    &lt;button type=&quot;button&quot; class=&quot;flash-close js-ajax-error-dismiss&quot; aria-label=&quot;Dismiss error&quot;&gt;
-      &lt;svg class=&quot;octicon octicon-x&quot; viewBox=&quot;0 0 12 16&quot; version=&quot;1.1&quot; width=&quot;12&quot; height=&quot;16&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z&quot; /&gt;&lt;/svg&gt;
-    &lt;/button&gt;
-    You can’t perform that action at this time.
-  &lt;/div&gt;
-
-
-    
-    &lt;script crossorigin=&quot;anonymous&quot; integrity=&quot;sha512-DCnlUeSIqdppDB/ZC5bADB/YoXzaXfqUE/b8ejJcBp3X3VkTtGWOW/NRvO9YM/DwVZ1p6VB+s0LLLcd76irk+Q==&quot; type=&quot;application/javascript&quot; src=&quot;https://assets-cdn.github.com/assets/frameworks-68da9c137addcfe26f52eb9c3b458d73.js&quot;&gt;&lt;/script&gt;
-    
-    &lt;script crossorigin=&quot;anonymous&quot; async=&quot;async&quot; integrity=&quot;sha512-ye58rVdD9urYYw9qbbVbGWcephS70E1iWTxcOLARdQ/sj2wTjSLO3WfgwjLRx4D5qFyVZQDx767t/S1d8AoXrQ==&quot; type=&quot;application/javascript&quot; src=&quot;https://assets-cdn.github.com/assets/github-38bc9d78a59c6dc6583b5fcb1a5f48eb.js&quot;&gt;&lt;/script&gt;
-    
-    
-    
-  &lt;div class=&quot;js-stale-session-flash stale-session-flash flash flash-warn flash-banner d-none&quot;&gt;
-    &lt;svg class=&quot;octicon octicon-alert&quot; viewBox=&quot;0 0 16 16&quot; version=&quot;1.1&quot; width=&quot;16&quot; height=&quot;16&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z&quot; /&gt;&lt;/svg&gt;
-    &lt;span class=&quot;signed-in-tab-flash&quot;&gt;You signed in with another tab or window. &lt;a href=&quot;&quot;&gt;Reload&lt;/a&gt; to refresh your session.&lt;/span&gt;
-    &lt;span class=&quot;signed-out-tab-flash&quot;&gt;You signed out in another tab or window. &lt;a href=&quot;&quot;&gt;Reload&lt;/a&gt; to refresh your session.&lt;/span&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;facebox&quot; id=&quot;facebox&quot; style=&quot;display:none;&quot;&gt;
-  &lt;div class=&quot;facebox-popup&quot;&gt;
-    &lt;div class=&quot;facebox-content&quot; role=&quot;dialog&quot; aria-labelledby=&quot;facebox-header&quot; aria-describedby=&quot;facebox-description&quot;&gt;
-    &lt;/div&gt;
-    &lt;button type=&quot;button&quot; class=&quot;facebox-close js-facebox-close&quot; aria-label=&quot;Close modal&quot;&gt;
-      &lt;svg class=&quot;octicon octicon-x&quot; viewBox=&quot;0 0 12 16&quot; version=&quot;1.1&quot; width=&quot;12&quot; height=&quot;16&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z&quot; /&gt;&lt;/svg&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-  &lt;div class=&quot;Popover js-hovercard-content position-absolute&quot; style=&quot;display: none; outline: none;&quot; tabindex=&quot;0&quot;&gt;
-  &lt;div class=&quot;Popover-message Popover-message--bottom-left Popover-message--large Box box-shadow-large&quot; style=&quot;width:360px;&quot;&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div id=&quot;hovercard-aria-description&quot; class=&quot;sr-only&quot;&gt;
-  Press h to open a hovercard with more details.
-&lt;/div&gt;
-
-
-  &lt;/body&gt;
-&lt;/html&gt;
-
 </description>
 				<pubDate>Thu, 01 Feb 2018 00:00:00 +0530</pubDate>
-				<link>/2018/02/01/kerberos-simplified.html</link>
-				<guid isPermaLink="true">/2018/02/01/kerberos-simplified.html</guid>
+				<link>/security/2018/02/01/kerberos-simplified.html</link>
+				<guid isPermaLink="true">/security/2018/02/01/kerberos-simplified.html</guid>
 			</item>
 		
 			<item>

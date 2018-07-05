@@ -1,6 +1,6 @@
 ---
 layout: post
-How Data Pipelines Supports IoT Data Pre-Processing
+title: How Data Pipelines Supports IoT Data Pre-Processing
 categories: [Bigdata, Real-Time Processing, IoT]
 tags: [Bigdata, Real-Time Processing, IoT, Distributed-Systems]
 description: A white Paper on How Data Pipelines Supports IoT Data Pre-Processing
