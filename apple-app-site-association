@@ -1,0 +1,11 @@
+{
+    "applinks": {
+        "apps": [],
+        "details": [
+            {
+                "appID": "42F5B3RVFX.no.easy2you.recipientmobile",
+                "paths": [ "*" ]
+            }
+        ]
+    }
+}
