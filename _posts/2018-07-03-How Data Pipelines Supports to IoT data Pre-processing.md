@@ -31,7 +31,7 @@ Here we are discussing a way to overcome the heterogenity of IoT devices when co
 
 # WHITE PAPER on How Data Pipelines Supports IoT Data Pre-Processing
 
-[Download White Paper from here](../../assets/whitepapers/HowDataPipelinesSupportsIoTDataPreprocessing.pdf)
+[Download White Paper from here](http://omalperera.github.io/assets/whitepapers/HowDataPipelinesSupportsIoTDataPreprocessing.pdf)
 
 <br>
 
